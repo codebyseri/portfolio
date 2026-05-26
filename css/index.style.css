@@ -1,0 +1,258 @@
+:root {
+    --bg-cream: #f2f0e8;         /* 사진 속 부드러운 파스텔 베이지 */
+    --main-green: #909b82;       /* 사진 속 세이지 그린 */
+    --vinyl-black: #0c0d0c;
+    --text-dark: #2b2e28;
+    --text-light: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Malgun Gothic', monospace, sans-serif;
+}
+
+body {
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* 턴테이블 전체 화면 고정 프레임 */
+.turntable-zone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    overflow: hidden;
+}
+
+/* [수정] LP판 중심축을 왼쪽 가장자리(left: 0)로 이동하여 정확히 반만 보이도록 설정 */
+.orbit-vinyl {
+    position: absolute;
+    top: 50%;
+    left: 0%; /* 화면 정중앙(50%)에서 왼쪽 끝(0%)으로 배치 수정 */
+    width: 150vh; /* 반틈만 보여도 압도감을 주도록 여전히 거대하게 설정 */
+    height: 150vh;
+    transform: translate(-50%, -50%) rotate(0deg); /* 중심점을 기준으로 회전 */
+    transform-origin: center center;
+    will-change: transform;
+}
+
+/* LP판 디자인 */
+.vinyl-plate {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--vinyl-black);
+    border-radius: 50%;
+    box-shadow: 10px 0 80px rgba(0,0,0,0.3);
+}
+
+.vinyl-grooves {
+    position: absolute;
+    top: 3%; left: 3%; width: 94%; height: 94%;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.03);
+    box-shadow: inset 0 0 150px rgba(0,0,0,0.95);
+}
+
+/* 중앙 화이트 라벨 */
+.vinyl-center-label {
+    position: absolute;
+    top: 35%; left: 35%; width: 30%; height: 30%;
+    background-color: var(--bg-cream);
+    border-radius: 50%;
+    border: 20px solid var(--vinyl-black);
+}
+
+.center-hole {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 35px; height: 35px;
+    background-color: #d8d6ce;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 감성적인 미니 컨트롤러 플레이어 버튼 배치 (첫 번째 사진 참고) */
+.player-controls {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+.ctrl-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--main-green);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+.ctrl-btn:hover { transform: scale(1.05); }
+
+
+/* ----------------------------------
+   우측 컨텐츠 영역 엇갈린 카드 레이아웃
+---------------------------------- */
+.track-orbit-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+}
+
+.orbit-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 560px; /* 요청하신 대로 큼직하게 유지한 네모 박스 */
+    height: auto;
+    /* [수정] 중심이 왼쪽(left: 0)에 있으므로 우측 화면에 안착하도록 반지름 궤도 거리를 계산
+       --offset-y를 주어 카드들이 수평상으로도 지그재그 엇갈리게 만듦 */
+    transform-origin: -75vh center;
+    transform: translate(calc(75vh + var(--offset-y, 0px)), -50%) rotate(var(--item-angle));
+}
+
+/* 던져진 듯 엇갈리는 입체 카드 메커니즘 */
+.track-card {
+    background-color: #ffffff;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 5px 15px 40px rgba(0,0,0,0.08);
+    cursor: pointer;
+    position: relative;
+
+    /* LP판 회전 각도를 상쇄하면서 개별 비틀어짐 각도(--random-tilt) 부여 */
+    transform: rotate(calc(-1 * var(--item-angle) - var(--js-extra-rotate, 0deg) + var(--random-tilt, 0deg)));
+    transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.track-card:hover {
+    transform: rotate(calc(-1 * var(--item-angle) - var(--js-extra-rotate, 0deg) + var(--random-tilt, 0deg))) translateY(-12px) scale(1.02);
+    box-shadow: 15px 25px 50px rgba(0,0,0,0.15);
+    z-index: 50;
+}
+
+/* 반전 컬러 카드 스타일 */
+.track-card.dark-mode {
+    background-color: #1c1e1a;
+    color: #ffffff;
+    border-color: #1c1e1a;
+}
+
+/* 메타 텍스트 태그 */
+.meta-tag {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    opacity: 0.5;
+    transform: rotate(calc(-1 * var(--item-angle) - var(--js-extra-rotate, 0deg) + var(--random-tilt, 0deg)));
+    transform-origin: left center;
+}
+
+.index-num {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 20px;
+    font-weight: 800;
+    opacity: 0.15;
+}
+
+/* 내부 상세 타이포그래피 */
+.intro-card h1 {
+    font-size: 52px;
+    line-height: 1.05;
+    letter-spacing: -1px;
+}
+.intro-card .sub-text {
+    margin-top: 15px;
+    font-size: 15px;
+    color: var(--main-green);
+    font-weight: bold;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.card-preview-zone {
+    width: 100%;
+    height: 170px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.card-body h3 {
+    font-size: 26px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+.card-body p {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 15px;
+}
+.link-badge {
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* 스킬 레이아웃 */
+.skills-card h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+.skills-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.skill-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* 연락처 */
+.quote {
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--main-green);
+    margin-bottom: 25px;
+}
+.info-list p {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* 가상 가이드 스크롤 높이 */
+.scroll-trigger-space {
+    height: 520vh;
+}
