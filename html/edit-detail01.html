@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Edit Detail - 브랜드 북 디자인</title>
+	<!-- 폰트 및 아이콘 (기존과 동일) -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="/css/edit-detail.css">
+</head>
+<body>
+	
+	<div class="app-container">
+		
+		<!-- 상단 헤더 (뒤로가기 버튼과 타이틀) -->
+		<header class="edit-header">
+			<a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> BACK TO GALLERY</a>
+			<div class="edit-project-title">
+				<h2>디자인 이름</h2>
+				<p>Editorial Design, Identity</p>
+			</div>
+		</header>
+		
+		<!-- 메인 레이아웃 (2단 구성: 메인 이미지 & 본문 | 우측 숏컷 사이드바) -->
+		<main class="edit-detail-wrapper">
+			
+			<!-- [좌측] 큰 이미지와 상세 글이 흐르는 영역 -->
+			<section class="edit-main-content">
+				
+				<!-- 대형 메인 비주얼 (작업물이 가장 돋보이는 곳) -->
+				<div class="large-visual-zone">
+					<img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1000" alt="Main Work">
+				</div>
+				
+				<!-- 프로젝트 기본 정보 (가로 배열 태그 스타일) -->
+				<div class="edit-meta-grid">
+					<div class="meta-item"><strong>Client</strong><span>xx프로젝트</span></div>
+					<div class="meta-item"><strong>Date</strong><span>xxxx. xx (x주 소요)</span></div>
+					<div class="meta-item"><strong>Tools</strong><span>Indesign, Illustrator, Photoshop</span></div>
+				</div>
+				
+				<!-- 디자인 스토리 설명 구역 -->
+				<div class="edit-story-block">
+					<h3>Design Concept</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dolores, expedita facilis fuga laborum laudantium mollitia nemo nihil porro possimus provident quaerat quas quis quod repellat sunt, tempore ullam vitae?</p>
+				</div>
+				
+				<!-- 서브 이미지 격자 (디테일 컷들을 보여주는 곳) -->
+				<div class="sub-images-grid">
+					<img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600" alt="Detail 01">
+					<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600" alt="Detail 02">
+				</div>
+			
+			</section>
+			
+			<!-- [우측] 다른 작품으로 바로 이동하는 갤러리 피드 타입 사이드바 -->
+			<section class="edit-sidebar">
+				<h3 class="sidebar-title">OTHER WORKS</h3>
+				<div class="edit-feed-list">
+					
+					<!-- 현재 작품 (Active) -->
+					<a href="edit-detail01.html" class="feed-item active">
+						<div class="feed-thumb" style="background-image: url('https://i.pinimg.com/736x/3a/bb/e3/3abbe3fb8a1302b73cef788d8c8d3186.jpg')"></div>
+						<div class="feed-info">
+							<h4>디자인 이름</h4>
+							<p>Editorial</p>
+						</div>
+					</a>
+					
+					<!-- 다른 작품 02 -->
+					<a href="edit-detail02.html" class="feed-item">
+						<div class="feed-thumb" style="background-image: url('https://i.pinimg.com/736x/ba/9a/2a/ba9a2a9ed96da2d955037ed66e7858f0.jpg')"></div>
+						<div class="feed-info">
+							<h4>디자인 이름</h4>
+							<p>Graphic</p>
+						</div>
+					</a>
+					
+					<!-- 다른 작품 03 -->
+					<a href="edit-detail03.html" class="feed-item">
+						<div class="feed-thumb" style="background-image: url('https://i.pinimg.com/736x/f8/c7/c2/f8c7c2e7cdbceb505f86f8bd67828e2b.jpg')"></div>
+						<div class="feed-info">
+							<h4>디자인 이름</h4>
+							<p>Package</p>
+						</div>
+					</a>
+				
+				</div>
+			</section>
+		
+		</main>
+	</div>
+
+</body>
+</html>

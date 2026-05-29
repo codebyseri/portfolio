@@ -47,8 +47,8 @@ body {
 /* 상세페이지 레이아웃 구조 */
 .detail-wrapper {
     display: grid;
-    grid-template-columns: 400px 1fr;
-    gap: 40px;
+    grid-template-columns: 360px 1fr 300px;
+    gap: 30px;
     flex-grow: 1;
     min-height: 0;
 }
@@ -72,7 +72,7 @@ body {
     background: #e3f2fd;
     border-radius: 20px;
     margin-bottom: 25px;
-    background-image: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=400');
+    background-image: url('https://i.pinimg.com/736x/6a/00/5e/6a005e289f1821b6b7e2a380473c6387.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -125,3 +125,86 @@ body {
 
 .detail-content::-webkit-scrollbar { width: 6px; }
 .detail-content::-webkit-scrollbar-thumb { background: #bbdefb; border-radius: 10px; }
+
+/* ==========================================================================
+   우측 사이드 목록 탭 스타일
+   ========================================================================== */
+.detail-sidebar {
+    background: white;
+    border-radius: 40px;
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+}
+
+.sidebar-title {
+    font-size: 0.85rem;
+    color: #b0c4de;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.mini-track-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+}
+
+/* 미니 트랙 개별 항목 (링크 태그) */
+.mini-track {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+    background: #fafcfe;
+    border: 1px solid #f0f4f8;
+}
+
+.mini-track:hover {
+    background: #e3f2fd55;
+    transform: translateY(-2px);
+}
+
+/* 현재 활성화된(보고 있는) 프로젝트 트랙 스타일 */
+.mini-track.active {
+    background: #bbdefb44;
+    border-color: #bbdefb;
+}
+
+.track-num {
+    width: 25px;
+    font-weight: 700;
+    color: #b0c4de;
+    font-size: 0.85rem;
+}
+.mini-track.active .track-num {
+    color: #1e88e5;
+}
+
+.track-info {
+    flex-grow: 1;
+}
+
+.track-info h4 {
+    font-size: 0.85rem;
+    color: #455a64;
+    margin-bottom: 2px;
+}
+.mini-track.active .track-info h4 {
+    color: #1e88e5;
+    font-weight: 700;
+}
+
+.track-info p {
+    font-size: 0.75rem;
+    color: #90a4ae;
+}
+
+/* 미니 스크롤바 디자인 */
+.mini-track-list::-webkit-scrollbar { width: 4px; }
+.mini-track-list::-webkit-scrollbar-thumb { background: #e3f2fd; border-radius: 10px; }

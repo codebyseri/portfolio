@@ -165,7 +165,7 @@ body {
 
 .info-text { font-size: 0.85rem; line-height: 1.6; color: #888; }
 
-/* 오른쪽 콘텐츠: 트랙리스트 */
+/* 오른쪽 콘텐츠 공통 부모 */
 .right-content {
     background: white;
     border-radius: 40px;
@@ -173,16 +173,28 @@ body {
     display: flex;
     flex-direction: column;
     box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+    min-height: 0; /* 💡 100vh 내부 영역 이탈을 막아주는 핵심 설정 */
 }
 
 .list-title { font-size: 0.9rem; color: #ccc; margin-bottom: 25px; letter-spacing: 1px; }
 
-.track-list {
+/* 💡 공통 탭 콘텐츠 패널 (WebList, EditList 공통 인터랙션) */
+.track-list-content {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
     flex-grow: 1;
-    overflow-y: auto;
-    padding-right: 15px;
+    overflow-y: auto; /* 내용물이 많아지면 내부 스크롤 작동 */
+    padding-right: 10px;
+}
+.track-list-content.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
+/* ==========================================================================
+   [WebList] 전용 트랙 스타일
+   ========================================================================== */
 .track {
     display: flex;
     align-items: center;
@@ -210,7 +222,6 @@ body {
 .track .details h4 { font-size: 0.95rem; color: #555; margin-bottom: 3px; }
 .track .details p { font-size: 0.8rem; color: #aaa; }
 
-/* View on 버튼 스타일 */
 .view-btn {
     text-decoration: none;
     font-size: 0.75rem;
@@ -225,7 +236,73 @@ body {
 .track:hover .view-btn { background-color: #64b5f6; color: white; }
 .track.active .view-btn { background-color: #1e88e5; color: white; }
 
+/* ==========================================================================
+   [EditList] 전용 3*3 갤러리 그리드 스타일
+   ========================================================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 완벽한 3열 배치 */
+    gap: 20px;
+    padding: 5px;
+}
+
+.gallery-item {
+    position: relative;
+    aspect-ratio: 1 / 1; /* 정사각형 비율 고정 */
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: #f0f7ff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    text-decoration: none;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05); /* 마우스 호버 시 몽글하게 확대 */
+    box-shadow: 0 15px 30px rgba(100, 181, 246, 0.2);
+    z-index: 2;
+}
+
+.gallery-thumb {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(30, 136, 229, 0.85) 0%, rgba(100, 181, 246, 0.4) 100%);
+    padding: 20px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 60%;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.gallery-overlay p {
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+/* 애니메이션 및 스크롤바 */
 @keyframes spin { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
 
-.track-list::-webkit-scrollbar { width: 6px; }
-.track-list::-webkit-scrollbar-thumb { background: #bbdefb; border-radius: 10px; }
+.track-list-content::-webkit-scrollbar { width: 6px; }
+.track-list-content::-webkit-scrollbar-thumb { background: #bbdefb; border-radius: 10px; }

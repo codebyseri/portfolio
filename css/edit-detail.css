@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Poppins:wght@500;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+    background-color: #f0f7ff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.app-container {
+    width: 100vw;
+    height: 100vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* 헤더 영역 스타일 */
+.edit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.back-btn {
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #90a4ae;
+    background: white;
+    padding: 12px 24px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    transition: 0.3s;
+}
+.back-btn:hover {
+    color: #64b5f6;
+    transform: translateX(-4px);
+}
+
+.edit-project-title { text-align: right; }
+.edit-project-title h2 { font-size: 1.5rem; color: #37474f; font-weight: 700; }
+.edit-project-title p { font-size: 0.8rem; color: #64b5f6; font-weight: 500; }
+
+/* 메인 레이아웃 2분할 (중앙 본문 피드 1fr : 우측 사이드바 320px) */
+.edit-detail-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 30px;
+    flex-grow: 1;
+    min-height: 0;
+}
+
+/* 좌측 메인 스크롤 콘텐츠 */
+.edit-main-content {
+    background: white;
+    border-radius: 40px;
+    padding: 40px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.02);
+}
+
+/* 초대형 이미지 스팟 */
+.large-visual-zone {
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: #fafcfe;
+}
+.large-visual-zone img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* 프로젝트 메타 정보 그리드 */
+.edit-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    background: #f8fbfd;
+    padding: 20px 25px;
+    border-radius: 20px;
+    border: 1px solid #edf4f9;
+}
+.meta-item { display: flex; flex-direction: column; gap: 4px; }
+.meta-item strong { font-size: 0.75rem; color: #b0c4de; text-transform: uppercase; letter-spacing: 0.5px; }
+.meta-item span { font-size: 0.85rem; color: #546e7a; font-weight: 500; }
+
+/* 스토리 설명 텍스트 */
+.edit-story-block h3 {
+    font-size: 1.1rem;
+    color: #37474f;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+.edit-story-block p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #607d8b;
+}
+
+/* 서브 디테일 이미지 2열 정렬 */
+.sub-images-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.sub-images-grid img {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+}
+
+/* 우측 사이드바 스타일 (피드 타입) */
+.edit-sidebar {
+    background: white;
+    border-radius: 40px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.02);
+}
+
+.sidebar-title {
+    font-size: 0.8rem;
+    color: #b0c4de;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding-left: 5px;
+}
+
+.edit-feed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* 세로형 이미지 썸네일 피드 아이템 */
+.feed-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    background: #fafcfe;
+    border: 1px solid #f0f4f8;
+    transition: 0.3s;
+}
+.feed-item:hover {
+    background: #e3f2fd44;
+    transform: translateY(-2px);
+}
+.feed-item.active {
+    background: #e3f2fd77;
+    border-color: #90caf9;
+}
+
+.feed-thumb {
+    width: 65px;
+    height: 65px;
+    border-radius: 14px;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+.feed-info h4 {
+    font-size: 0.85rem;
+    color: #455a64;
+    margin-bottom: 3px;
+}
+.feed-item.active .feed-info h4 {
+    color: #1e88e5;
+    font-weight: 700;
+}
+
+.feed-info p {
+    font-size: 0.75rem;
+    color: #90a4ae;
+}
+
+/* 스크롤바 커스텀 */
+.edit-main-content::-webkit-scrollbar,
+.edit-feed-list::-webkit-scrollbar { width: 5px; }
+.edit-main-content::-webkit-scrollbar-thumb,
+.edit-feed-list::-webkit-scrollbar-thumb { background: #e3f2fd; border-radius: 10px; }
