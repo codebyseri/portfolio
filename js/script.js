@@ -1,77 +1,134 @@
 document.addEventListener('DOMContentLoaded', () => {
 	
-	// 1. 아코디언 기능 구현 (기존 유지)
-	const accordionHeaders = document.querySelectorAll('.accordion-header');
-	accordionHeaders.forEach(header => {
-		header.addEventListener('click', () => {
-			const currentItem = header.parentElement;
-			currentItem.classList.toggle('active');
+	const currentArt = document.getElementById('current-art');
+	const currentTitle = document.getElementById('current-title');
+	const tracks = document.querySelectorAll('.track');
+	
+	const mainVinyl = document.getElementById('main-vinyl');
+	const playerTonearm = document.getElementById('player-tonearm');
+	const contentScroll = document.getElementById('content-scroll');
+	const wireFill = document.getElementById('wire-fill');
+	
+	// LP 플레이어 가동 전개 함수
+	function playTrack(trackElement) {
+		if(!trackElement) return;
+		
+		tracks.forEach(t => t.classList.remove('active'));
+		trackElement.classList.add('active');
+		
+		const title = trackElement.getAttribute('data-title');
+		const img = trackElement.getAttribute('data-img');
+		
+		if (playerTonearm) playerTonearm.classList.add('playing');
+		
+		setTimeout(() => {
+			if (mainVinyl) mainVinyl.classList.add('playing');
+			if (title && currentTitle) currentTitle.innerText = `김미진 : ${title}`;
+			if (img && currentArt) currentArt.style.backgroundImage = `url('${img}')`;
+		}, 300);
+	}
+	
+	// 💡 [수정] 새로고침 시 어떤 트랙도 활성화하지 않고 기본 대기 상태로 설정
+	tracks.forEach(t => t.classList.remove('active'));
+	
+	if (currentTitle) {
+		currentTitle.innerText = "김미진 : Ready"; // 기본 타이틀 고정
+	}
+// 💡 준비된 기본 LP 커버 이미지가 있다면 아래 주소를 변경해 주세요.
+	if (currentArt) {
+		currentArt.style.backgroundImage = "url('https://i.pinimg.com/736x/9d/9d/47/9d9d47f453f817a8f72259bce864c353.jpg')";
+	}
+	
+	// 트랙 리스트 터치 브레이크 인터랙션
+	tracks.forEach(track => {
+		track.addEventListener('click', (e) => {
+			if(e.target.classList.contains('view-btn')) return;
+			
+			if (mainVinyl) mainVinyl.classList.remove('playing');
+			if (playerTonearm) playerTonearm.classList.remove('playing');
+			
+			setTimeout(() => {
+				playTrack(track);
+			}, 200);
 		});
 	});
 	
-	// 2. [WebList 전용] 트랙 클릭 시 LP판 플레이어 정보 변경 기능
-	const currentArt = document.querySelector('.album-art');
-	const currentTitle = document.getElementById('current-title');
-	
-	function initTrackClickEvents() {
-		const tracks = document.querySelectorAll('.track');
-		tracks.forEach(track => {
-			track.addEventListener('click', (e) => {
-				// 'View on' 상세페이지 이동 버튼을 누를 때는 LP 정보 변경을 가로막고 링크 이동만 작동
-				if(e.target.classList.contains('view-btn')) return;
-				
-				tracks.forEach(t => t.classList.remove('active'));
-				track.classList.add('active');
-				
-				const title = track.getAttribute('data-title');
-				const img = track.getAttribute('data-img');
-				
-				if(title) currentTitle.innerText = title;
-				if(img) currentArt.style.backgroundImage = `url('${img}')`;
+	// 숨겨진 스크롤 연동형 우측 핑크 네온 와이어 액션
+	if (contentScroll && wireFill) {
+		contentScroll.addEventListener('scroll', () => {
+			const scrollTop = contentScroll.scrollTop;
+			const scrollHeight = contentScroll.scrollHeight - contentScroll.clientHeight;
+			const scrollPercent = (scrollTop / scrollHeight) * 100;
+			
+			requestAnimationFrame(() => {
+				wireFill.style.height = `${scrollPercent}%`;
 			});
 		});
 	}
-	initTrackClickEvents(); // 초기 실행
 	
-	// 💡 3. [수정 완료] 우측 상단 내비게이션 탭 전환 기능 (WebList / EditList 2단 구성)
-	const navTabs = document.querySelectorAll('.nav-tab');
-	const listCategoryTitle = document.getElementById('list-category-title');
-	const listContents = document.querySelectorAll('.track-list-content');
-	
-	navTabs.forEach(tab => {
-		tab.addEventListener('click', (e) => {
-			e.preventDefault(); // 링크 기본 이동(#) 막기
-			
-			// 탭 활성화 비주얼 변경
-			navTabs.forEach(t => t.classList.remove('active'));
-			tab.classList.add('active');
-			
-			// 클릭한 탭의 타겟 속성 가져오기 (WebList 또는 EditList)
-			const target = tab.getAttribute('data-target');
-			
-			// 우측 타이틀 텍스트를 카테고리에 맞게 변경
-			if(target === 'WebList') {
-				listCategoryTitle.innerText = 'TRACKLIST (WEB PROJECTS)';
-			} else if(target === 'EditList') {
-				listCategoryTitle.innerText = 'GALLERY (EDITORIAL WORKS)';
-			}
-			
-			// 콘텐츠 패널 스위칭 (타겟팅된 리스트만 block 처리 후 active 클래스 부여)
-			listContents.forEach(content => {
-				if(content.id === `list-${target}`) {
-					content.style.display = 'block';
-					// 투명도(Opacity) 트랜지션이 자연스럽게 먹히도록 미세한 딜레이 추가
-					setTimeout(() => content.classList.add('active'), 50);
-				} else {
-					content.style.display = 'none';
-					content.classList.remove('active');
-				}
+	// 마우스 추적 조명 무빙
+	const mouseGlow = document.querySelector('.mouse-glow');
+	if (mouseGlow) {
+		window.addEventListener('mousemove', (e) => {
+			requestAnimationFrame(() => {
+				mouseGlow.style.left = `${e.clientX}px`;
+				mouseGlow.style.top = `${e.clientY}px`;
 			});
+		});
+	}
+	
+	// 마우스 3D 글래스 틸트 & 핑크빛 반사 그림자 계산
+	const tiltTargets = document.querySelectorAll('.tilt-target');
+	tiltTargets.forEach(target => {
+		target.addEventListener('mousemove', (e) => {
+			const rect = target.getBoundingClientRect();
+			const x = e.clientX - rect.left - (rect.width / 2);
+			const y = e.clientY - rect.top - (rect.height / 2);
 			
-			// WebList 탭으로 돌아왔을 때 트랙 클릭 이벤트가 안전하게 바인딩되도록 재설정
-			if(target === 'WebList') {
-				initTrackClickEvents();
-			}
+			const rotateX = -(y / rect.height) * 5;
+			const rotateY = (x / rect.width) * 5;
+			
+			requestAnimationFrame(() => {
+				target.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+				target.style.boxShadow = `${-rotateY * 1.2}px ${rotateX * 1.2}px 30px rgba(255, 117, 143, 0.25)`;
+			});
+		});
+		
+		target.addEventListener('mouseleave', () => {
+			requestAnimationFrame(() => {
+				target.style.transform = '';
+				target.style.boxShadow = '';
+			});
 		});
 	});
+	
+	// 젤리 광택 벚꽃잎 낙하 생성기
+	const blossomContainer = document.getElementById('blossom-container');
+	const MAX_PETALS = 25;
+	
+	function createPetal() {
+		if (!blossomContainer || blossomContainer.children.length >= MAX_PETALS) return;
+		
+		const petal = document.createElement('div');
+		petal.classList.add('petal');
+		
+		const size = Math.random() * 15 + 12;
+		const startLeft = Math.random() * (window.innerWidth + 200) - 100;
+		const fallDuration = Math.random() * 8 + 8;
+		const swayDuration = Math.random() * 4 + 4;
+		const delay = Math.random() * 3;
+		
+		petal.style.width = `${size}px`;
+		petal.style.height = `${size}px`;
+		petal.style.left = `${startLeft}px`;
+		
+		petal.style.animationName = 'fall, sway';
+		petal.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
+		petal.style.animationDelay = `${delay}s, 0s`;
+		
+		blossomContainer.appendChild(petal);
+		
+		setTimeout(() => { petal.remove(); }, (fallDuration + delay) * 1000);
+	}
+	setInterval(createPetal, 400);
 });

@@ -1,210 +1,166 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Poppins:wght@500;600;700&display=swap');
+
+@font-face {
+    font-family: 'YClover';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/YClover-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Poppins', 'Noto Sans KR', sans-serif;
-    background-color: #f0f7ff;
-    min-height: 100vh;
-    overflow-y: auto;
-}
-
-.app-container {
-    width: 100vw;
+    background: #fdf1f2; /* 밀크 믹스 소프트 딸기우유 컬러 매칭 */
     height: 100vh;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-/* 헤더 */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.logo {
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: #64b5f6;
-    letter-spacing: 1px;
-}
-
-/* 뒤로가기 버튼 */
-.back-btn {
-    text-decoration: none;
-    color: #64b5f6;
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-.back-btn:hover { color: #1e88e5; transform: translateX(-3px); }
-.back-btn i { margin-right: 5px; }
-
-/* 상세페이지 레이아웃 구조 */
-.detail-wrapper {
-    display: grid;
-    grid-template-columns: 360px 1fr 300px;
-    gap: 30px;
-    flex-grow: 1;
-    min-height: 0;
-}
-
-/* 왼쪽 요약 카드 */
-.detail-summary { height: 100%; }
-.project-card {
-    background: white;
-    border-radius: 30px;
-    padding: 30px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(100, 181, 246, 0.05);
-}
-.project-hero-img {
-    width: 100%;
-    height: 200px;
-    background: #e3f2fd;
-    border-radius: 20px;
-    margin-bottom: 25px;
-    background-image: url('https://i.pinimg.com/736x/6a/00/5e/6a005e289f1821b6b7e2a380473c6387.jpg');
-    background-size: cover;
-    background-position: center;
-}
-.project-card h2 { font-size: 1.4rem; color: #333; margin-bottom: 10px; }
-.project-date { font-size: 0.8rem; color: #aaa; margin-bottom: 30px; }
-
-/* 실제 웹사이트 런칭 아웃링크 버튼 */
-.launch-btn {
-    text-decoration: none;
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(135deg, #64b5f6 0%, #1e88e5 100%);
-    color: white;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
-    transition: 0.3s;
-    margin-top: auto;
-}
-.launch-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(30, 136, 229, 0.4); }
-
-/* 오른쪽 상세 서술 영역 */
-.detail-content {
-    background: white;
-    border-radius: 40px;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-    overflow-y: auto;
-}
-.content-block h3 { font-size: 1.1rem; color: #1e88e5; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-.info-text { font-size: 0.85rem; line-height: 1.6; color: #888; }
-
-.process-img-sample {
-    width: 100%;
-    height: 180px;
-    background: #f0f7ff;
-    border: 2px dashed #bbdefb;
-    border-radius: 20px;
-    margin-top: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #90caf9;
-    font-weight: 700;
-    font-size: 0.9rem;
+    overflow: hidden;
+    position: relative;
 }
 
-.detail-content::-webkit-scrollbar { width: 6px; }
-.detail-content::-webkit-scrollbar-thumb { background: #bbdefb; border-radius: 10px; }
+/* 마우스 추적 조명 광원 */
+.mouse-glow {
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255, 117, 143, 0.15) 0%, rgba(200, 162, 235, 0.05) 50%, rgba(255,255,255,0) 100%);
+    border-radius: 50%; filter: blur(80px);
+    pointer-events: none; z-index: 0;
+    transform: translate(-50%, -50%);
+}
 
-/* ==========================================================================
-   우측 사이드 목록 탭 스타일
-   ========================================================================== */
+.app-container {
+    width: 100vw; height: 100vh;
+    padding: 30px 50px;
+    display: flex; flex-direction: column;
+    gap: 25px; position: relative; z-index: 1;
+}
+
+/* 헤더 요소 배치 */
+.header {
+    display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;
+}
+
+/* Y2K 홀로그램 크롬 텍스트 로고 효과 */
+.chrome-text {
+    font-family: 'YClover', sans-serif;
+    font-weight: 700; font-size: 1.5rem;
+    background: linear-gradient(135deg, #ff93ac 0%, #ffccd5 35%, #ffffff 50%, #e0b1cb 70%, #ff758f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 8px rgba(255, 117, 143, 0.2));
+    letter-spacing: 2px;
+}
+
+/* 러블리 백 버튼 디자인 */
+.back-btn {
+    text-decoration: none; color: #ff758f; font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 1px; display: flex; align-items: center; gap: 8px; transition: 0.3s;
+}
+.back-btn:hover { color: #ff4d6d; transform: translateX(-4px); }
+
+/* 메인페이지의 글래스모피즘 카드 에셋 가공 */
+.glass-card {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+    border-radius: 32px; border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 20px 40px rgba(255, 182, 193, 0.25), inset 0 0 15px rgba(255, 255, 255, 0.5);
+    transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+}
+
+/* 상세페이지 마스터 그리드 스플릿 레벨링 */
+.detail-wrapper {
+    display: grid;
+    grid-template-columns: 380px 1fr 320px; /* 3영역 비례 균형 조율 */
+    gap: 35px; flex-grow: 1; min-height: 0; padding-bottom: 20px;
+}
+
+/* [좌측 구역] 서머리 프로필 카드 */
+.detail-summary { height: 100%; }
+.project-card {
+    padding: 40px 30px; height: 100%;
+    display: flex; flex-direction: column; align-items: center;
+}
+.project-hero-img {
+    width: 100%; height: 210px; border-radius: 22px; margin-bottom: 25px;
+    background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600');
+    background-size: cover; background-position: center;
+    border: 3px solid #ffffff; box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+}
+.project-card h2 { font-size: 1.4rem; color: #4a3b40; font-weight: 700; margin-bottom: 8px; }
+.project-date { font-size: 0.8rem; color: #a38f94; font-weight: 500; margin-bottom: 30px; }
+
+/* 젤리 광택 런칭 아웃라인 버튼 */
+.launch-btn {
+    text-decoration: none; width: 100%; padding: 16px;
+    background: linear-gradient(135deg, #ff758f 0%, #ff93ac 100%);
+    color: white; border-radius: 20px; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;
+    box-shadow: 0 8px 20px rgba(255, 117, 143, 0.3); transition: 0.3s; margin-top: auto;
+    display: flex; justify-content: center; align-items: center; gap: 8px;
+}
+.launch-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(255, 117, 143, 0.45); }
+
+/* [중앙 구역] 메인 다큐멘테이션 스크롤뷰 (스크롤바 완벽 은폐) */
+.detail-content {
+    padding: 45px 40px; display: flex; flex-direction: column; gap: 40px; overflow-y: auto;
+    -ms-overflow-style: none; scrollbar-width: none;
+}
+.detail-content::-webkit-scrollbar { display: none; }
+
+.content-block h3 { font-size: 1.05rem; color: #ff4d6d; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 1px;}
+.content-block h3 i { color: #ff758f; }
+.info-text { font-size: 0.88rem; line-height: 1.7; color: #6b585d; font-weight: 500; word-break: keep-all; }
+
+/* 대시보드 샘플 프리뷰 박스 */
+.process-img-sample {
+    width: 100%; height: 200px; background: rgba(255, 255, 255, 0.4);
+    border: 2px dashed rgba(255, 117, 143, 0.3); border-radius: 20px; margin-top: 20px;
+    display: flex; justify-content: center; align-items: center;
+    color: #ff93ac; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px;
+}
+
+/* [우측 구역] 플레이리스트 트랙 내비게이션 사이드바 */
 .detail-sidebar {
-    background: white;
-    border-radius: 40px;
-    padding: 30px 25px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+    padding: 35px 25px; display: flex; flex-direction: column;
 }
-
 .sidebar-title {
-    font-size: 0.85rem;
-    color: #b0c4de;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    font-weight: 700;
+    font-size: 0.8rem; color: #ff4d6d; opacity: 0.6; margin-bottom: 22px;
+    letter-spacing: 3px; font-weight: 700; border-left: 3px solid #ff758f; padding-left: 10px;
 }
-
 .mini-track-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    overflow-y: auto;
+    display: flex; flex-direction: column; gap: 12px; overflow-y: auto;
+    -ms-overflow-style: none; scrollbar-width: none;
 }
+.mini-track-list::-webkit-scrollbar { display: none; }
 
-/* 미니 트랙 개별 항목 (링크 태그) */
+/* 미니 리스트 트랙 항목 모듈 디자인 */
 .mini-track {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: 0.3s;
-    background: #fafcfe;
-    border: 1px solid #f0f4f8;
+    display: flex; align-items: center; padding: 18px 20px; border-radius: 20px;
+    text-decoration: none; transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background: rgba(255, 255, 255, 0.3); border: 1px solid rgba(255, 255, 255, 0.4);
 }
+.mini-track:hover { background: rgba(255, 255, 255, 0.6); border-color: rgba(255, 117, 143, 0.25); transform: translateX(3px); }
 
-.mini-track:hover {
-    background: #e3f2fd55;
-    transform: translateY(-2px);
-}
-
-/* 현재 활성화된(보고 있는) 프로젝트 트랙 스타일 */
+/* 활성화 상태 트랙 가인딩 */
 .mini-track.active {
-    background: #bbdefb44;
-    border-color: #bbdefb;
+    background: rgba(255, 255, 255, 0.85); border-color: rgba(255, 117, 143, 0.45);
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
 }
 
-.track-num {
-    width: 25px;
-    font-weight: 700;
-    color: #b0c4de;
-    font-size: 0.85rem;
-}
-.mini-track.active .track-num {
-    color: #1e88e5;
-}
+.track-num { width: 30px; font-weight: 700; color: #ffb3c1; font-size: 0.85rem; }
+.mini-track.active .track-num { color: #ff4d6d; }
+.track-info { flex-grow: 1; }
+.track-info h4 { font-size: 0.88rem; color: #4a3b40; margin-bottom: 3px; font-weight: 700; }
+.mini-track.active .track-info h4 { color: #ff4d6d; }
+.track-info p { font-size: 0.75rem; color: #a38f94; font-weight: 500; }
 
-.track-info {
-    flex-grow: 1;
+/* 벚꽃 플로팅 파티클 소스 */
+#blossom-container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1; overflow: hidden; }
+.petal {
+    position: absolute; background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255, 147, 172, 0.4) 100%);
+    border-radius: 16px 2px 16px 16px; opacity: 0.6; pointer-events: none;
+    animation: fall linear infinite, sway ease-in-out infinite;
 }
-
-.track-info h4 {
-    font-size: 0.85rem;
-    color: #455a64;
-    margin-bottom: 2px;
-}
-.mini-track.active .track-info h4 {
-    color: #1e88e5;
-    font-weight: 700;
-}
-
-.track-info p {
-    font-size: 0.75rem;
-    color: #90a4ae;
-}
-
-/* 미니 스크롤바 디자인 */
-.mini-track-list::-webkit-scrollbar { width: 4px; }
-.mini-track-list::-webkit-scrollbar-thumb { background: #e3f2fd; border-radius: 10px; }
+@keyframes fall { 0% { top: -60px; } 100% { top: 105vh; } }
+@keyframes sway { 0%, 100% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(80px) rotate(180deg); } }

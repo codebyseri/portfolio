@@ -3,159 +3,193 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>김미진 Portfolio</title>
+	<!-- FontAwesome (아이콘 가속용) -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<script src="js/script.js" defer></script>
-	<title>Dreamy Designer</title>
 </head>
 <body>
 	
+	<!-- 마우스 추적 조명 및 벚꽃 컨테이너 -->
+	<div class="mouse-glow"></div>
+	<div id="blossom-container"></div>
+	
+	<!-- 네온 와이어 스크롤 프로그레스 바 -->
+	<div class="neon-wire-container">
+		<div class="neon-wire-fill" id="wire-fill"></div>
+	</div>
+	
 	<div class="app-container">
+		<!-- 헤더 -->
 		<header class="header">
-			<div class="logo">Dreamy DESIGNER. 美</div>
-			<nav class="nav">
-				<a href="#" class="nav-tab active" data-target="WebList">WebList</a>
-				<a href="#" class="nav-tab" data-target="EditList">EditList</a>
-			</nav>
+			<h1 class="logo chrome-text">Blooming</h1>
 		</header>
 		
-		<main class="main-wrapper">
-			<section class="left-content">
-				<div class="vinyl-box">
-					<div class="vinyl">
-						<div class="album-art" id="current-art"></div>
+		<!-- 메인 콘텐츠 스플릿 레이아웃 (1 : 1.5 비율 제어) -->
+		<div class="main-layout-split">
+			
+			<!-- [좌측 구역] 정중앙 배치 턴테이블 플레이어 카드 -->
+			<div class="left-player-zone">
+				<div class="glass-card vinyl-player-card tilt-target">
+					<!-- 아날로그 턴테이블 톤암 -->
+					<div class="tonearm" id="player-tonearm"></div>
+					
+					<!-- 310px 거대 하이글로시 LP판 -->
+					<div class="vinyl-wrapper">
+						<div class="vinyl" id="main-vinyl">
+							<div class="album-art" id="current-art"></div>
+						</div>
 					</div>
+					
+					<!-- 정중앙 정렬 텍스트 플레이어 정보창 -->
 					<div class="now-playing">
-						<p class="status">NOW PLAYING</p>
-						<h2 id="current-title">Project 01. xxxx</h2>
+						<div class="status-row">
+							<span class="status"><span class="blink">●</span>NOW PLAYING</span>
+							<div class="eq-container">
+								<div class="eq-bar"></div>
+								<div class="eq-bar"></div>
+								<div class="eq-bar"></div>
+								<div class="eq-bar"></div>
+							</div>
+						</div>
+						<h2 id="current-title">김미진 : Ready</h2>
+						<p class="info-text">음악을 굽듯 정성을 담아 브랜딩과 코딩을 융합하는 퍼블리셔입니다. <br>
+											 트랙을 선택해 프로젝트를 감상해 보세요.</p>
 					</div>
 				</div>
-				
-				<div class="accordion">
-					<div class="accordion-item active">
-						<div class="accordion-header">
-							<span><i class="fa-solid fa-star"></i> MY SKILLS</span>
-							<i class="fa-solid fa-chevron-down arrow"></i>
-						</div>
-						<div class="accordion-body">
+			</div>
+			
+			<!-- [우측 구역] 스크롤 작동 및 스크롤바가 숨겨진 콘텐츠 구역 -->
+			<div class="main-scroll-wrapper" id="content-scroll">
+				<div class="section-content">
+					
+					<!-- TECH STACKS SECTION -->
+					<section class="skills-section" style="margin-bottom: 60px;">
+						<h3 class="section-title">TECH STACKS</h3>
+						<div class="glass-card skill-box tilt-target float-effect-2">
 							<div class="skill-tags">
-								<span>HTML/CSS</span>
+								<span>HTML / CSS</span>
+								<span>JavaScript</span>
 								<span>Figma</span>
-								<span>Javascript</span>
-								<span>React</span>
 								<span>Photoshop</span>
 								<span>Illustrator</span>
-								<span>Indesign</span>
+								<span>InDesign</span>
 								<span>After Effects</span>
 							</div>
-							<p class="info-text">디자인과 개발의 언어를 모두 이해하는 시각을 길렀습니다.</p>
 						</div>
-					</div>
+					</section>
 					
-					<div class="accordion-item">
-						<div class="accordion-header">
-							<span><i class="fa-solid fa-user"></i> ABOUT ME</span>
-							<i class="fa-solid fa-chevron-down arrow"></i>
+					<!-- WEB LIST SECTION -->
+					<section class="web-section" style="margin-bottom: 60px;">
+						<h3 class="section-title">WEB TRANSLATION LIST</h3>
+						<div class="track-list-vertical">
+							<div class="track active" data-title="웹 프로젝트" data-img="https://i.pinimg.com/736x/4c/8e/0c/4c8e0ce3cde082df8233779bdf134f2b.jpg">
+								<span class="num">01</span>
+								<div class="thumb" style="background-image: url('https://i.pinimg.com/736x/4c/8e/0c/4c8e0ce3cde082df8233779bdf134f2b.jpg');"></div>
+								<div class="details">
+									<h4>웹 프로젝트</h4>
+									<p>키워드 요약 설명</p>
+								</div>
+								<a href="./html/web_project01.html" class="view-btn">VIEW</a>
+							</div>
+							<div class="track" data-title="웹 프로젝트" data-img="https://i.pinimg.com/736x/4c/8e/0c/4c8e0ce3cde082df8233779bdf134f2b.jpg">
+								<span class="num">02</span>
+								<div class="thumb" style="background-image: url('https://i.pinimg.com/736x/4c/8e/0c/4c8e0ce3cde082df8233779bdf134f2b.jpg');"></div>
+								<div class="details">
+									<h4>웹 프로젝트</h4>
+									<p>키워드 요약 설명</p>
+								</div>
+								<a href="./html/web_project02.html" class="view-btn">VIEW</a>
+							</div>
+							<div class="track" data-title="웹 프로젝트" data-img="https://i.pinimg.com/736x/4c/8e/0c/4c8e0ce3cde082df8233779bdf134f2b.jpg">
+								<span class="num">03</span>
+								<div class="thumb" style="background-image: url('https://i.pinimg.com/736x/4c/8e/0c/4c8e0ce3cde082df8233779bdf134f2b.jpg');"></div>
+								<div class="details">
+									<h4>웹 프로젝트</h4>
+									<p>키워드 요약 설명</p>
+								</div>
+								<a href="./html/web_project03.html" class="view-btn">VIEW</a>
+							</div>
+							<div class="track" data-title="웹 프로젝트" data-img="https://i.pinimg.com/736x/4c/8e/0c/4c8e0ce3cde082df8233779bdf134f2b.jpg">
+								<span class="num">04</span>
+								<div class="thumb" style="background-image: url('https://i.pinimg.com/736x/4c/8e/0c/4c8e0ce3cde082df8233779bdf134f2b.jpg');"></div>
+								<div class="details">
+									<h4>웹 프로젝트</h4>
+									<p>키워드 요약 설명</p>
+								</div>
+								<a href="./html/web_project04.html" class="view-btn">VIEW</a>
+							</div>
 						</div>
-						<div class="accordion-body">
-							<p class="info-text">
-								안녕하세요! 몽글몽글한 감성을 코드로 투영하는 웹 퍼블리싱 디자이너 김미진입니다. 사용자가 웹사이트를 방문하는 순간 편안함을 느낄 수 있도록, 작은 디테일과 부드러운 모션 하나까지 고민하며 작업합니다.
-							</p>
-						</div>
-					</div>
+					</section>
 					
-					<div class="accordion-item">
-						<div class="accordion-header">
-							<span><i class="fa-solid fa-envelope"></i> CONTACT</span>
-							<i class="fa-solid fa-chevron-down arrow"></i>
-						</div>
-						<div class="accordion-body">
-							<p class="info-text">Email: Kkangmelo@gmail.com<br>Phone: 010-1234-5678</p>
-						</div>
-					</div>
-				</div>
-			</section>
-			
-			<section class="right-content">
-				
-				<h3 class="list-title" id="list-category-title">TRACKLIST (PROJECTS)</h3>
-				
-				<div class="category-content-wrapper">
-					<div class="track-list-content active" id="list-WebList">
-						
-						<div class="track active" data-title="Project 01." data-img="https://i.pinimg.com/736x/6a/00/5e/6a005e289f1821b6b7e2a380473c6387.jpg">
-							<span class="num">01</span>
-							<div class="thumb" style="background-image: url('https://i.pinimg.com/736x/6a/00/5e/6a005e289f1821b6b7e2a380473c6387.jpg')"></div>
-							<div class="details">
-								<h4>첫 번째 프로젝트</h4>
-								<p>Design & Publishing</p>
-							</div>
-							<a href="html/web_project01.html" class="view-btn">View on</a>
-						</div>
-						
-						<div class="track" data-title="Project 02." data-img="https://i.pinimg.com/736x/6a/00/5e/6a005e289f1821b6b7e2a380473c6387.jpg">
-							<span class="num">02</span>
-							<div class="thumb" style="background-image: url('https://i.pinimg.com/736x/6a/00/5e/6a005e289f1821b6b7e2a380473c6387.jpg')"></div>
-							<div class="details">
-								<h4>두 번째 프로젝트</h4>
-								<p>Design & Publishing</p>
-							</div>
-							<a href="html/web_project02.html" class="view-btn">View on</a>
-						</div>
-						
-						<div class="track" data-title="Project 03." data-img="https://i.pinimg.com/736x/6a/00/5e/6a005e289f1821b6b7e2a380473c6387.jpg">
-							<span class="num">03</span>
-							<div class="thumb" style="background-image: url('https://i.pinimg.com/736x/6a/00/5e/6a005e289f1821b6b7e2a380473c6387.jpg')"></div>
-							<div class="details">
-								<h4>세 번째 프로젝트</h4>
-								<p>Design & Publishing</p>
-							</div>
-							<a href="html/web_project03.html" class="view-btn">View on</a>
-						</div>
-						
-						<div class="track" data-title="Project 04." data-img="https://i.pinimg.com/736x/6a/00/5e/6a005e289f1821b6b7e2a380473c6387.jpg">
-							<span class="num">04</span>
-							<div class="thumb" style="background-image: url('https://i.pinimg.com/736x/6a/00/5e/6a005e289f1821b6b7e2a380473c6387.jpg')"></div>
-							<div class="details">
-								<h4>네 번째 프로젝트</h4>
-								<p>Design & Publishing</p>
-							</div>
-							<a href="html/web_project04.html" class="view-btn">View on</a>
-						</div>
-					</div>
-					<div class="track-list-content" id="list-EditList" style="display: none;">
+					<!-- EDIT LIST SECTION -->
+					<section class="edit-section" style="margin-bottom: 60px;">
+						<h3 class="section-title">VISUAL EDIT LIST</h3>
 						<div class="gallery-grid">
-							
-							<a href="html/edit-detail01.html" class="gallery-item">
-								<div class="gallery-thumb" style="background-image: url('https://i.pinimg.com/736x/3a/bb/e3/3abbe3fb8a1302b73cef788d8c8d3186.jpg')"></div>
+							<a href="./html/edit-detail01.html" class="gallery-item tilt-target">
+								<div class="gallery-thumb" style="background-image: url('https://i.pinimg.com/736x/26/70/5c/26705c576d338e6edd54c081bc8058bc.jpg');"></div>
 								<div class="gallery-overlay">
-									<h4>디자인 이름</h4>
-									<p>Editorial Design</p>
+									<h4>시각디자인</h4>
+									<p>Photoshop / Illustrator</p>
 								</div>
 							</a>
-							
-							<a href="html/edit-detail02.html" class="gallery-item">
-								<div class="gallery-thumb" style="background-image: url('https://i.pinimg.com/736x/ba/9a/2a/ba9a2a9ed96da2d955037ed66e7858f0.jpg')"></div>
+							<a href="./html/edit-detail02.html" class="gallery-item tilt-target">
+								<div class="gallery-thumb" style="background-image: url('https://i.pinimg.com/736x/26/70/5c/26705c576d338e6edd54c081bc8058bc.jpg');"></div>
 								<div class="gallery-overlay">
-									<h4>디자인 이름</h4>
-									<p>Graphic Design</p>
+									<h4>편집디자인</h4>
+									<p>InDesign</p>
 								</div>
 							</a>
-							
-							<a href="html/edit-detail03.html" class="gallery-item">
-								<div class="gallery-thumb" style="background-image: url('https://i.pinimg.com/736x/f8/c7/c2/f8c7c2e7cdbceb505f86f8bd67828e2b.jpg')"></div>
+							<a href="./html/edit-detail03.html" class="gallery-item tilt-target">
+								<div class="gallery-thumb" style="background-image: url('https://i.pinimg.com/736x/26/70/5c/26705c576d338e6edd54c081bc8058bc.jpg');"></div>
 								<div class="gallery-overlay">
-									<h4>디자인 이름</h4>
-									<p>Package Design</p>
+									<h4>편집디자인</h4>
+									<p>InDesign</p>
 								</div>
 							</a>
+						</div>
+					</section>
+					
+					<!-- 스크롤의 대미를 장식할 최종 중앙 집중형 ABOUT ME & CONTACT 프로필 카드 -->
+					<section class="final-profile-section">
+						<div class="glass-card final-profile-card tilt-target">
+							
+							<!-- 스티커 데코 프로필 아바타 -->
+							<div class="profile-avatar-wrapper">
+								<div class="profile-avatar" style="background-image: url('https://i.pinimg.com/736x/e8/41/77/e841772494f2e75acd0058dd52a4da40.jpg');"></div>
+								<i class="fa-solid fa-sparkles deco-sparkle-1"></i>
+								<i class="fa-solid fa-heart deco-sparkle-2"></i>
+							</div>
+							
+							<!-- ABOUT ME 에센스 -->
+							<div class="profile-bio">
+								<h2>ABOUT ME</h2>
+								<p>
+									디자인의 감성적인 디테일과 퍼블리싱의 논리적인 구조를 연결하는 퍼블리셔 김미진입니다.
+									사용자의 손끝에 닿는 모든 인터랙션에 영롱하고 트렌디한 감각을 불어넣습니다.
+								</p>
+							</div>
+							
+							<div class="profile-divider"></div>
+							
+							<!-- CONTACT 세트 -->
+							<div class="profile-contact">
+								<h3>CONTACT ME</h3>
+								<div class="contact-links">
+									<a href="#"><i class="fa-solid fa-envelope"></i> @example.com</a>
+									<a href="#"><i class="fa-solid fa-phone"></i> 010-1234-5678</a>
+									<a href="#" target="_blank"><i class="fa-brands fa-github"></i> github.com</a>
+								</div>
+							</div>
 						
 						</div>
-					</div>
-				</div>
+					</section>
 				
-			</section>
-		</main>
+				</div>
+			</div>
+		
+		</div>
 	</div>
 </body>
 </html>
