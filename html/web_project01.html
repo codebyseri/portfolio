@@ -8,84 +8,102 @@
 	<link rel="stylesheet" href="../css/detail.css">
 </head>
 <body>
-	
-	<div class="mouse-glow"></div>
 	<div id="blossom-container"></div>
 	
 	<div class="app-container detail-page">
 		<header class="header">
 			<a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> BACK TO PLAYLIST</a>
-			<div class="logo chrome-text">PROJECT . 01</div>
+			<div class="logo chrome-text">TRACK . 01</div>
 		</header>
 		
 		<main class="detail-wrapper">
 			
+			<!-- [좌측 구역] 대형 앨범 자켓 스타일 프로필 카드 -->
 			<section class="detail-summary">
 				<div class="glass-card project-card tilt-target">
-					<div class="project-hero-img"></div>
-					<h2>Project 01</h2>
-					<p class="project-date">2026. 03 - 2026. 05 (개인 프로젝트)</p>
+					<div class="project-hero-img">
+						<!-- 음반 느낌을 내는 미니 바이닐 태그 -->
+						<div class="vinyl-tag"><i class="fa-solid fa-compact-disc fa-spin"></i> WEB</div>
+					</div>
+					<h2>Project 01 Title</h2>
+					<p class="project-date">2026. 00 - 2026. 00 (개인 프로젝트)</p>
 					
+					<!-- 🔗 [A타입: 실제 연결 링크가 있을 때 사용하는 버튼] -->
 					<a href="https://본인의실제프로젝트주소.com" target="_blank" class="launch-btn">
-						LAUNCH WEBSITE <i class="fa-solid fa-arrow-up-right-from-square"></i>
+						LISTEN NOW (LAUNCH) <i class="fa-solid fa-play"></i>
 					</a>
+					
+					<!-- 🔒 [B타입: 연결 링크가 없을 때 A타입 지우고 대신 사용하는 버튼]
+					<div class="launch-btn coming-soon">
+					   UNRELEASED TRACK <i class="fa-solid fa-lock"></i>
+					</div>
+					-->
 				</div>
 			</section>
 			
+			<!-- [중앙 구역] 시각 중심의 디자인 라이너 노트 (스크롤뷰) -->
 			<section class="detail-content">
+				
+				<!-- 1. 프로젝트 개요 (키워드 중심) -->
 				<div class="content-block">
-					<h3><i class="fa-solid fa-compass"></i> OVERVIEW</h3>
-					<p class="info-text">디자인의 비주얼 요소와 실제 퍼블리싱의 작동 마무리를 정교하게 정돈한 웹 아카이빙 프로젝트입니다. 타겟 유저에게 감성적이면서도 흐트러짐 없는 인터랙션을 전달하는 것을 핵심 목표로 잡고 빌드업했습니다.</p>
+					<h3><i class="fa-solid fa-quote-left"></i> ALBUM LINER NOTES</h3>
+					<p class="info-text">프로젝트의 핵심 콘셉트와 기획 의도를 직관적이고 감성적인 한두 문장으로 작성합니다. 감각적인 웹 디자인과 사용자 경험을 중심으로 풀어낸 트랙입니다.</p>
+					<div class="project-meta-grid">
+						<div class="meta-item"><strong>ROLE</strong> <span>UI/UX Design, Publishing</span></div>
+						<div class="meta-item"><strong>TOOLS</strong> <span>Figma, HTML5, CSS3, JS</span></div>
+					</div>
 				</div>
 				
+				<!-- 2. 비주얼 브랜드 무드 (컬러 가이드) -->
 				<div class="content-block">
-					<h3><i class="fa-solid fa-palette"></i> UI/UX DESIGN PROCESS</h3>
-					<p class="info-text">image_b4c149.jpg 오브제 무드에서 영감을 받아 부드러운 우유빛 분홍색 그라데이션과 반투명 아크릴 느낌의 입체 글래스모피즘 시스템을 차용하여 설계했습니다.</p>
-					<div class="process-img-sample">UI Design System & Wireframe Zone</div>
+					<h3><i class="fa-solid fa-palette"></i> BRANDING MOOD</h3>
+					<p class="info-text">디자인에 사용된 메인 크리에이티브 컬러 칩 세트입니다.</p>
+					<div class="color-palette-zone">
+						<div class="color-chip" style="background: #ff4d6d;"><span class="color-hex">#ff4d6d</span><span class="color-name">Main</span></div>
+						<div class="color-chip" style="background: #ff758f;"><span class="color-hex">#ff758f</span><span class="color-name">Point</span></div>
+						<div class="color-chip" style="background: #ffccd5;"><span class="color-hex">#ffccd5</span><span class="color-name">Sub</span></div>
+						<div class="color-chip" style="background: #4a3b40;"><span class="color-hex">#4a3b40</span><span class="color-name">Dark</span></div>
+					</div>
 				</div>
 				
+				<!-- 3. 핵심 스크린 프리뷰 (디자인 결과물) -->
 				<div class="content-block">
-					<h3><i class="fa-solid fa-code"></i> PUBLISHING POINT</h3>
-					<p class="info-text">하드코딩 인라인 방식을 탈피하고 Flex 및 Grid 시스템을 복합적으로 배치하여 화면 해상도 변화에 능동적으로 반응하는 모듈형 CSS 뼈대를 구축했습니다. 스크롤 인터랙션 시 부드러운 가속도를 제공합니다.</p>
+					<h3><i class="fa-solid fa-file-image"></i> KEY SCREEN PREVIEW</h3>
+					<div class="preview-display-zone">
+						<!-- 실제 디자인 스크린샷 이미지들을 넣는 곳입니다 -->
+						<div class="screen-mockup">
+							<img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800" alt="Screen 1">
+							<span class="mock-caption">01. Main Dashboard UI</span>
+						</div>
+						<div class="screen-mockup">
+							<img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800" alt="Screen 2">
+							<span class="mock-caption">02. Detail Interface & Sub Layout</span>
+						</div>
+					</div>
 				</div>
+			
 			</section>
 			
+			<!-- [우측 구역] 다음 트랙 내비게이션 -->
 			<section class="detail-sidebar">
 				<h3 class="sidebar-title">NEXT TRACKS</h3>
 				<div class="mini-track-list">
-					
 					<a href="web_project01.html" class="mini-track active">
 						<span class="track-num">01</span>
-						<div class="track-info">
-							<h4>Project 01</h4>
-							<p>Design & Publishing</p>
-						</div>
+						<div class="track-info"><h4>Project 01</h4><p>Design & Publishing</p></div>
 					</a>
-					
 					<a href="web_project02.html" class="mini-track">
 						<span class="track-num">02</span>
-						<div class="track-info">
-							<h4>Project 02</h4>
-							<p>Design & Publishing</p>
-						</div>
+						<div class="track-info"><h4>Project 02</h4><p>Design & Publishing</p></div>
 					</a>
-					
 					<a href="web_project03.html" class="mini-track">
 						<span class="track-num">03</span>
-						<div class="track-info">
-							<h4>Project 03</h4>
-							<p>Design & Publishing</p>
-						</div>
+						<div class="track-info"><h4>Project 03</h4><p>Design & Publishing</p></div>
 					</a>
-					
 					<a href="web_project04.html" class="mini-track">
 						<span class="track-num">04</span>
-						<div class="track-info">
-							<h4>Project 04</h4>
-							<p>Design & Publishing</p>
-						</div>
+						<div class="track-info"><h4>Project 04</h4><p>Design & Publishing</p></div>
 					</a>
-				
 				</div>
 			</section>
 		
@@ -94,16 +112,6 @@
 	
 	<script>
 		document.addEventListener('DOMContentLoaded', () => {
-			// 마우스 조명 추적
-			const mouseGlow = document.querySelector('.mouse-glow');
-			if (mouseGlow) {
-				window.addEventListener('mousemove', (e) => {
-					requestAnimationFrame(() => {
-						mouseGlow.style.left = `${e.clientX}px`;
-						mouseGlow.style.top = `${e.clientY}px`;
-					});
-				});
-			}
 			
 			// 3D 틸트 진폭 및 소프트 핑크 섀도우 계산
 			const tiltTargets = document.querySelectorAll('.tilt-target');
@@ -116,15 +124,12 @@
 					const rotateY = (x / rect.width) * 4;
 					
 					requestAnimationFrame(() => {
-						target.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
-						target.style.boxShadow = `${-rotateY * 1.2}px ${rotateX * 1.2}px 25px rgba(255, 117, 143, 0.22)`;
-					});
+						target.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;});
 				});
 				
 				target.addEventListener('mouseleave', () => {
 					requestAnimationFrame(() => {
 						target.style.transform = '';
-						target.style.boxShadow = '';
 					});
 				});
 			});

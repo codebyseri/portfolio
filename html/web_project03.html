@@ -3,90 +3,160 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- 💡 상위 폴더의 css 폴더 안 안의 project01.css를 호출합니다. -->
-	<link rel="stylesheet" href="../css/detail.css">
+	<title>Project 03 - Detail</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	<title>Project 03</title>
+	<link rel="stylesheet" href="../css/detail.css">
 </head>
 <body>
+	<div id="blossom-container"></div>
+	
 	<div class="app-container detail-page">
 		<header class="header">
 			<a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> BACK TO PLAYLIST</a>
-			<div class="logo">PROJECT . 03</div>
+			<div class="logo chrome-text">TRACK . 03</div>
 		</header>
 		
 		<main class="detail-wrapper">
+			
+			<!-- [좌측 구역] 대형 앨범 자켓 스타일 프로필 카드 -->
 			<section class="detail-summary">
-				<div class="project-card">
-					<div class="project-hero-img"></div>
-					<h2>Project 03</h2>
-					<p class="project-date">20xx. xx - 20xx. xx (개인 프로젝트)</p>
+				<div class="glass-card project-card tilt-target">
+					<div class="project-hero-img">
+						<!-- 음반 느낌을 내는 미니 바이닐 태그 -->
+						<div class="vinyl-tag"><i class="fa-solid fa-compact-disc fa-spin"></i> WEB</div>
+					</div>
+					<h2>Project 03 Title</h2>
+					<p class="project-date">2026. 00 - 2026. 00 (개인 프로젝트)</p>
 					
-					<a href="https://본인의실제프로젝트주소.com" target="_blank" class="launch-btn">
-						LAUNCH WEBSITE <i class="fa-solid fa-arrow-up-right-from-square"></i>
-					</a>
+					<!-- 🔗 [A타입: 실제 연결 링크가 있을 때 사용하는 버튼] -->
+					<!--					<a href="https://본인의실제프로젝트주소.com" target="_blank" class="launch-btn">-->
+					<!--						LISTEN NOW (LAUNCH) <i class="fa-solid fa-play"></i>-->
+					<!--					</a>-->
+					
+<!--					🔒 [B타입: 연결 링크가 없을 때 A타입 지우고 대신 사용하는 버튼]-->
+					<div class="launch-btn coming-soon">
+						UNRELEASED TRACK <i class="fa-solid fa-lock"></i>
+					</div>
+				
 				</div>
 			</section>
 			
+			<!-- [중앙 구역] 시각 중심의 디자인 라이너 노트 (스크롤뷰) -->
 			<section class="detail-content">
+				
+				<!-- 1. 프로젝트 개요 (키워드 중심) -->
 				<div class="content-block">
-					<h3><i class="fa-solid fa-compass"></i> OVERVIEW</h3>
-					<p class="info-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Architecto doloremque ducimus ea, eos eum excepturi, hic id illo ipsum nisi odio placeat, possimus provident quae ratione similique vitae voluptatum. Illo?</p>
+					<h3><i class="fa-solid fa-quote-left"></i> ALBUM LINER NOTES</h3>
+					<p class="info-text">프로젝트의 핵심 콘셉트와 기획 의도를 직관적이고 감성적인 한두 문장으로 작성합니다. 감각적인 웹 디자인과 사용자 경험을 중심으로 풀어낸 트랙입니다.</p>
+					<div class="project-meta-grid">
+						<div class="meta-item"><strong>ROLE</strong> <span>UI/UX Design, Publishing</span></div>
+						<div class="meta-item"><strong>TOOLS</strong> <span>Figma, HTML5, CSS3, JS</span></div>
+					</div>
 				</div>
 				
+				<!-- 2. 비주얼 브랜드 무드 (컬러 가이드) -->
 				<div class="content-block">
-					<h3><i class="fa-solid fa-palette"></i> UI/UX DESIGN PROCESS</h3>
-					<p class="info-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<div class="process-img-sample">UI Design System & Wireframe Zone</div>
+					<h3><i class="fa-solid fa-palette"></i> BRANDING MOOD</h3>
+					<p class="info-text">디자인에 사용된 메인 크리에이티브 컬러 칩 세트입니다.</p>
+					<div class="color-palette-zone">
+						<div class="color-chip" style="background: #ff4d6d;"><span class="color-hex">#ff4d6d</span><span class="color-name">Main</span></div>
+						<div class="color-chip" style="background: #ff758f;"><span class="color-hex">#ff758f</span><span class="color-name">Point</span></div>
+						<div class="color-chip" style="background: #ffccd5;"><span class="color-hex">#ffccd5</span><span class="color-name">Sub</span></div>
+						<div class="color-chip" style="background: #4a3b40;"><span class="color-hex">#4a3b40</span><span class="color-name">Dark</span></div>
+					</div>
 				</div>
 				
+				<!-- 3. 핵심 스크린 프리뷰 (디자인 결과물) -->
 				<div class="content-block">
-					<h3><i class="fa-solid fa-code"></i> PUBLISHING POINT</h3>
-					<p class="info-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Architecto doloremque ducimus ea, eos eum excepturi, hic id illo ipsum nisi odio placeat, possimus provident quae ratione similique vitae voluptatum. Illo?</p>
+					<h3><i class="fa-solid fa-file-image"></i> KEY SCREEN PREVIEW</h3>
+					<div class="preview-display-zone">
+						<!-- 실제 디자인 스크린샷 이미지들을 넣는 곳입니다 -->
+						<div class="screen-mockup">
+							<img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800" alt="Screen 1">
+							<span class="mock-caption">01. Main Dashboard UI</span>
+						</div>
+						<div class="screen-mockup">
+							<img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800" alt="Screen 2">
+							<span class="mock-caption">02. Detail Interface & Sub Layout</span>
+						</div>
+					</div>
 				</div>
+			
 			</section>
 			
+			<!-- [우측 구역] 다음 트랙 내비게이션 -->
 			<section class="detail-sidebar">
 				<h3 class="sidebar-title">NEXT TRACKS</h3>
 				<div class="mini-track-list">
-					
-					<a href="web_project01.html" class="mini-track active">
+					<a href="web_project01.html" class="mini-track">
 						<span class="track-num">01</span>
-						<div class="track-info">
-							<h4>Project 01</h4>
-							<p>Design & Publishing</p>
-						</div>
+						<div class="track-info"><h4>Project 01</h4><p>Design & Publishing</p></div>
 					</a>
-					
 					<a href="web_project02.html" class="mini-track">
 						<span class="track-num">02</span>
-						<div class="track-info">
-							<h4>Project 02</h4>
-							<p>Design & Publishing</p>
-						</div>
+						<div class="track-info"><h4>Project 02</h4><p>Design & Publishing</p></div>
 					</a>
-					
-					<a href="web_project03.html" class="mini-track">
+					<a href="web_project03.html" class="mini-track active">
 						<span class="track-num">03</span>
-						<div class="track-info">
-							<h4>Project 03</h4>
-							<p>Design & Publishing</p>
-						</div>
+						<div class="track-info"><h4>Project 03</h4><p>Design & Publishing</p></div>
 					</a>
-					
 					<a href="web_project04.html" class="mini-track">
 						<span class="track-num">04</span>
-						<div class="track-info">
-							<h4>Project 04</h4>
-							<p>Design & Publishing</p>
-						</div>
+						<div class="track-info"><h4>Project 04</h4><p>Design & Publishing</p></div>
 					</a>
-				
 				</div>
 			</section>
-			
+		
 		</main>
 	</div>
-
+	
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			
+			// 3D 틸트 진폭 및 소프트 핑크 섀도우 계산
+			const tiltTargets = document.querySelectorAll('.tilt-target');
+			tiltTargets.forEach(target => {
+				target.addEventListener('mousemove', (e) => {
+					const rect = target.getBoundingClientRect();
+					const x = e.clientX - rect.left - (rect.width / 2);
+					const y = e.clientY - rect.top - (rect.height / 2);
+					const rotateX = -(y / rect.height) * 4;
+					const rotateY = (x / rect.width) * 4;
+					
+					requestAnimationFrame(() => {
+						target.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+					});
+				});
+				
+				target.addEventListener('mouseleave', () => {
+					requestAnimationFrame(() => {
+						target.style.transform = '';
+					});
+				});
+			});
+			
+			// 벚꽃잎 낙하 물리 엔진 기믹
+			const blossomContainer = document.getElementById('blossom-container');
+			const MAX_PETALS = 20;
+			
+			function createPetal() {
+				if (!blossomContainer || blossomContainer.children.length >= MAX_PETALS) return;
+				const petal = document.createElement('div');
+				petal.classList.add('petal');
+				const size = Math.random() * 12 + 10;
+				const startLeft = Math.random() * (window.innerWidth + 200) - 100;
+				const fallDuration = Math.random() * 8 + 7;
+				const swayDuration = Math.random() * 4 + 4;
+				petal.style.width = `${size}px`;
+				petal.style.height = `${size}px`;
+				petal.style.left = `${startLeft}px`;
+				petal.style.animationName = 'fall, sway';
+				petal.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
+				blossomContainer.appendChild(petal);
+				setTimeout(() => { petal.remove(); }, fallDuration * 1000);
+			}
+			setInterval(createPetal, 500);
+		});
+	</script>
 </body>
 </html>

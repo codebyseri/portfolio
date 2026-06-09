@@ -4,14 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	const currentTitle = document.getElementById('current-title');
 	const tracks = document.querySelectorAll('.track');
 	
-	const mainVinyl = document.getElementById('main-vinyl');
-	const playerTonearm = document.getElementById('player-tonearm');
-	const contentScroll = document.getElementById('content-scroll');
-	const wireFill = document.getElementById('wire-fill');
+	// 🔍 [수정] getElementById 대신 querySelector를 사용하여 id가 없더라도 클래스(.vinyl, .tonearm)로 확실하게 잡히도록 보완
+	const mainVinyl = document.getElementById('main-vinyl') || document.querySelector('.vinyl');
+	const playerTonearm = document.getElementById('player-tonearm') || document.querySelector('.tonearm');
+	const contentScroll = document.getElementById('content-scroll') || document.querySelector('.main-scroll-wrapper');
+	const wireFill = document.getElementById('wire-fill') || document.querySelector('.neon-wire-fill');
 	
 	// LP 플레이어 가동 전개 함수
 	function playTrack(trackElement) {
-		if(!trackElement) return;
+		if (!trackElement) return;
 		
 		tracks.forEach(t => t.classList.remove('active'));
 		trackElement.classList.add('active');
@@ -28,13 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		}, 300);
 	}
 	
-	// 💡 [수정] 새로고침 시 어떤 트랙도 활성화하지 않고 기본 대기 상태로 설정
+	// 💡 새로고침 시 어떤 트랙도 활성화하지 않고 기본 대기 상태로 설정
 	tracks.forEach(t => t.classList.remove('active'));
 	
 	if (currentTitle) {
 		currentTitle.innerText = "김미진 : Ready"; // 기본 타이틀 고정
 	}
-// 💡 준비된 기본 LP 커버 이미지가 있다면 아래 주소를 변경해 주세요.
+	// 💡 준비된 기본 LP 커버 이미지
 	if (currentArt) {
 		currentArt.style.backgroundImage = "url('https://i.pinimg.com/736x/9d/9d/47/9d9d47f453f817a8f72259bce864c353.jpg')";
 	}
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// 트랙 리스트 터치 브레이크 인터랙션
 	tracks.forEach(track => {
 		track.addEventListener('click', (e) => {
-			if(e.target.classList.contains('view-btn')) return;
+			if (e.target.classList.contains('view-btn')) return;
 			
 			if (mainVinyl) mainVinyl.classList.remove('playing');
 			if (playerTonearm) playerTonearm.classList.remove('playing');
@@ -53,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 	
-	// 숨겨진 스크롤 연동형 우측 핑크 네온 와이어 액션
+	// 숨겨진 스크롤 연동형 우측 네온 와이어 액션
 	if (contentScroll && wireFill) {
 		contentScroll.addEventListener('scroll', () => {
 			const scrollTop = contentScroll.scrollTop;
@@ -66,18 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 	
-	// 마우스 추적 조명 무빙
-	const mouseGlow = document.querySelector('.mouse-glow');
-	if (mouseGlow) {
-		window.addEventListener('mousemove', (e) => {
-			requestAnimationFrame(() => {
-				mouseGlow.style.left = `${e.clientX}px`;
-				mouseGlow.style.top = `${e.clientY}px`;
-			});
-		});
-	}
-	
-	// 마우스 3D 글래스 틸트 & 핑크빛 반사 그림자 계산
+	// 마우스 3D 글래스 틸트 & 반사 그림자 계산
 	const tiltTargets = document.querySelectorAll('.tilt-target');
 	tiltTargets.forEach(target => {
 		target.addEventListener('mousemove', (e) => {
@@ -90,14 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			
 			requestAnimationFrame(() => {
 				target.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
-				target.style.boxShadow = `${-rotateY * 1.2}px ${rotateX * 1.2}px 30px rgba(255, 117, 143, 0.25)`;
 			});
 		});
 		
 		target.addEventListener('mouseleave', () => {
 			requestAnimationFrame(() => {
 				target.style.transform = '';
-				target.style.boxShadow = '';
 			});
 		});
 	});
@@ -128,7 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		
 		blossomContainer.appendChild(petal);
 		
-		setTimeout(() => { petal.remove(); }, (fallDuration + delay) * 1000);
+		petal.addEventListener('animationend', (e) => {
+			if (e.animationName === 'fall') {
+				petal.remove();
+			}
+		});
 	}
+	
 	setInterval(createPetal, 400);
 });

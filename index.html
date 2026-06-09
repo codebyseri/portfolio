@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>김미진 Portfolio</title>
-	<!-- FontAwesome (아이콘 가속용) -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/script.js" defer></script>
@@ -12,7 +11,6 @@
 <body>
 	
 	<!-- 마우스 추적 조명 및 벚꽃 컨테이너 -->
-	<div class="mouse-glow"></div>
 	<div id="blossom-container"></div>
 	
 	<!-- 네온 와이어 스크롤 프로그레스 바 -->
@@ -23,7 +21,7 @@
 	<div class="app-container">
 		<!-- 헤더 -->
 		<header class="header">
-			<h1 class="logo chrome-text">Blooming</h1>
+			<h1 class="logo chrome-text">Portfolio</h1>
 		</header>
 		
 		<!-- 메인 콘텐츠 스플릿 레이아웃 (1 : 1.5 비율 제어) -->
@@ -36,10 +34,8 @@
 					<div class="tonearm" id="player-tonearm"></div>
 					
 					<!-- 310px 거대 하이글로시 LP판 -->
-					<div class="vinyl-wrapper">
-						<div class="vinyl" id="main-vinyl">
-							<div class="album-art" id="current-art"></div>
-						</div>
+					<div class="vinyl" id="main-vinyl">
+						<div class="album-art" id="current-art"></div>
 					</div>
 					
 					<!-- 정중앙 정렬 텍스트 플레이어 정보창 -->
@@ -66,23 +62,105 @@
 					
 					<!-- TECH STACKS SECTION -->
 					<section class="skills-section" style="margin-bottom: 60px;">
-						<h3 class="section-title">TECH STACKS</h3>
+						<h3 class="section-title">MY SKILL</h3>
 						<div class="glass-card skill-box tilt-target float-effect-2">
-							<div class="skill-tags">
-								<span>HTML / CSS</span>
-								<span>JavaScript</span>
-								<span>Figma</span>
-								<span>Photoshop</span>
-								<span>Illustrator</span>
-								<span>InDesign</span>
-								<span>After Effects</span>
+							<div class="mixer-wrapper-hybrid">
+								
+								<div class="vertical-console-group">
+									<div class="group-tag">CORE PUBLISHING & UI</div>
+									<div class="vertical-channels">
+										<div class="mixer-channel-v">
+											<div class="ch-info-v">
+												<span class="ch-icon-v"><i class="fa-brands fa-html5"></i></span>
+												<span class="ch-name-v">HTML/CSS</span>
+												<span class="ch-value-v">95%</span>
+											</div>
+											<div class="fader-track-v">
+												<div class="fader-fill-v" style="height: 95%;"></div>
+												<div class="fader-knob-v" style="bottom: 95%;"></div>
+											</div>
+											<span class="ch-num-v">CH-01</span>
+										</div>
+										<div class="mixer-channel-v">
+											<div class="ch-info-v">
+												<span class="ch-icon-v"><i class="fa-brands fa-js"></i></span>
+												<span class="ch-name-v">JS (ES6+)</span>
+												<span class="ch-value-v">85%</span>
+											</div>
+											<div class="fader-track-v">
+												<div class="fader-fill-v" style="height: 85%;"></div>
+												<div class="fader-knob-v" style="bottom: 85%;"></div>
+											</div>
+											<span class="ch-num-v">CH-02</span>
+										</div>
+										<div class="mixer-channel-v">
+											<div class="ch-info-v">
+												<span class="ch-icon-v"><i class="fa-brands fa-figma"></i></span>
+												<span class="ch-name-v">Figma</span>
+												<span class="ch-value-v">90%</span>
+											</div>
+											<div class="fader-track-v">
+												<div class="fader-fill-v" style="height: 90%;"></div>
+												<div class="fader-knob-v" style="bottom: 90%;"></div>
+											</div>
+											<span class="ch-num-v">CH-03</span>
+										</div>
+									</div>
+								</div>
+								
+								<div class="horizontal-console-group">
+									<div class="group-tag">VISUAL CREATIVE</div>
+									<div class="horizontal-channels">
+										<div class="mixer-channel-h ps-theme">
+											<span class="adobe-badge">Ps</span>
+											<div class="ch-info-h">
+												<span class="ch-name-h">Photoshop</span>
+												<div class="fader-track-h">
+													<div class="fader-fill-h" style="width: 85%;"></div>
+												</div>
+											</div>
+											<span class="ch-value-h">85%</span>
+										</div>
+										<div class="mixer-channel-h ai-theme">
+											<span class="adobe-badge">Ai</span>
+											<div class="ch-info-h">
+												<span class="ch-name-h">Illustrator</span>
+												<div class="fader-track-h">
+													<div class="fader-fill-h" style="width: 80%;"></div>
+												</div>
+											</div>
+											<span class="ch-value-h">80%</span>
+										</div>
+										<div class="mixer-channel-h id-theme">
+											<span class="adobe-badge">Id</span>
+											<div class="ch-info-h">
+												<span class="ch-name-h">InDesign</span>
+												<div class="fader-track-h">
+													<div class="fader-fill-h" style="width: 75%;"></div>
+												</div>
+											</div>
+											<span class="ch-value-h">75%</span>
+										</div>
+										<div class="mixer-channel-h ae-theme">
+											<span class="adobe-badge">Ae</span>
+											<div class="ch-info-h">
+												<span class="ch-name-h">After Effects</span>
+												<div class="fader-track-h">
+													<div class="fader-fill-h" style="width: 70%;"></div>
+												</div>
+											</div>
+											<span class="ch-value-h">70%</span>
+										</div>
+									</div>
+								</div>
+							
 							</div>
 						</div>
 					</section>
 					
 					<!-- WEB LIST SECTION -->
 					<section class="web-section" style="margin-bottom: 60px;">
-						<h3 class="section-title">WEB TRANSLATION LIST</h3>
+						<h3 class="section-title">WEB PROJECT LIST</h3>
 						<div class="track-list-vertical">
 							<div class="track active" data-title="웹 프로젝트" data-img="https://i.pinimg.com/736x/4c/8e/0c/4c8e0ce3cde082df8233779bdf134f2b.jpg">
 								<span class="num">01</span>
@@ -127,27 +205,27 @@
 					<section class="edit-section" style="margin-bottom: 60px;">
 						<h3 class="section-title">VISUAL EDIT LIST</h3>
 						<div class="gallery-grid">
-							<a href="./html/edit-detail01.html" class="gallery-item tilt-target">
+							<div class="gallery-item tilt-target">
 								<div class="gallery-thumb" style="background-image: url('https://i.pinimg.com/736x/26/70/5c/26705c576d338e6edd54c081bc8058bc.jpg');"></div>
 								<div class="gallery-overlay">
 									<h4>시각디자인</h4>
 									<p>Photoshop / Illustrator</p>
 								</div>
-							</a>
-							<a href="./html/edit-detail02.html" class="gallery-item tilt-target">
+							</div>
+							<div class="gallery-item tilt-target">
 								<div class="gallery-thumb" style="background-image: url('https://i.pinimg.com/736x/26/70/5c/26705c576d338e6edd54c081bc8058bc.jpg');"></div>
 								<div class="gallery-overlay">
 									<h4>편집디자인</h4>
 									<p>InDesign</p>
 								</div>
-							</a>
-							<a href="./html/edit-detail03.html" class="gallery-item tilt-target">
+							</div>
+							<div class="gallery-item tilt-target">
 								<div class="gallery-thumb" style="background-image: url('https://i.pinimg.com/736x/26/70/5c/26705c576d338e6edd54c081bc8058bc.jpg');"></div>
 								<div class="gallery-overlay">
 									<h4>편집디자인</h4>
 									<p>InDesign</p>
 								</div>
-							</a>
+							</div>
 						</div>
 					</section>
 					
@@ -178,7 +256,6 @@
 								<h3>CONTACT ME</h3>
 								<div class="contact-links">
 									<a href="#"><i class="fa-solid fa-envelope"></i> @example.com</a>
-									<a href="#"><i class="fa-solid fa-phone"></i> 010-1234-5678</a>
 									<a href="#" target="_blank"><i class="fa-brands fa-github"></i> github.com</a>
 								</div>
 							</div>
