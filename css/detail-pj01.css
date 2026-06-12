@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Poppins:wght@500;600;700&display=swap');
+
+@font-face {
+    font-family: 'YClover';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/YClover-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+    background-color: #F0F9F8;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.app-container {
+    width: 100vw;
+    height: 100vh;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 헤더 & 로고 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.chrome-text {
+    font-family: 'YClover', 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    background: linear-gradient(135deg, #b5179e 0%, #7209b7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 6px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 10px rgba(114, 9, 183, 0.08);
+}
+
+.back-btn {
+    text-decoration: none;
+    color: #b5179e;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    color: #7209b7;
+    transform: translateX(-4px);
+}
+
+/* 마스터 그리드 */
+.detail-wrapper {
+    display: grid;
+    grid-template-columns: 440px 1fr 300px;
+    gap: 30px;
+    flex-grow: 1;
+    min-height: 0; /* ★ 중요: 자식 요소들이 높이 한도를 계산할 수 있도록 브레이크를 잡아줌 */
+    padding-bottom: 10px;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 20px 40px rgba(114, 9, 183, 0.06), inset 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* ================= [좌측] 앨범 자켓 요약 카드 ================= */
+.detail-summary {
+    height: 100%;
+}
+
+.project-card {
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-hero-img {
+    width: 100%;
+    height: 380px;
+    border-radius: 22px;
+    margin-bottom: 20px;
+    border: 4px solid #ffffff;
+    box-shadow: 0 12px 25px rgba(114, 9, 183, 0.12);
+    position: relative;
+    overflow: hidden;
+    background-image: url("../images/unove-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-hero-img iframe,
+.project-hero-img .web-screen-scroll {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.web-screen-scroll {
+    background-size: cover;
+    background-position: top center;
+    transition: background-position 6s ease-in-out;
+}
+.project-card:hover .web-screen-scroll {
+    background-position: bottom center;
+}
+
+.vinyl-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(26, 19, 38, 0.85);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    backdrop-filter: blur(5px);
+    z-index: 10;
+}
+
+.project-card h2 {
+    font-size: 1.5rem;
+    color: #1a1326;
+    font-weight: 700;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.project-date {
+    font-size: 0.8rem;
+    color: #7b6d8d;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.launch-btn {
+    text-decoration: none;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #b5179e 0%, #7209b7 100%);
+    color: white;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 20px rgba(114, 9, 183, 0.2);
+    transition: 0.3s;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.launch-btn:not(.coming-soon):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(114, 9, 183, 0.3);
+}
+
+.launch-btn.coming-soon {
+    background: linear-gradient(135deg, #d6cbd1 0%, #bcaeb5 100%);
+    color: rgba(255, 255, 255, 0.8);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* ================= [중앙] 비주얼 그래픽 컨텐츠 구역 ================= */
+.detail-content {
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    overflow-y: auto;          /* 개별 스크롤 활성화 */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.detail-content::-webkit-scrollbar {
+    display: none;
+}
+
+.content-block h3 {
+    font-size: 0.95rem;
+    color: #7209b7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.info-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #52475e;
+    font-weight: 500;
+    margin-bottom: 15px;
+    word-break: keep-all;
+}
+
+.project-meta-grid {
+    background: white;
+    padding: 15px;
+    border-radius: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.meta-item {
+    font-size: 0.8rem;
+    color: #52475e;
+}
+
+.meta-item strong {
+    color: #1a1326;
+    margin-right: 8px;
+    display: inline-block;
+    width: 55px;
+}
+
+.color-palette-zone {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.color-chip {
+    flex: 1;
+    height: 75px;
+    border-radius: 14px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    border: 2px solid #fff;
+}
+
+.color-hex {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.color-name {
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* KEY SCREEN PREVIEW - iframe 레이아웃 */
+.preview-display-zone {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.screen-mockup.iframe-mode {
+    position: relative;
+    width: 95%;
+    height: 700px;
+    border: 1px solid rgba(114, 9, 183, 0.12);
+    border-radius: 20px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 12px 30px rgba(114, 9, 183, 0.06);
+    display: flex;
+    flex-direction: column;
+}
+
+.browser-header {
+    background: #f4f2f7;
+    padding: 12px 16px;
+    display: flex;
+    gap: 7px;
+    border-bottom: 1px solid rgba(114, 9, 183, 0.08);
+    align-items: center;
+}
+
+.browser-header .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.browser-header .dot.red    { background: #ff5f56; }
+.browser-header .dot.yellow { background: #ffbd2e; }
+.browser-header .dot.green  { background: #27c93f; }
+
+.screen-mockup.iframe-mode iframe {
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    border: none;
+    background: #ffffff;
+}
+
+.screen-mockup.iframe-mode .mock-caption {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #7b6d8d;
+    font-weight: 700;
+    background: #ffffff;
+    border-top: 1px solid rgba(114, 9, 183, 0.05);
+}
+/* 본문 설명글 내부 링크 스타일 */
+.info-text .text-link {
+    color: #7209b7;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1.5px dashed rgba(114, 9, 183, 0.4);
+    transition: all 0.2s ease;
+}
+
+/* 마우스를 올렸을 때(Hover) 효과 */
+.info-text .text-link:hover {
+    color: #b5179e;             /* 마우스 올리면 더 밝은 핑크퍼플로 변경 */
+    border-bottom-style: solid; /* 점선을 실선으로 변경 */
+    opacity: 0.9;
+}
+/* ================= [우측] 사이드바 내비게이션 ================= */
+/* 🎨 [수정] 사이드바 영역이 스크롤 공간 한도를 인지하도록 레이아웃 구조 개편 */
+.detail-sidebar {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;             /* ★ 추가: 내부 트랙 리스트가 무한정 커지지 않고 스크롤되도록 제한 */
+    height: 100%;              /* 화면 높이에 맞춤 */
+}
+
+.sidebar-title {
+    font-size: 0.8rem;
+    color: #7209b7;
+    opacity: 0.7;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    border-left: 3px solid #b5179e;
+    padding-left: 10px;
+    flex-shrink: 0;            /* ★ 추가: 타이틀이 위로 찌그러지지 않도록 고정 */
+}
+
+/* 🎨 [수정] 트랙 리스트 영역이 넘칠 때 내부에서 정상 스크롤되도록 보완 */
+.mini-track-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;          /* 개별 스크롤 활성화 */
+    flex-grow: 1;              /* 남은 사이드바 공간을 가득 채움 */
+    padding-right: 4px;        /* 스크롤 시 우측 여백 확보 */
+    scrollbar-width: none;     /* 파이어폭스 스크롤바 숨김 */
+    -ms-overflow-style: none;  /* IE 스크롤바 숨김 */
+}
+
+.mini-track-list::-webkit-scrollbar {
+    display: none;             /* 크롬, 사파리 스크롤바 바디 숨김 */
+}
+
+.mini-track {
+    display: flex;
+    align-items: center;
+    padding: 16px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;            /* ★ 추가: 자식 카드들이 찌그러지지 않고 고유 형태를 유지함 */
+}
+
+.mini-track:hover {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(114, 9, 183, 0.15);
+    transform: translateX(3px);
+}
+
+.mini-track.active {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(114, 9, 183, 0.35);
+    box-shadow: 0 8px 15px rgba(114, 9, 183, 0.05);
+}
+
+.track-num {
+    width: 25px;
+    font-weight: 700;
+    color: #e0b1cb;
+    font-size: 0.85rem;
+}
+
+.mini-track.active .track-num {
+    color: #7209b7;
+}
+
+.track-info {
+    flex-grow: 1;
+}
+
+.track-info h4 {
+    font-size: 0.85rem;
+    color: #1a1326;
+    margin-bottom: 2px;
+    font-weight: 700;
+}
+
+.mini-track.active .track-info h4 {
+    color: #7209b7;
+}
+
+.track-info p {
+    font-size: 0.72rem;
+    color: #7b6d8d;
+    font-weight: 500;
+}
+
+/* 벚꽃 이펙트 바인딩 */
+#blossom-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 147, 172, 0.4) 100%);
+    border-radius: 16px 2px 16px 16px;
+    opacity: 0.5;
+    animation: fall linear infinite, sway ease-in-out infinite;
+}
+
+@keyframes fall {
+    0% { top: -60px; }
+    100% { top: 105vh; }
+}
+
+@keyframes sway {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    50% { transform: translateX(80px) rotate(180deg); }
+}
+
+/* ==========================================================================
+   [개편] 반응형 모바일 & 태블릿 브레이크 포인트 (max-width: 1200px)
+   ========================================================================== */
+@media (max-width: 1200px) {
+    /* 1. 스크롤 봉쇄 해제: 컨테이너와 바디의 높이 사슬을 완전히 풀어줍니다. */
+    body {
+        overflow-y: auto !important;
+        height: auto !important;
+    }
+
+    .app-container {
+        height: auto !important;  /* 모바일에서는 컨텐츠 길이에 맞게 늘어나도록 고정 축 해제 */
+        overflow: visible;
+        padding: 20px;
+    }
+
+    /* 2. 3단 그리드를 1열 세로 배열로 변경 */
+    .detail-wrapper {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        height: auto;
+        padding-bottom: 40px;
+    }
+
+    /* 3. [좌측] 앨범 자켓 요약 카드 가독성 보완 */
+    .project-card {
+        height: auto;
+        padding: 24px;
+    }
+
+    .project-hero-img {
+        height: 320px; /* 모바일 화면에 맞춘 컴팩트한 높이 */
+        margin-bottom: 16px;
+    }
+
+    .project-card h2 {
+        font-size: 1.35rem;
+    }
+
+    /* 4. [중앙] 비주얼 컨텐츠 구역 모바일 최적화 */
+    .detail-content {
+        padding: 0;
+        overflow-y: visible; /* 개별 스크롤을 끄고 전체 화면 스크롤에 동참시킵니다 */
+    }
+
+    /* 컬러 칩이 모바일에서 너무 쪼개지지 않도록 줄바꿈 허용 */
+    .color-palette-zone {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .color-chip {
+        flex: calc(50% - 4px); /* 모바일에서는 2열로 정렬 */
+        height: 65px;
+    }
+
+    /* iframe 브라우저 목업 크기 최적화 */
+    .screen-mockup.iframe-mode {
+        width: 100%;
+        height: 480px; /* 모바일에서 보기에 답답하지 않은 알맞은 높이 */
+    }
+
+    /* 5. [우측] 사이드바 내비게이션 모바일 전용 UI 개편 */
+    .detail-sidebar {
+        height: auto;
+        min-height: auto;
+        padding: 0;
+    }
+
+    .mini-track-list {
+        overflow-y: visible; /* 잘림 현상 방지를 위해 스크롤 해제 */
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* 모바일 가로 너비에 맞춰 자동 정렬 */
+        gap: 10px;
+    }
+
+    .mini-track {
+        flex-shrink: 1;
+    }
+}

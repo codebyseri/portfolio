@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Project 01 - Detail</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	<link rel="stylesheet" href="../css/detail.css">
+	<link rel="stylesheet" href="../css/detail-pj01.css">
 </head>
 <body>
 	<div id="blossom-container"></div>
@@ -25,12 +25,12 @@
 						<!-- 음반 느낌을 내는 미니 바이닐 태그 -->
 						<div class="vinyl-tag"><i class="fa-solid fa-compact-disc fa-spin"></i> WEB</div>
 					</div>
-					<h2>Project 01 Title</h2>
-					<p class="project-date">2026. 00 - 2026. 00 (개인 프로젝트)</p>
+					<h2>UNOVE - Web Renewal</h2>
+					<p class="project-date">2026. 05 - 2026. 06 (개인 프로젝트)</p>
 					
 					<!-- 🔗 [A타입: 실제 연결 링크가 있을 때 사용하는 버튼] -->
-					<a href="https://본인의실제프로젝트주소.com" target="_blank" class="launch-btn">
-						LISTEN NOW (LAUNCH) <i class="fa-solid fa-play"></i>
+					<a href="https://codebyseri.github.io/unove/" target="_blank" class="launch-btn">
+						PLAY PROJECT <i class="fa-solid fa-play"></i>
 					</a>
 					
 					<!-- 🔒 [B타입: 연결 링크가 없을 때 A타입 지우고 대신 사용하는 버튼]
@@ -47,7 +47,8 @@
 				<!-- 1. 프로젝트 개요 (키워드 중심) -->
 				<div class="content-block">
 					<h3><i class="fa-solid fa-quote-left"></i> ALBUM LINER NOTES</h3>
-					<p class="info-text">프로젝트의 핵심 콘셉트와 기획 의도를 직관적이고 감성적인 한두 문장으로 작성합니다. 감각적인 웹 디자인과 사용자 경험을 중심으로 풀어낸 트랙입니다.</p>
+					<p class="info-text">고해상도 데스크탑 환경에서 비효율적이었던 <a href="https://unoveofficial.com/" target="_blank" class="text-link">어노브 공식몰</a>의 UI/UX를 전면 재설계한 리디자인 프로젝트입니다.
+						<br> 과도한 비주얼로 인한 피로도를 낮추고 정보의 위계를 바르게 잡아, 브랜드의 심미적 감도와 유저의 구매 편의성을 모두 극대화했습니다.</p>
 					<div class="project-meta-grid">
 						<div class="meta-item"><strong>ROLE</strong> <span>UI/UX Design, Publishing</span></div>
 						<div class="meta-item"><strong>TOOLS</strong> <span>Figma, HTML5, CSS3, JS</span></div>
@@ -57,12 +58,18 @@
 				<!-- 2. 비주얼 브랜드 무드 (컬러 가이드) -->
 				<div class="content-block">
 					<h3><i class="fa-solid fa-palette"></i> BRANDING MOOD</h3>
-					<p class="info-text">디자인에 사용된 메인 크리에이티브 컬러 칩 세트입니다.</p>
+					<p class="info-text">기존 브랜드의 인지도를 이어갈 수 있도록 어노브 고유의 헤리티지 컬러를 중심 축으로 설계한 메인 컬러 시스템입니다.</p>
 					<div class="color-palette-zone">
-						<div class="color-chip" style="background: #ff4d6d;"><span class="color-hex">#ff4d6d</span><span class="color-name">Main</span></div>
-						<div class="color-chip" style="background: #ff758f;"><span class="color-hex">#ff758f</span><span class="color-name">Point</span></div>
-						<div class="color-chip" style="background: #ffccd5;"><span class="color-hex">#ffccd5</span><span class="color-name">Sub</span></div>
-						<div class="color-chip" style="background: #4a3b40;"><span class="color-hex">#4a3b40</span><span class="color-name">Dark</span></div>
+						<div class="color-chip" style="background: #101A33;"><span class="color-hex">#101A33</span><span
+								class="color-name">Main01</span></div>
+						<div class="color-chip" style="background: #F3D4D4;"><span class="color-hex">#F3D4D4</span><span
+								class="color-name">Main02</span></div>
+						<div class="color-chip" style="background: #FFD8E2;"><span class="color-hex">#FFD8E2</span><span
+								class="color-name">Sub01</span></div>
+						<div class="color-chip" style="background: #DEE2FF;"><span class="color-hex">#DEE2FF</span><span
+								class="color-name">Sub02</span></div>
+						<div class="color-chip" style="background: #FFAAC9;"><span class="color-hex">#FFAAC9</span><span
+								class="color-name">Point</span></div>
 					</div>
 				</div>
 				
@@ -70,14 +77,25 @@
 				<div class="content-block">
 					<h3><i class="fa-solid fa-file-image"></i> KEY SCREEN PREVIEW</h3>
 					<div class="preview-display-zone">
-						<!-- 실제 디자인 스크린샷 이미지들을 넣는 곳입니다 -->
-						<div class="screen-mockup">
-							<img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800" alt="Screen 1">
-							<span class="mock-caption">01. Main Dashboard UI</span>
+						<!-- [첫 번째 화면 구역] -->
+						<div class="screen-mockup iframe-mode">
+							<!-- 상단 브라우저 바 느낌 연출 (선택사항, 지워도 무방) -->
+							<div class="browser-header">
+								<span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+							</div>
+							<!-- 실제 띄우고 싶은 웹 페이지 주소 삽입 -->
+							<iframe src="https://codebyseri.github.io/unove/" frameborder="0"></iframe>
+							<span class="mock-caption">01. Main Desktop Home UI</span>
 						</div>
-						<div class="screen-mockup">
-							<img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800" alt="Screen 2">
-							<span class="mock-caption">02. Detail Interface & Sub Layout</span>
+						
+						<!-- [두 번째 화면 구역] 서브페이지나 다른 주소가 있다면 src를 변경 -->
+						<div class="screen-mockup iframe-mode">
+							<div class="browser-header">
+								<span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+							</div>
+							<!-- 서브페이지 주소 혹은 동일한 주소 삽입 -->
+							<iframe src="https://codebyseri.github.io/unove/html/shop.html" frameborder="0"></iframe>
+							<span class="mock-caption">02. Sub Layout - #shop</span>
 						</div>
 					</div>
 				</div>
@@ -90,19 +108,23 @@
 				<div class="mini-track-list">
 					<a href="web_project01.html" class="mini-track active">
 						<span class="track-num">01</span>
-						<div class="track-info"><h4>Project 01</h4><p>Design & Publishing</p></div>
+						<div class="track-info"><h4>UNOVE - Web Renewal</h4>
+							<p> UI/UX Design, Publishing</p></div>
 					</a>
 					<a href="web_project02.html" class="mini-track">
 						<span class="track-num">02</span>
-						<div class="track-info"><h4>Project 02</h4><p>Design & Publishing</p></div>
+						<div class="track-info"><h4>Project 02</h4>
+							<p>Design & Publishing</p></div>
 					</a>
 					<a href="web_project03.html" class="mini-track">
 						<span class="track-num">03</span>
-						<div class="track-info"><h4>Project 03</h4><p>Design & Publishing</p></div>
+						<div class="track-info"><h4>Project 03</h4>
+							<p>Design & Publishing</p></div>
 					</a>
 					<a href="web_project04.html" class="mini-track">
 						<span class="track-num">04</span>
-						<div class="track-info"><h4>Project 04</h4><p>Design & Publishing</p></div>
+						<div class="track-info"><h4>Project 04</h4>
+							<p>Design & Publishing</p></div>
 					</a>
 				</div>
 			</section>
@@ -124,7 +146,8 @@
 					const rotateY = (x / rect.width) * 4;
 					
 					requestAnimationFrame(() => {
-						target.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;});
+						target.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+					});
 				});
 				
 				target.addEventListener('mouseleave', () => {
@@ -152,8 +175,11 @@
 				petal.style.animationName = 'fall, sway';
 				petal.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
 				blossomContainer.appendChild(petal);
-				setTimeout(() => { petal.remove(); }, fallDuration * 1000);
+				setTimeout(() => {
+					petal.remove();
+				}, fallDuration * 1000);
 			}
+			
 			setInterval(createPetal, 500);
 		});
 	</script>
