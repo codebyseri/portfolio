@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		
 		setTimeout(() => {
 			if (mainVinyl) mainVinyl.classList.add('playing');
-			if (title && currentTitle) currentTitle.innerText = `김미진 : ${title}`;
+			if (title && currentTitle) currentTitle.innerText = `Project : ${title}`;
 			if (img && currentArt) currentArt.style.backgroundImage = `url('${img}')`;
 		}, 300);
 	}
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	tracks.forEach(t => t.classList.remove('active'));
 	
 	if (currentTitle) {
-		currentTitle.innerText = "김미진 : Ready"; // 기본 타이틀 고정
+		currentTitle.innerText = "code by Seri"; // 기본 타이틀 고정
 	}
 	// 💡 준비된 기본 LP 커버 이미지
 	if (currentArt) {
