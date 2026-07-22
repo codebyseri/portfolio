@@ -75,7 +75,7 @@ body {
     padding-left: 10px;
 }
 
-/* 메인 로고: 라벤더 소다 무드에 맞춘 영롱한 체리 바이올렛 그라데이션 */
+/* 메인 로고 */
 .chrome-text {
     font-family: 'YClover', 'Noto Sans KR', sans-serif;
     font-weight: 700;
@@ -110,17 +110,16 @@ body {
     height: 100%;
 }
 
-/* 오디오 콘솔 유리 카드: 그림자 톤을 라벤더/민트 소프트 컬러로 변경 */
 .vinyl-player-card {
     width: 100%;
     height: 85%;
     max-height: 680px;
-    padding: 40px 45px;
+    padding: 35px 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
     position: relative;
     overflow: visible;
     background: rgba(255, 255, 255, 0.45);
@@ -131,7 +130,6 @@ body {
     box-shadow: 0 20px 40px rgba(114, 9, 183, 0.15), inset 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
-/* 턴테이블 메탈 스틱 오버레이: 보라빛 무드 링크 */
 .tonearm {
     position: absolute;
     top: 30px;
@@ -162,10 +160,9 @@ body {
     transform: rotate(12deg);
 }
 
-/* 네온 라벤더 스케일 업 LP 시스템 */
 .vinyl {
-    width: 310px;
-    height: 310px;
+    width: 290px;
+    height: 290px;
     background: radial-gradient(circle, #222222 20%, #111111 60%, #050505 95%, #333333 100%);
     border-radius: 50%;
     display: flex;
@@ -181,8 +178,8 @@ body {
 }
 
 .album-art {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
     background-size: cover;
     border-radius: 50%;
     border: 5px solid #ffffff;
@@ -200,10 +197,9 @@ body {
     justify-content: center;
     align-items: center;
     gap: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
-/* NOW PLAYING 상태창: 선명한 네온 바이올렛 */
 .now-playing .status {
     font-size: 0.75rem;
     color: #7209b7;
@@ -217,39 +213,55 @@ body {
     margin-right: 5px;
 }
 
-/* 메인 텍스트: 깊은 새벽빛 딥 퍼플 차콜로 가독성 가득 채움 */
 .now-playing h2 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     color: #1a1326;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-weight: 700;
-    min-height: 32px;
 }
 
-/* 서브 설명글: 차분한 뮤티드 라벤더 */
 .now-playing .info-text {
-    font-size: 0.85rem;
-    line-height: 1.6;
+    font-size: 0.82rem;
+    line-height: 1.5;
     color: #7b6d8d;
-    margin-bottom: 25px;
+    margin-bottom: 16px;
     word-break: keep-all;
 }
 
-.contact-mini {
+/* 좌측 카드 내 ABOUT ME 버튼 스타일 */
+.about-me-zone {
     display: flex;
     justify-content: center;
-    gap: 20px;
+}
+
+.about-me-btn {
+    background: linear-gradient(135deg, #b5179e 0%, #7209b7 100%);
+    color: #ffffff;
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
     font-size: 0.8rem;
-    color: #7b6d8d;
+    font-weight: 700;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    letter-spacing: 1.5px;
+    box-shadow: 0 6px 16px rgba(114, 9, 183, 0.25);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.contact-mini i {
-    color: #b5179e;
-    opacity: 0.9;
-    margin-right: 6px;
+.about-me-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 22px rgba(114, 9, 183, 0.35);
 }
 
-/* 이퀄라이저 바: 바이올렛 컬러 매칭 */
+.about-me-btn i {
+    font-size: 0.85rem;
+}
+
+/* 이퀄라이저 바 */
 .eq-container {
     display: flex;
     gap: 3px;
@@ -280,6 +292,7 @@ body {
     animation: eqMotion 0.6s ease-in-out infinite alternate 0.3s;
 }
 
+/* 우측 스크롤 콘텐트 구역 */
 .main-scroll-wrapper {
     flex: 1.5;
     height: 100%;
@@ -295,7 +308,6 @@ body {
     display: none;
 }
 
-/* 섹션 제목: 청량한 민트와 보색 대비를 이루는 쨍한 체리 퍼플 라인 */
 .section-title {
     font-size: 0.95rem;
     color: #7209b7;
@@ -322,7 +334,6 @@ body {
     width: 100%;
 }
 
-/* 오디오 콘솔 내 서브 타이틀 라인 */
 .group-tag {
     font-size: 0.65rem;
     font-weight: 700;
@@ -376,7 +387,6 @@ body {
     color: #b5179e;
 }
 
-/* 믹서 내부 텍스트 수정 */
 .ch-name-v {
     font-size: 0.65rem;
     font-weight: 700;
@@ -553,15 +563,6 @@ body {
     text-align: right;
 }
 
-@keyframes knobVibe {
-    0% {
-        transform: translate(-50%, 47%);
-    }
-    100% {
-        transform: translate(-50%, 53%);
-    }
-}
-
 .track-list-vertical {
     display: flex;
     flex-direction: column;
@@ -591,7 +592,6 @@ body {
     box-shadow: 0 10px 20px rgba(114, 9, 183, 0.1);
 }
 
-/* 리스트 넘버링 색상 정돈 */
 .track .num {
     width: 35px;
     font-weight: 700;
@@ -629,7 +629,6 @@ body {
     color: #7b6d8d;
 }
 
-/* 보러가기 버튼: 라벤더 감성 적용 */
 .view-btn {
     text-decoration: none;
     font-size: 0.75rem;
@@ -683,7 +682,6 @@ body {
     transform: scale(1.04);
 }
 
-/* 오버레이 배경 그라데이션 수정 */
 .gallery-overlay {
     position: absolute;
     bottom: 0;
@@ -715,29 +713,109 @@ body {
     color: #f3e5f5;
 }
 
-.final-profile-section {
-    width: 100%;
-    padding: 60px 0 100px 0;
+/* ==========================================================================
+   🌟 레이어 팝업(모달) 전체 및 확장 스타일 정의
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(26, 19, 38, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.final-profile-card {
-    width: 100%;
-    max-width: 550px;
-    padding: 50px 40px;
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 대형 모달 카드로 변경 및 내부 스크롤 추가 */
+.profile-modal-card {
+    position: relative;
+    width: 90%;
+    max-width: 920px;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 35px 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    gap: 30px;
+    text-align: left;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 25px 60px rgba(114, 9, 183, 0.25);
+    transform: scale(0.92);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.active .profile-modal-card {
+    transform: scale(1);
+}
+
+/* 모달 커스텀 스크롤바 */
+.profile-modal-card::-webkit-scrollbar {
+    width: 6px;
+}
+.profile-modal-card::-webkit-scrollbar-thumb {
+    background: rgba(114, 9, 183, 0.25);
+    border-radius: 10px;
+}
+.profile-modal-card::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(26, 19, 38, 0.06);
+    border: none;
+    color: #7209b7;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+    z-index: 10;
+}
+
+.close-modal-btn:hover {
+    background: #7209b7;
+    color: #ffffff;
+    transform: rotate(90deg);
+}
+
+/* 상단 프로필 헤더 영역 */
+.modal-header-zone {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
 }
 
 .profile-avatar-wrapper {
     position: relative;
-    width: 140px;
-    height: 140px;
+    width: 110px;
+    height: 110px;
+    flex-shrink: 0;
 }
 
 .profile-avatar {
@@ -746,8 +824,8 @@ body {
     border-radius: 50%;
     background-size: cover;
     background-position: center;
-    border: 6px solid #ffffff;
-    box-shadow: 0 12px 25px rgba(114, 9, 183, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 4px solid #ffffff;
+    box-shadow: 0 10px 20px rgba(114, 9, 183, 0.18);
 }
 
 .deco-sparkle-1 {
@@ -755,65 +833,201 @@ body {
     top: -5px;
     right: -5px;
     color: #b5179e;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     animation: blink 1.2s infinite;
 }
 
 .deco-sparkle-2 {
     position: absolute;
     bottom: 5px;
-    left: -10px;
+    left: -8px;
     color: #e0b1cb;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     animation: blink 1.8s infinite 0.4s;
+}
+
+.profile-bio {
+    flex: 1;
+}
+
+.profile-bio .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(114, 9, 183, 0.1);
+    color: #7209b7;
+    margin-bottom: 6px;
 }
 
 .profile-bio h2 {
     font-family: 'YClover', sans-serif;
     font-size: 1.6rem;
     color: #1a1326;
-    margin-bottom: 15px;
+    margin-bottom: 6px;
     letter-spacing: 1px;
 }
 
-.profile-bio p {
-    font-size: 0.88rem;
-    line-height: 1.8;
+.profile-bio .en-name {
+    font-size: 1.05rem;
     color: #7b6d8d;
+    font-weight: 400;
+    margin-left: 4px;
+}
+
+.profile-bio p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #584a6b;
     font-weight: 500;
     word-break: keep-all;
 }
 
+/* 2열 레이아웃 그리드 */
+.modal-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.info-group {
+    margin-bottom: 30px;
+}
+
+.group-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #7209b7;
+    border-bottom: 1.5px solid rgba(114, 9, 183, 0.15);
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.group-title i {
+    color: #b5179e;
+}
+
+/* 타임라인 형식 (학력, 공모전, 경력) */
+.timeline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-list li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 16px;
+    border-left: 2px solid rgba(181, 23, 158, 0.2);
+}
+
+.timeline-list .date {
+    display: block;
+    font-size: 0.75rem;
+    color: #8b7d9b;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.timeline-list .title {
+    display: block;
+    font-size: 0.9rem;
+    color: #1a1326;
+    font-weight: 700;
+}
+
+.timeline-list .desc {
+    font-size: 0.8rem;
+    color: #66577a;
+    margin-top: 2px;
+    line-height: 1.4;
+}
+
+/* 자격증 태그 리스트 */
+.tag-badge-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tag-badge-list li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 9px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(114, 9, 183, 0.1);
+}
+
+.tag-badge-list li i {
+    color: #7209b7;
+    font-size: 0.85rem;
+}
+
+.cert-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-info strong {
+    font-size: 0.85rem;
+    color: #1a1326;
+}
+
+.cert-info span {
+    font-size: 0.73rem;
+    color: #8b7d9b;
+}
+
 .profile-divider {
-    width: 60%;
-    height: 2px;
+    width: 100%;
+    height: 1px;
     background: linear-gradient(to right, transparent, rgba(114, 9, 183, 0.2), transparent);
 }
 
+/* 하단 연동 정보 */
+.profile-contact {
+    width: 100%;
+    text-align: center;
+}
+
 .profile-contact h3 {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #b5179e;
     letter-spacing: 3px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .contact-links {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    gap: 15px;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .contact-links a {
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     color: #1a1326;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     padding: 8px 18px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(114, 9, 183, 0.2);
     border-radius: 30px;
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -827,7 +1041,7 @@ body {
     background: #7209b7;
     color: #ffffff;
     border-color: #7209b7;
-    transform: scale(1.05);
+    transform: translateY(-2px) scale(1.03);
     box-shadow: 0 8px 15px rgba(114, 9, 183, 0.2);
 }
 
@@ -835,40 +1049,30 @@ body {
     color: #ffffff;
 }
 
+/* 애니메이션 Keyframes */
+@keyframes knobVibe {
+    0% { transform: translate(-50%, 47%); }
+    100% { transform: translate(-50%, 53%); }
+}
+
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 @keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.2;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
 }
 
 @keyframes floatingSkill {
-    0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-6px) rotate(-0.3deg);
-    }
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(-0.3deg); }
 }
 
 @keyframes eqMotion {
-    0% {
-        height: 3px;
-    }
-    100% {
-        height: 16px;
-    }
+    0% { height: 3px; }
+    100% { height: 16px; }
 }
 
 #blossom-container {
@@ -892,35 +1096,22 @@ body {
 }
 
 @keyframes fall {
-    0% {
-        top: -60px;
-    }
-    100% {
-        top: 105vh;
-    }
+    0% { top: -60px; }
+    100% { top: 105vh; }
 }
 
 @keyframes sway {
-    0%, 100% {
-        transform: translateX(0) rotate(0deg);
-    }
-    50% {
-        transform: translateX(120px) rotate(180deg);
-    }
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    50% { transform: translateX(120px) rotate(180deg); }
 }
 
 @keyframes gradientFlow {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
+/* 반응형 미디어 쿼리 */
 @media (max-width: 1200px) {
     .mixer-wrapper-hybrid {
         flex-direction: column;
@@ -985,5 +1176,20 @@ body {
 
     .gallery-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* 반응형 모달 최적화 */
+    .modal-header-zone {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .modal-grid-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .profile-modal-card {
+        padding: 30px 20px;
     }
 }

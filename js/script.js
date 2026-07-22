@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	tracks.forEach(t => t.classList.remove('active'));
 	
 	if (currentTitle) {
-		currentTitle.innerText = "code by Seri"; // 기본 타이틀 고정
+		currentTitle.innerText = "디자이너, 세리"; // 기본 타이틀 고정
 	}
 	// 💡 준비된 기본 LP 커버 이미지
 	if (currentArt) {
@@ -124,4 +124,27 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	
 	setInterval(createPetal, 400);
+
+
+		// About Me 모달 열기/닫기
+	const profileModal = document.getElementById('profile-modal');
+	const openBtn = document.getElementById('open-profile-modal');
+	const closeBtn = document.getElementById('close-profile-modal');
+
+	openBtn.addEventListener('click', () => {
+		profileModal.classList.add('active'); // CSS에서 active 시 display: flex 처리
+	});
+
+	closeBtn.addEventListener('click', () => {
+		profileModal.classList.remove('active');
+	});
+
+	// 바깥 배경 클릭 시 닫기
+	profileModal.addEventListener('click', (e) => {
+		if (e.target === profileModal) {
+			profileModal.classList.remove('active');
+		}
+	});
+
+
 });
