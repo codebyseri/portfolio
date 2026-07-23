@@ -11,6 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
 }
 
 body {
@@ -81,7 +82,7 @@ body {
     grid-template-columns: 440px 1fr 300px;
     gap: 30px;
     flex-grow: 1;
-    min-height: 0; /* ★ 중요: 자식 요소들이 높이 한도를 계산할 수 있도록 브레이크를 잡아줌 */
+    min-height: 0;
     padding-bottom: 10px;
 }
 
@@ -209,7 +210,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 35px;
-    overflow-y: auto;          /* 개별 스크롤 활성화 */
+    overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -281,15 +282,22 @@ body {
 .color-hex {
     font-size: 0.75rem;
     font-weight: 700;
+    color: #494551;
+}
+
+.color-hex.white {
     color: #fff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .color-name {
     font-size: 0.6rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: #494551;
     text-transform: uppercase;
     font-weight: 500;
+}
+
+.color-name.white {
+    color: #fff;
 }
 
 /* KEY SCREEN PREVIEW - iframe 레이아웃 */
@@ -312,13 +320,22 @@ body {
     flex-direction: column;
 }
 
+/* 브라우저 헤더 */
 .browser-header {
     background: #f4f2f7;
-    padding: 12px 16px;
+    height: 38px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid rgba(114, 9, 183, 0.08);
+    box-sizing: border-box;
+}
+
+.browser-header .dots {
     display: flex;
     gap: 7px;
-    border-bottom: 1px solid rgba(114, 9, 183, 0.08);
-    align-items: center;
+    z-index: 2;
 }
 
 .browser-header .dot {
@@ -327,28 +344,36 @@ body {
     border-radius: 50%;
     display: inline-block;
 }
+
 .browser-header .dot.red    { background: #ff5f56; }
 .browser-header .dot.yellow { background: #ffbd2e; }
 .browser-header .dot.green  { background: #27c93f; }
 
+/* 헤더 내부 캡션 (중앙 정렬) */
+.browser-header .mock-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+    font-size: 0.8rem;
+    color: #7b6d8d;
+    font-weight: 700;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 1;
+    z-index: 1;
+}
+
+/* iframe 영역 */
 .screen-mockup.iframe-mode iframe {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 38px);
     flex-grow: 1;
     border: none;
     background: #ffffff;
 }
 
-.screen-mockup.iframe-mode .mock-caption {
-    display: block;
-    padding: 12px;
-    text-align: center;
-    font-size: 0.75rem;
-    color: #7b6d8d;
-    font-weight: 700;
-    background: #ffffff;
-    border-top: 1px solid rgba(114, 9, 183, 0.05);
-}
 /* 본문 설명글 내부 링크 스타일 */
 .info-text .text-link {
     color: #7209b7;
@@ -358,20 +383,19 @@ body {
     transition: all 0.2s ease;
 }
 
-/* 마우스를 올렸을 때(Hover) 효과 */
 .info-text .text-link:hover {
-    color: #b5179e;             /* 마우스 올리면 더 밝은 핑크퍼플로 변경 */
-    border-bottom-style: solid; /* 점선을 실선으로 변경 */
+    color: #b5179e;
+    border-bottom-style: solid;
     opacity: 0.9;
 }
+
 /* ================= [우측] 사이드바 내비게이션 ================= */
-/* 🎨 [수정] 사이드바 영역이 스크롤 공간 한도를 인지하도록 레이아웃 구조 개편 */
 .detail-sidebar {
     padding: 20px 0;
     display: flex;
     flex-direction: column;
-    min-height: 0;             /* ★ 추가: 내부 트랙 리스트가 무한정 커지지 않고 스크롤되도록 제한 */
-    height: 100%;              /* 화면 높이에 맞춤 */
+    min-height: 0;
+    height: 100%;
 }
 
 .sidebar-title {
@@ -383,23 +407,22 @@ body {
     font-weight: 700;
     border-left: 3px solid #b5179e;
     padding-left: 10px;
-    flex-shrink: 0;            /* ★ 추가: 타이틀이 위로 찌그러지지 않도록 고정 */
+    flex-shrink: 0;
 }
 
-/* 🎨 [수정] 트랙 리스트 영역이 넘칠 때 내부에서 정상 스크롤되도록 보완 */
 .mini-track-list {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    overflow-y: auto;          /* 개별 스크롤 활성화 */
-    flex-grow: 1;              /* 남은 사이드바 공간을 가득 채움 */
-    padding-right: 4px;        /* 스크롤 시 우측 여백 확보 */
-    scrollbar-width: none;     /* 파이어폭스 스크롤바 숨김 */
-    -ms-overflow-style: none;  /* IE 스크롤바 숨김 */
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 4px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .mini-track-list::-webkit-scrollbar {
-    display: none;             /* 크롬, 사파리 스크롤바 바디 숨김 */
+    display: none;
 }
 
 .mini-track {
@@ -411,7 +434,7 @@ body {
     transition: 0.3s ease;
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    flex-shrink: 0;            /* ★ 추가: 자식 카드들이 찌그러지지 않고 고유 형태를 유지함 */
+    flex-shrink: 0;
 }
 
 .mini-track:hover {
@@ -492,19 +515,17 @@ body {
    [개편] 반응형 모바일 & 태블릿 브레이크 포인트 (max-width: 1200px)
    ========================================================================== */
 @media (max-width: 1200px) {
-    /* 1. 스크롤 봉쇄 해제: 컨테이너와 바디의 높이 사슬을 완전히 풀어줍니다. */
     body {
         overflow-y: auto !important;
         height: auto !important;
     }
 
     .app-container {
-        height: auto !important;  /* 모바일에서는 컨텐츠 길이에 맞게 늘어나도록 고정 축 해제 */
+        height: auto !important;
         overflow: visible;
         padding: 20px;
     }
 
-    /* 2. 3단 그리드를 1열 세로 배열로 변경 */
     .detail-wrapper {
         grid-template-columns: 1fr;
         gap: 35px;
@@ -512,14 +533,13 @@ body {
         padding-bottom: 40px;
     }
 
-    /* 3. [좌측] 앨범 자켓 요약 카드 가독성 보완 */
     .project-card {
         height: auto;
         padding: 24px;
     }
 
     .project-hero-img {
-        height: 320px; /* 모바일 화면에 맞춘 컴팩트한 높이 */
+        height: 320px;
         margin-bottom: 16px;
     }
 
@@ -527,29 +547,26 @@ body {
         font-size: 1.35rem;
     }
 
-    /* 4. [중앙] 비주얼 컨텐츠 구역 모바일 최적화 */
     .detail-content {
         padding: 0;
-        overflow-y: visible; /* 개별 스크롤을 끄고 전체 화면 스크롤에 동참시킵니다 */
+        overflow-y: visible;
     }
 
-    /* 컬러 칩이 모바일에서 너무 쪼개지지 않도록 줄바꿈 허용 */
     .color-palette-zone {
         flex-wrap: wrap;
         gap: 8px;
     }
+
     .color-chip {
-        flex: calc(50% - 4px); /* 모바일에서는 2열로 정렬 */
+        flex: calc(50% - 4px);
         height: 65px;
     }
 
-    /* iframe 브라우저 목업 크기 최적화 */
     .screen-mockup.iframe-mode {
         width: 100%;
-        height: 480px; /* 모바일에서 보기에 답답하지 않은 알맞은 높이 */
+        height: 480px;
     }
 
-    /* 5. [우측] 사이드바 내비게이션 모바일 전용 UI 개편 */
     .detail-sidebar {
         height: auto;
         min-height: auto;
@@ -557,9 +574,9 @@ body {
     }
 
     .mini-track-list {
-        overflow-y: visible; /* 잘림 현상 방지를 위해 스크롤 해제 */
+        overflow-y: visible;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* 모바일 가로 너비에 맞춰 자동 정렬 */
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
         gap: 10px;
     }
 
