@@ -646,48 +646,43 @@ body {
     border-color: transparent;
 }
 
+/* ==========================================================================
+   🖼️ VISUAL EDIT LIST (갤러리 그리드) 축소 스타일
+   ========================================================================== */
+
+/* 1. 그리드 간격 축소 */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 12px; /* 간격 축소 (기존 20px -> 12px) */
 }
 
+/* 2. 카드 비율 및 크기 컴팩트화 */
 .gallery-item {
     position: relative;
-    aspect-ratio: 1.4 / 1;
-    border-radius: 24px;
+    aspect-ratio: 1.6 / 1; /* 카드 높이 비율을 살짝 슬림하게 (기존 1.4 / 1 -> 1.6 / 1) */
+    border-radius: 16px;   /* 모서리 라운딩 축소 (기존 24px -> 16px) */
     overflow: hidden;
     background-color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.6);
     display: block;
-    box-shadow: 0 8px 20px rgba(114, 9, 183, 0.08);
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 12px rgba(114, 9, 183, 0.06); /* 그림자도 가볍게 조정 */
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .gallery-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(114, 9, 183, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(114, 9, 183, 0.15);
 }
 
-.gallery-thumb {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.5s;
-}
-
-.gallery-item:hover .gallery-thumb {
-    transform: scale(1.04);
-}
-
+/* 3. 텍스트 오버레이 영역 패딩 및 폰트 축소 */
 .gallery-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 100%;
-    padding: 25px;
+    padding: 12px 14px; /* 여백 축소 (기존 25px -> 12px 14px) */
     background: linear-gradient(to top, rgba(26, 19, 38, 0.85) 0%, rgba(26, 19, 38, 0) 100%);
     display: flex;
     flex-direction: column;
@@ -700,16 +695,41 @@ body {
     opacity: 1;
 }
 
+/* 카드 제목 */
 .gallery-overlay h4 {
-    font-size: 0.95rem;
+    font-size: 0.82rem; /* 폰트 축소 (기존 0.95rem -> 0.82rem) */
     font-weight: 700;
     color: #fff;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
+/* 카드 설명 */
 .gallery-overlay p {
-    font-size: 0.75rem;
+    font-size: 0.68rem; /* 폰트 축소 (기존 0.75rem -> 0.68rem) */
     color: #f3e5f5;
+}
+
+/* --------------------------------------------------------------------------
+   📱 반응형 모바일 축소 조율 (필요시)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr); /* 모바일에서도 3열 유지할 수 있도록 세로비율 슬림화 */
+        gap: 8px;
+    }
+
+    .gallery-overlay {
+        opacity: 1; /* 모바일에선 오버레이 항상 표시 */
+        padding: 8px;
+    }
+
+    .gallery-overlay h4 {
+        font-size: 0.72rem;
+    }
+
+    .gallery-overlay p {
+        font-size: 0.6rem;
+    }
 }
 
 /* ==========================================================================
@@ -1130,8 +1150,19 @@ body {
     }
 }
 
+/* ==========================================================================
+   📱 데스크탑 제외 전범위 반응형 스타일 (1024px 이하)
+   ========================================================================== */
+
+/* 1. 태블릿 & 모바일 공통 (1024px 이하 - 데스크탑 제외 전체) */
 @media (max-width: 1024px) {
+    /* ✨ 데스크탑 제외 전범위: 우측 바이올렛 네온 스크롤바 완벽 제거 */
+    .neon-wire-container {
+        display: none !important;
+    }
+
     body {
+        overflow-x: hidden;
         overflow-y: auto;
         height: auto;
     }
@@ -1174,10 +1205,10 @@ body {
     }
 
     .gallery-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr); /* 태블릿 2열 배치 */
     }
 
-    /* 반응형 모달 최적화 */
+    /* 모달 반응형 */
     .modal-header-zone {
         flex-direction: column;
         text-align: center;
@@ -1190,5 +1221,195 @@ body {
 
     .profile-modal-card {
         padding: 30px 20px;
+    }
+}
+
+/* 2. 모바일 (768px 이하) 추가 미세 조율 */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 15px 16px;
+        gap: 20px;
+    }
+
+    .header {
+        padding-left: 0;
+        justify-content: center;
+    }
+
+    .chrome-text {
+        font-size: 1.3rem;
+        padding: 6px 16px;
+    }
+
+    .vinyl-player-card {
+        padding: 25px 15px;
+        border-radius: 24px;
+        max-height: none;
+    }
+
+    .vinyl {
+        width: 200px;
+        height: 200px;
+    }
+
+    .album-art {
+        width: 85px;
+        height: 85px;
+    }
+
+    .tonearm {
+        top: 20px;
+        right: 25px;
+        width: 14px;
+        height: 90px;
+    }
+
+    .tonearm::before {
+        bottom: -8px;
+        left: -3px;
+        width: 9px;
+        height: 16px;
+    }
+
+    .now-playing h2 {
+        font-size: 1.1rem;
+    }
+
+    .now-playing .info-text {
+        font-size: 0.78rem;
+        padding: 0 10px;
+    }
+
+    .mixer-wrapper-hybrid {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .vertical-channels {
+        height: 160px;
+        gap: 6px;
+    }
+
+    .fader-track-v {
+        height: 60px;
+    }
+
+    .ch-name-v {
+        font-size: 0.55rem;
+    }
+
+    .track {
+        padding: 14px 16px;
+        border-radius: 18px;
+    }
+
+    .track .thumb {
+        width: 42px;
+        height: 42px;
+        margin-right: 12px;
+    }
+
+    .track .num {
+        width: 25px;
+        font-size: 0.8rem;
+    }
+
+    .track .details h4 {
+        font-size: 0.88rem;
+    }
+
+    .track .details p {
+        font-size: 0.73rem;
+    }
+
+    .view-btn {
+        padding: 8px 14px;
+        font-size: 0.7rem;
+    }
+
+    /* 스마트폰 1열 배치 */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .gallery-overlay {
+        opacity: 1; /* 터치 환경 고려: 항상 정보 표시 */
+        padding: 16px;
+        background: linear-gradient(to top, rgba(26, 19, 38, 0.9) 0%, rgba(26, 19, 38, 0.2) 70%, transparent 100%);
+    }
+
+    .profile-modal-card {
+        width: 92%;
+        max-height: 90vh;
+        padding: 25px 18px;
+        border-radius: 20px;
+    }
+
+    .close-modal-btn {
+        top: 15px;
+        right: 15px;
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+
+    .profile-avatar-wrapper {
+        width: 85px;
+        height: 85px;
+    }
+
+    .profile-bio h2 {
+        font-size: 1.3rem;
+    }
+
+    .profile-bio p {
+        font-size: 0.8rem;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .contact-links a {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}
+
+/* 3. 초소형 스마트폰 화면 (480px 이하) */
+@media (max-width: 480px) {
+    .vinyl {
+        width: 170px;
+        height: 170px;
+    }
+
+    .album-art {
+        width: 70px;
+        height: 70px;
+    }
+
+    .tonearm {
+        display: none;
+    }
+
+    .about-me-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 0;
+    }
+
+    .mixer-channel-h {
+        padding: 8px 10px;
+        gap: 10px;
+    }
+
+    .adobe-badge {
+        width: 24px;
+        height: 24px;
+        font-size: 0.65rem;
     }
 }
