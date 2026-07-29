@@ -3,9 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Project 02 - Detail</title>
+	<title>laneige - Web Renewal</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<link rel="stylesheet" href="../css/detail.css">
+	ㄴ<link rel="stylesheet" href="../css/detail-pj03.css">
 </head>
 <body>
 	<div id="blossom-container"></div>
@@ -25,11 +26,11 @@
 						<!-- 음반 느낌을 내는 미니 바이닐 태그 -->
 						<div class="vinyl-tag"><i class="fa-solid fa-compact-disc fa-spin"></i> WEB</div>
 					</div>
-					<h2>Project 02 Title</h2>
-					<p class="project-date">2026. 00 - 2026. 00 (개인 프로젝트)</p>
+					<h2>laneige - Web Renewal</h2>
+					<p class="project-date">2026. 07 - 2026. 07 (개인 프로젝트)</p>
 					
 					<!-- 🔗 [A타입: 실제 연결 링크가 있을 때 사용하는 버튼] -->
-					<a href="https://본인의실제프로젝트주소.com" target="_blank" class="launch-btn">
+					<a href="https://codebyseri.github.io/laneige/" target="_blank" class="launch-btn">
 						LISTEN NOW (LAUNCH) <i class="fa-solid fa-play"></i>
 					</a>
 					
@@ -47,11 +48,13 @@
 				<!-- 1. 프로젝트 개요 (키워드 중심) -->
 				<div class="content-block">
 					<h3><i class="fa-solid fa-quote-left"></i> ALBUM LINER NOTES</h3>
-					<p class="info-text">프로젝트의 핵심 콘셉트와 기획 의도를 직관적이고 감성적인 한두 문장으로 작성합니다. 감각적인 웹 디자인과 사용자 경험을 중심으로 풀어낸
-					                     트랙입니다.</p>
+					<p class="info-text">
+						<a href="https://laneige.com/" target="_blank" class="text-link">라네즈</a> 브랜드의 아이덴티티를 유지하면서 정보 구조와 사용자 경험을 개선한 반응형 웹 리뉴얼 프로젝트입니다. 대표 제품 중심으로 콘텐츠를 재구성하고, <br>
+						직관적인 네비게이션과 깔끔한 UI를 적용하여 사용자가 제품 정보를 더욱 쉽고 효율적으로 탐색할 수 있도록 설계했습니다.
+					</p>
 					<div class="project-meta-grid">
 						<div class="meta-item"><strong>ROLE</strong> <span>UI/UX Design, Publishing</span></div>
-						<div class="meta-item"><strong>TOOLS</strong> <span>Figma, HTML5, CSS3, JS</span></div>
+						<div class="meta-item"><strong>TOOLS</strong> <span>HTML5, CSS3, JS</span></div>
 					</div>
 				</div>
 				
@@ -72,24 +75,40 @@
 				</div>
 				
 				<!-- 3. 핵심 스크린 프리뷰 (디자인 결과물) -->
-				<div class="content-block">
-					<h3><i class="fa-solid fa-file-image"></i> KEY SCREEN PREVIEW</h3>
-					<div class="preview-display-zone">
-						<!-- 실제 디자인 스크린샷 이미지들을 넣는 곳입니다 -->
-						<div class="screen-mockup">
-							<img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800"
-							     alt="Screen 1">
-							<span class="mock-caption">01. Main Dashboard UI</span>
-						</div>
-						<div class="screen-mockup">
-							<img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800"
-							     alt="Screen 2">
-							<span class="mock-caption">02. Detail Interface & Sub Layout</span>
-						</div>
-					</div>
-				</div>
-			
-			</section>
+                <div class="content-block">
+                    <h3><i class="fa-solid fa-file-image"></i> KEY SCREEN PREVIEW</h3>
+                    <div class="preview-display-zone">
+                        <!-- [첫 번째 화면 구역] -->
+                        <div class="screen-mockup iframe-mode">
+                            <div class="browser-header">
+                                <div class="dots">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                </div>
+                                <span class="mock-caption">01. Main Desktop Home UI</span>
+                            </div>
+                            <!-- 실제 띄우고 싶은 웹 페이지 주소 삽입 -->
+                            <iframe src="https://codebyseri.github.io/laneige/index.html" frameborder="0"></iframe>
+                        </div>
+                        
+                        <!-- [두 번째 화면 구역] -->
+                        <div class="screen-mockup iframe-mode">
+                            <div class="browser-header">
+                                <div class="dots">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                </div>
+                                <span class="mock-caption">02. Sub Layout - #water-bank</span>
+                            </div>
+                            <!-- 서브페이지 주소 혹은 동일한 주소 삽입 -->
+                            <iframe src="https://codebyseri.github.io/laneige/page/water-bank.html" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            
+            </section>
 			
 			<!-- [우측 구역] 다음 트랙 내비게이션 -->
 			<section class="detail-sidebar">
@@ -107,8 +126,8 @@
 					</a>
 					<a href="web_project03.html" class="mini-track active">
 						<span class="track-num">03</span>
-						<div class="track-info"><h4>Project 03</h4>
-							<p>Design & Publishing</p></div>
+						<div class="track-info"><h4>laneige - Web Renewal</h4>
+							<p>UI/UX Design, Publishing</p></div>
 					</a>
 					<a href="web_project04.html" class="mini-track">
 						<span class="track-num">04</span>
