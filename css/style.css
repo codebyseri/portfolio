@@ -675,6 +675,15 @@ body {
     box-shadow: 0 8px 18px rgba(114, 9, 183, 0.15);
 }
 
+/* 4. 썸네일 이미지 영역 (이 부분이 추가되어야 합니다!) */
+.gallery-thumb {
+    width: 100%;
+    height: 100%;
+    background-size: cover;      /* 이미지가 찌그러지지 않고 영역을 꽉 채움 */
+    background-position: center; /* 이미지의 중앙을 기준으로 보여줌 */
+    background-repeat: no-repeat;
+}
+
 /* 3. 텍스트 오버레이 영역 패딩 및 폰트 축소 */
 .gallery-overlay {
     position: absolute;
@@ -707,6 +716,11 @@ body {
 .gallery-overlay p {
     font-size: 0.68rem; /* 폰트 축소 (기존 0.75rem -> 0.68rem) */
     color: #f3e5f5;
+}
+
+.poster-thumb {
+    background-size: contain; /* 이미지가 잘리지 않고 박스 안에 다 들어오게 함 */
+    background-color: #111;   /* 좌우로 남는 여백을 채워줄 배경색 (포스터 톤에 맞춰 어둡게) */
 }
 
 /* --------------------------------------------------------------------------

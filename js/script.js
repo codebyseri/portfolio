@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tracks.forEach(t => t.classList.remove('active'));
     
     if (currentTitle) {
-        currentTitle.innerText = "디자이너, 세리"; // 기본 타이틀 고정
+        currentTitle.innerText = "Seri's Design Record"; // 기본 타이틀 고정
     }
     // 💡 준비된 기본 LP 커버 이미지
     if (currentArt) {
