@@ -1035,56 +1035,45 @@ body {
     background: linear-gradient(to right, transparent, rgba(114, 9, 183, 0.2), transparent);
 }
 
-/* 하단 연동 정보 */
-.profile-contact {
-    width: 100%;
-    text-align: center;
-}
-
-.profile-contact h3 {
-    font-size: 0.75rem;
-    color: #b5179e;
-    letter-spacing: 3px;
-    margin-bottom: 12px;
-}
-
+/* 이름 아래 미니 CONTACT 링크 바 */
 .contact-links {
     display: flex;
-    gap: 15px;
-    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
 }
 
 .contact-links a {
     text-decoration: none;
-    font-size: 0.82rem;
-    color: #1a1326;
-    font-weight: 600;
+    font-size: 0.78rem;
+    color: #584a6b;
+    font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 18px;
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(114, 9, 183, 0.2);
-    border-radius: 30px;
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    gap: 6px;
+    padding: 4px 2px;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .contact-links a i {
     color: #7209b7;
+    font-size: 0.9rem;
+}
+
+.contact-separator {
+    width: 1px;
+    height: 13px;
+    background: rgba(114, 9, 183, 0.22);
 }
 
 .contact-links a:hover {
-    background: #7209b7;
-    color: #ffffff;
-    border-color: #7209b7;
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 8px 15px rgba(114, 9, 183, 0.2);
+    color: #7209b7;
+    transform: translateY(-1px);
 }
 
 .contact-links a:hover i {
-    color: #ffffff;
+    color: #b5179e;
 }
 
 /* 애니메이션 Keyframes */
@@ -1246,6 +1235,10 @@ body {
         text-align: center;
     }
 
+    .contact-links {
+        justify-content: center;
+    }
+
     .modal-grid-container {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -1400,15 +1393,13 @@ body {
     }
 
     .contact-links {
-        flex-direction: column;
-        width: 100%;
+        flex-direction: row;
+        justify-content: center;
         gap: 10px;
     }
 
     .contact-links a {
-        width: 100%;
-        justify-content: center;
-        box-sizing: border-box;
+        width: auto;
     }
 }
 
