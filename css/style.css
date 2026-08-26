@@ -265,7 +265,7 @@ a {
 }
 
 .desc {
-    width: 70%;
+    width: 100%;
     color: #7d879e;
     line-height: 1.8;
     font-size: 13px
@@ -298,6 +298,10 @@ a {
     background: var(--purple);
     color: #fff;
     box-shadow: 0 10px 20px #7569e84d
+}
+
+.controls .play:hover {
+    color: #fff
 }
 
 .turntable {
@@ -911,7 +915,36 @@ a {
     }
 
     .topbar {
-        gap: 22px
+        gap: 22px;
+        margin-top: 10px;
+        margin-bottom: 16px
+    }
+
+    .topbar>div:first-child {
+        min-width: 0
+    }
+
+    .available {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        font-size: 0
+    }
+
+    .available i {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 18px;
+        height: 18px;
+        margin: 0;
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px #e4f7ec;
+        transform: translate(-50%, -50%)
     }
 
     .topbar h1 {
@@ -969,7 +1002,13 @@ a {
     }
 
     .topbar h1 {
-        font-size: 18px
+        font-size: 18px;
+        word-break: keep-all;
+        overflow-wrap: break-word
+    }
+
+    .topbar h1 span {
+        white-space: normal
     }
 
     .top-actions {
@@ -977,8 +1016,8 @@ a {
     }
 
     .available {
-        padding: 8px 10px;
-        font-size: 10px
+        width: 32px;
+        height: 32px
     }
 
     .avatar {
@@ -988,7 +1027,7 @@ a {
     }
 }
 
-@media(max-width:720px) {
+@media(max-width:600px) {
     .shell {
         display: block;
         width: 100%;
@@ -1042,16 +1081,26 @@ a {
         padding: 22px 16px 95px
     }
 
-    .available {
-        display: none
+    .topbar {
+        justify-content: center;
+        text-align: center
     }
 
     .topbar>div:first-child {
+        width: 100%;
         min-width: 0
     }
 
+    .top-actions {
+        display: none
+    }
+
+    .topbar .eyebrow {
+        margin-bottom: 10px
+    }
+
     .topbar h1 {
-        font-size: clamp(16px, 4.5vw, 18px);
+        font-size: clamp(18px, 5vw, 20px);
         word-break: keep-all;
         overflow-wrap: break-word
     }
@@ -1147,7 +1196,7 @@ a {
 }
 
 /* Desktop sidebar: continuous rail with evenly balanced controls. */
-@media (min-width:721px) {
+@media (min-width:601px) {
     .shell { grid-template-columns:104px minmax(0,1fr) }
     .sidebar { position:relative;top:auto;align-self:stretch;width:104px;height:auto;min-height:100%;padding:30px 18px 26px;background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(248,250,255,.8));box-shadow:8px 0 28px rgba(76,92,132,.035) }
     .brand { width:52px;height:52px;flex:0 0 52px;border-radius:18px;font-size:22px }
@@ -1159,7 +1208,7 @@ a {
     .nav.active:before { content:"";position:absolute;left:-20px;top:50%;width:4px;height:24px;border-radius:0 5px 5px 0;background:var(--purple);transform:translateY(-50%) }
 }
 
-@media (min-width:721px) and (max-width:1100px) {
+@media (min-width:601px) and (max-width:1100px) {
     .shell {
         overflow: visible
     }
