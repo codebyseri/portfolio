@@ -31,7 +31,7 @@
             <header class="topbar">
                 <div>
                     <p class="eyebrow">WEB PUBLISHER · UI DESIGNER</p>
-                    <h1>일상의 음악처럼, 자꾸 머물고 싶은 웹을 디자인합니다.</h1>
+                    <h1><span>좋아하는 음악처럼,</span> <span>자꾸 머물고 싶은 웹을 디자인합니다.</span></h1>
                 </div>
                 <div class="top-actions"><span class="available"><i></i> Available for work</span><button class="avatar"
                         id="avatar-profile"><img src="images/p.webp" alt="김미진 프로필"></button></div>
@@ -41,7 +41,8 @@
                     <div class="hero-copy"><span class="pill"><i class="fa-solid fa-wave-square"></i> NOW PLAYING</span>
                         <p class="hello">프로젝트,</p>
                         <h2 id="current-title">My Design Record</h2>
-                        <p class="desc" id="current-description">브랜드의 세련된 감도를 유지하며, 더 편안하고 직관적인 화면 흐름을 다듬었습니다.<br>UNOVE 웹 리디자인 프로젝트를 감상해보세요.</p>
+                        <p class="desc" id="current-description">브랜드의 세련된 감도를 유지하며, 더 편안하고 직관적인 화면 흐름을 다듬었습니다.<br>UNOVE
+                            웹 리디자인 프로젝트를 감상해보세요.</p>
                         <div class="controls"><button id="prev-track" aria-label="이전 트랙"><i
                                     class="fa-solid fa-backward-step"></i></button><button class="play" id="toggle-play"
                                 aria-label="재생 또는 일시정지"><i class="fa-solid fa-pause"></i></button><button
@@ -100,8 +101,8 @@
                     </div>
                     <div class="skill-grid">
                         <div class="skill">
-                            <div><i class="fa-brands fa-html5"></i><span>HTML / CSS</span><b>95%</b></div><span><i
-                                    style="width:95%"></i></span>
+                            <div><i class="fa-brands fa-html5"></i><span>HTML / CSS</span><b>100%</b></div><span><i
+                                    style="width:100%"></i></span>
                         </div>
                         <div class="skill">
                             <div><i class="fa-brands fa-js"></i><span>JavaScript</span><b>80%</b></div><span><i
@@ -117,9 +118,9 @@
                         </div>
                     </div>
                     <div class="tags">
-                        <span>Photoshop 100%</span>
-                        <span>Illustrator 95%</span>
-                        <span>Indesign 85%</span>
+                        <span>Photoshop 95%</span>
+                        <span>Illustrator 85%</span>
+                        <span>Indesign 90%</span>
                         <span>After Effects 80%</span>
                     </div>
                 </section>
@@ -137,17 +138,36 @@
                         <div>
                             <p class="eyebrow">VISUAL EDIT</p>
                             <h2>Artwork archive</h2>
-                        </div><small>Selected 03</small>
+                        </div>
+                        <div class="artwork-heading-actions">
+                            <small>Selected 05</small>
+                            <div class="artwork-nav" aria-label="작품 목록 이동">
+                                <button id="artwork-prev" type="button" aria-label="이전 작품"><i
+                                        class="fa-solid fa-angle-left"></i></button>
+                                <button id="artwork-toggle" type="button" aria-label="자동 슬라이드 일시정지"
+                                    aria-pressed="false"><i class="fa-solid fa-pause"></i></button>
+                                <button id="artwork-next" type="button" aria-label="다음 작품"><i
+                                        class="fa-solid fa-angle-right"></i></button>
+                                <button class="artwork-overview-button" id="open-artwork-overview" type="button"
+                                    aria-label="작품 전체보기"><i class="fa-solid fa-border-all"></i></button>
+                            </div>
+                        </div>
                     </div>
                     <div class="artworks">
-                        <figure><img src="images/gallery01.jpg" alt="비주얼 작업 1">
-                            <figcaption>Editorial</figcaption>
+                        <figure class="artwork-soft"><img src="images/gallery01.jpg" alt="비주얼 작업 1">
+                            <figcaption>Award</figcaption>
                         </figure>
-                        <figure><img src="images/gallery02.jpg" alt="비주얼 작업 2">
-                            <figcaption>Editorial</figcaption>
+                        <figure><img src="images/gallery02.png" alt="비주얼 작업 2">
+                            <figcaption>Merchandise</figcaption>
                         </figure>
                         <figure><img src="images/gallery03.png" alt="비주얼 작업 3">
-                            <figcaption>Character Design</figcaption>
+                            <figcaption>Graphic</figcaption>
+                        </figure>
+                        <figure><img src="images/gallery04.png" alt="비주얼 작업 4">
+                            <figcaption>Character</figcaption>
+                        </figure>
+                        <figure><img src="images/gallery05.jpg" alt="비주얼 작업 5">
+                            <figcaption>Editorial</figcaption>
                         </figure>
                     </div>
                 </section>
@@ -161,7 +181,7 @@
                 <div>
                     <p class="eyebrow">WEB PUBLISHER & UI DESIGNER</p>
                     <h2 id="profile-title">김미진 <span>/ Seri</span></h2>
-                    <p>감성적인 비주얼과 매끄러운 인터랙션으로 오래 머물고 싶은 웹을 만듭니다.</p>
+                    <p>감성적인 비주얼과 매끄러운 인터랙션으로 오래 머물고 싶은 웹을 디자인합니다.</p>
                     <div class="contacts"><a href="mailto:Kkangmelo@gmail.com"><i class="fa-solid fa-envelope"></i>
                             Email</a><a href="https://github.com/codebyseri" target="_blank" rel="noopener"><i
                                 class="fa-brands fa-github"></i> GitHub</a></div>
@@ -182,6 +202,24 @@
                     <p><strong>컴퓨터그래픽스운용기능사 · 전자출판기능사</strong><span>2021</span></p>
                 </section>
             </div>
+        </div>
+    </div>
+    <div class="modal artwork-modal" id="artwork-modal" role="dialog" aria-modal="true"
+        aria-labelledby="artwork-modal-title" hidden>
+        <div class="artwork-viewer">
+            <button class="close artwork-close" id="close-artwork-modal" type="button" aria-label="작품 이미지 닫기"><i
+                    class="fa-solid fa-xmark"></i></button>
+            <img id="artwork-modal-image" src="" alt="">
+            <p id="artwork-modal-title"></p>
+        </div>
+    </div>
+    <div class="modal artwork-overview-modal" id="artwork-overview-modal" role="dialog" aria-modal="true"
+        aria-labelledby="artwork-overview-title" hidden>
+        <div class="artwork-overview-viewer">
+            <button class="close" id="close-artwork-overview" type="button" aria-label="작품 전체보기 닫기"><i
+                    class="fa-solid fa-xmark"></i></button>
+            <h2 id="artwork-overview-title">Artwork archive</h2>
+            <div class="artwork-overview-grid" id="artwork-overview-grid"></div>
         </div>
     </div>
 </body>

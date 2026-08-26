@@ -160,9 +160,14 @@ a {
     font-size: 27px
 }
 
+.topbar h1 span {
+    white-space: nowrap
+}
+
 .top-actions {
     display: flex;
     align-items: center;
+    flex: 0 0 auto;
     gap: 15px
 }
 
@@ -173,7 +178,8 @@ a {
     border-radius: 99px;
     font-size: 12px;
     font-weight: 600;
-    color: #657089
+    color: #657089;
+    white-space: nowrap
 }
 
 .available i {
@@ -259,6 +265,7 @@ a {
 }
 
 .desc {
+    width: 70%;
     color: #7d879e;
     line-height: 1.8;
     font-size: 13px
@@ -465,7 +472,7 @@ a {
 
 .track p {
     margin: 3px 0 0;
-    font-size: 9px;
+    font-size: 10px;
     color: #98a0b2
 }
 
@@ -589,10 +596,17 @@ a {
     grid-column: 1/-1
 }
 
+#home,
+#projects,
+#skills,
+#visual {
+    scroll-margin-top: 20px
+}
+
 .artworks {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 14px
+    gap: 10px
 }
 
 .artworks figure {
@@ -601,7 +615,8 @@ a {
     aspect-ratio: 1.25;
     border-radius: 19px;
     overflow: hidden;
-    background: #f0f1f6
+    background: #f0f1f6;
+    cursor: pointer
 }
 
 .artworks img {
@@ -639,6 +654,137 @@ a {
 
 .modal[hidden] {
     display: none
+}
+
+.artwork-modal {
+    padding: clamp(16px, 4vw, 44px);
+    background: #161a28c7
+}
+
+.artwork-viewer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: min(1180px, 100%);
+    max-height: calc(100vh - 32px)
+}
+
+.artwork-viewer>img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100vh - 100px);
+    object-fit: contain;
+    border-radius: 18px;
+    box-shadow: 0 24px 70px #080b136e
+}
+
+.artwork-viewer>p {
+    margin: 0;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700
+}
+
+.artwork-overview-modal {
+    padding: 18px
+}
+
+.artwork-overview-viewer {
+    position: relative;
+    width: min(640px, 100%);
+    max-height: calc(100vh - 36px);
+    overflow: auto;
+    padding: 24px;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 24px 70px #080b134f
+}
+
+.artwork-overview-viewer h2 {
+    margin: 0 48px 18px 0;
+    font-size: 20px
+}
+
+.artwork-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px
+}
+
+.artwork-overview-grid figure {
+    margin: 0;
+    min-width: 0
+}
+
+.artwork-overview-grid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.25;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #f0f1f6
+}
+
+.artwork-overview-grid figcaption {
+    margin-top: 5px;
+    color: #69738b;
+    font-size: 9px;
+    font-weight: 700
+}
+
+.artwork-heading-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.artwork-nav {
+    display: none;
+    justify-content: flex-end;
+    gap: 8px
+}
+
+.artwork-nav button {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+    color: #69738b;
+    cursor: pointer;
+    transition: .2s
+}
+
+.artwork-nav button:hover:not(:disabled) {
+    color: var(--purple);
+    border-color: #cfc7f5;
+    transform: translateY(-2px)
+}
+
+.artwork-nav button:disabled {
+    opacity: .35;
+    cursor: default
+}
+
+.artwork-nav button[aria-pressed="true"] {
+    color: var(--purple);
+    background: #f1efff;
+    border-color: #d7cff8
+}
+
+.artwork-nav .artwork-overview-button {
+    display: none
+}
+
+.artwork-close {
+    z-index: 2;
+    right: 12px;
+    top: 12px;
+    background: #fffffff0
 }
 
 .profile {
@@ -764,6 +910,19 @@ a {
         height: calc(100vh - 28px)
     }
 
+    .topbar {
+        gap: 22px
+    }
+
+    .topbar h1 {
+        font-size: 23px;
+        line-height: 1.35
+    }
+
+    .topbar h1 span {
+        display: block
+    }
+
     .grid {
         grid-template-columns: 1fr
     }
@@ -773,11 +932,59 @@ a {
     }
 
     .artworks {
-        grid-template-columns: repeat(3, 1fr)
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: calc((100% - 20px) / 3);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none
     }
 
-    .artworks figure:nth-child(n+4) {
+    .artworks::-webkit-scrollbar {
         display: none
+    }
+
+    .artworks figure {
+        scroll-snap-align: start
+    }
+
+    .artwork-nav {
+        display: flex
+    }
+
+    .artwork-heading-actions>small {
+        display: none
+    }
+}
+
+@media(max-width:900px) {
+    .main {
+        padding-left: 24px;
+        padding-right: 24px
+    }
+
+    .topbar {
+        gap: 14px
+    }
+
+    .topbar h1 {
+        font-size: 18px
+    }
+
+    .top-actions {
+        gap: 8px
+    }
+
+    .available {
+        padding: 8px 10px;
+        font-size: 10px
+    }
+
+    .avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px
     }
 }
 
@@ -806,18 +1013,24 @@ a {
 
     .brand {
         width: 42px;
-        height: 42px
+        height: 42px;
+        flex: 0 0 42px
     }
 
     .sidebar nav {
-        flex: 1;
+        flex: 4 1 0;
         flex-direction: row;
-        justify-content: center;
-        margin: 0
+        justify-content: stretch;
+        gap: 0;
+        margin: 0;
+        min-width: 0
     }
 
-    .nav {
-        width: 50px;
+    .sidebar nav .nav,
+    .sidebar>button.nav {
+        flex: 1 1 0;
+        width: auto;
+        min-width: 0;
         min-height: 46px
     }
 
@@ -831,6 +1044,33 @@ a {
 
     .available {
         display: none
+    }
+
+    .topbar>div:first-child {
+        min-width: 0
+    }
+
+    .topbar h1 {
+        font-size: clamp(16px, 4.5vw, 18px);
+        word-break: keep-all;
+        overflow-wrap: break-word
+    }
+
+    .topbar h1 span {
+        white-space: normal
+    }
+
+    .artwork-nav .artwork-overview-button {
+        display: grid
+    }
+
+    .artwork-overview-viewer {
+        padding: 20px 16px 16px
+    }
+
+    .artwork-overview-viewer h2 {
+        margin-bottom: 14px;
+        font-size: 17px
     }
 
     .hero {
@@ -847,6 +1087,10 @@ a {
 
     .desc br {
         display: none
+    }
+
+    .desc {
+        width: 100%
     }
 
     .controls {
@@ -869,11 +1113,7 @@ a {
     }
 
     .artworks {
-        grid-template-columns: 1fr 1fr
-    }
-
-    .artworks figure:nth-child(3) {
-        display: none
+        grid-auto-columns: calc((100% - 10px) / 2)
     }
 
     .track {
@@ -919,9 +1159,24 @@ a {
     .nav.active:before { content:"";position:absolute;left:-20px;top:50%;width:4px;height:24px;border-radius:0 5px 5px 0;background:var(--purple);transform:translateY(-50%) }
 }
 
-/* Show the full second artwork over a soft image-derived background. */
-.artworks figure:nth-child(2) { isolation:isolate;background:#c8bfd0 }
-.artworks figure:nth-child(2)::before { content:"";position:absolute;inset:-18px;z-index:-1;background:url('../images/gallery02.jpg') center/cover no-repeat;filter:blur(18px) saturate(.72);opacity:.58;transform:scale(1.12) }
-.artworks figure:nth-child(2)::after { content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(135deg,rgba(87,74,104,.2),rgba(243,231,239,.18)) }
-.artworks figure:nth-child(2) img { position:relative;z-index:1;object-fit:contain;padding:8px;filter:drop-shadow(0 7px 10px rgba(42,34,51,.2)) }
-.artworks figure:nth-child(2) figcaption { z-index:2 }
+@media (min-width:721px) and (max-width:1100px) {
+    .shell {
+        overflow: visible
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 14px;
+        align-self: start;
+        height: calc(100vh - 28px);
+        min-height: 0;
+        border-radius: 34px 0 0 34px
+    }
+}
+
+/* Show the full featured artwork over a soft image-derived background. */
+.artworks figure.artwork-soft { isolation:isolate;background:#c8bfd0 }
+.artworks figure.artwork-soft::before { content:"";position:absolute;inset:-18px;z-index:-1;background:url('../images/gallery01.jpg') center/cover no-repeat;filter:blur(18px) saturate(.72);opacity:.58;transform:scale(1.12) }
+.artworks figure.artwork-soft::after { content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(135deg,rgba(87,74,104,.2),rgba(243,231,239,.18)) }
+.artworks figure.artwork-soft img { position:relative;z-index:1;object-fit:contain;padding:8px;filter:drop-shadow(0 7px 10px rgba(42,34,51,.2)) }
+.artworks figure.artwork-soft figcaption { z-index:2 }
