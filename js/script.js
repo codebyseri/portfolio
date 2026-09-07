@@ -226,6 +226,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const nav = [...document.querySelectorAll('.sidebar nav .nav')];
     const responsiveSectionNav = window.matchMedia('(max-width: 1100px)');
+    const mobileNav = window.matchMedia('(max-width: 600px)');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     document.querySelector('.brand')?.addEventListener('click', event => {
         event.preventDefault();
@@ -238,6 +240,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (href === '#home') {
             event.preventDefault();
+            if (mobileNav.matches) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: reducedMotion.matches ? 'auto' : 'smooth'
+                });
+            }
         } else if (responsiveSectionNav.matches) {
             event.preventDefault();
             document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
