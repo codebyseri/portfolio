@@ -234,12 +234,34 @@ button {
     display: block
 }
 
-.hero-note {
+.detail-pair {
     display: grid;
-    grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr);
-    gap: clamp(40px, 7vw, 100px);
-    padding: 80px 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(42px, 6vw, 88px);
+    padding: 58px 0;
     border-bottom: 1px solid var(--line)
+}
+
+.detail-pair>section {
+    min-width: 0
+}
+
+.detail-pair-single {
+    grid-template-columns: minmax(0, 1fr)
+}
+
+.detail-pair-single .contribution {
+    max-width: 860px
+}
+
+.content>.detail-pair:nth-of-type(2) .contribution {
+    order: -1
+}
+
+.hero-note {
+    display: block;
+    padding: 0;
+    border: 0
 }
 
 .section-heading {
@@ -264,7 +286,7 @@ button {
 }
 
 .hero-note>p {
-    margin-top: 24px
+    margin-top: 22px
 }
 
 .text a {
@@ -292,61 +314,176 @@ button {
 
 .palette {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(68px, 1fr));
-    gap: 9px
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px
 }
 
 .swatch {
-    height: 82px;
-    padding: 10px 0 0;
-    border: 0;
-    border-radius: 0;
+    height: 94px;
+    padding: 12px;
+    border: 1px solid rgba(32, 39, 61, .08);
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    font-size: 8px;
-    font-weight: 800;
-    box-shadow: inset 0 -28px 0 rgba(0, 0, 0, .08)
+    box-shadow: inset 0 -48px 0 rgba(0, 0, 0, .1)
 }
 
 .swatch.light {
     color: #fff
 }
 
-.features {
-    display: grid
+.swatch span {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.2;
+    opacity: .82
 }
 
-.feature {
-    display: grid;
-    grid-template-columns: 40px 1fr;
+.swatch b {
+    margin-top: 3px;
+    font-size: 12px;
+    line-height: 1.2;
+    letter-spacing: .02em
+}
+
+.figma-workflow h2 {
+    margin: 0 0 22px;
+    font-size: 20px
+}
+
+.figma-mark {
+    display: flex;
     align-items: center;
-    gap: 13px;
-    padding: 17px 0;
+    gap: 14px;
+    padding: 18px 0;
+    border-block: 1px solid var(--line)
+}
+
+.figma-mark>i {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: #20273d;
+    color: #fff;
+    font-size: 22px
+}
+
+.figma-mark strong,
+.figma-mark span {
+    display: block
+}
+
+.figma-mark strong {
+    font-size: 16px
+}
+
+.figma-mark span {
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 12px
+}
+
+.figma-workflow>p:not(.eyebrow) {
+    margin: 20px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+    word-break: keep-all
+}
+
+.workflow-steps {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    color: var(--ui-accent);
+    font-size: 11px;
+    font-weight: 700
+}
+
+.workflow-steps i {
+    width: 18px;
+    height: 1px;
+    background: #d8d4fb
+}
+
+.figma-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 24px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: var(--ui-accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 10px 22px rgba(117, 105, 232, .22);
+    transition: transform .2s, box-shadow .2s
+}
+
+.figma-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 13px 26px rgba(117, 105, 232, .3)
+}
+
+.figma-link:focus-visible {
+    outline: 3px solid rgba(117, 105, 232, .28);
+    outline-offset: 3px
+}
+
+.contribution {
+    display: block;
+    padding: 0;
+    border: 0
+}
+
+.contribution-heading h2 {
+    max-width: 410px;
+    margin: 0;
+    font-size: clamp(22px, 2.1vw, 30px);
+    line-height: 1.3;
+    letter-spacing: -.035em;
+    word-break: keep-all
+}
+
+.contribution-list {
+    margin: 25px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--line)
+}
+
+.contribution-list li {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 18px;
+    padding: 24px 0;
     border-bottom: 1px solid var(--line)
 }
 
-.feature i {
-    display: grid;
-    place-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--accent-soft);
-    border: 0;
-    color: var(--accent)
+.contribution-list li>b {
+    color: var(--ui-accent);
+    font-size: 13px;
+    letter-spacing: .08em
 }
 
-.feature strong {
+.contribution-list strong {
     display: block;
-    font-size: 14px
+    font-size: 16px
 }
 
-.feature span {
-    display: block;
-    margin-top: 4px;
+.contribution-list p {
+    margin: 8px 0 0;
     color: var(--muted);
-    font-size: 12px
+    font-size: 14px;
+    line-height: 1.8;
+    word-break: keep-all
 }
 
 .preview-card {
@@ -511,7 +648,7 @@ button {
 
 .track-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 0;
     margin-top: 26px
 }
@@ -605,6 +742,10 @@ button {
     .screen-mockup {
         height: 520px
     }
+
+    .track-list {
+        grid-template-columns: repeat(2, 1fr)
+    }
 }
 
 @media(max-width:680px) {
@@ -638,8 +779,6 @@ button {
         text-align: left
     }
 
-    .hero-note,
-    .info-card,
     .preview-card,
     .track-nav {
         padding: 48px 0
@@ -719,15 +858,11 @@ button {
         font-size: 20px
     }
 
-    .swatch {
-        font-size: 10px
+    .swatch span {
+        font-size: 11px
     }
 
-    .feature strong {
-        font-size: 15px
-    }
-
-    .feature span {
+    .swatch b {
         font-size: 13px
     }
 
@@ -869,20 +1004,33 @@ button {
 }
 
 @media(max-width:760px) {
-    .hero-note {
+    .detail-pair {
         grid-template-columns: 1fr;
-        gap: 24px
+        gap: 44px;
+        padding: 48px 0
     }
 
     .hero-note .section-heading {
         align-items: flex-start
     }
 
-    .hero-note>p {
-        margin-top: 0
+    .contribution-heading h2 {
+        font-size: 25px
+    }
+
+    .contribution-list li {
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 12px;
+        padding: 20px 0
     }
 }
 
 .album-copy .eyebrow {
     color: var(--ui-accent)
+}
+
+@media(max-width:430px) {
+    .palette {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
 }

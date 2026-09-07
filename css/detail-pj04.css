@@ -1,0 +1,12 @@
+:root {
+    --accent: #7569e8;
+    --accent-soft: #efedff;
+    --accent-dark: #3f378f;
+    --cover: url('../images/gallery04.png')
+}
+
+.cover {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #efedff
+}
