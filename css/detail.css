@@ -2,6 +2,7 @@
 
 :root {
     --accent: #7569e8;
+    --ui-accent: #7569e8;
     --accent-soft: #eceafd;
     --accent-dark: #4840a4;
     --cover: url('../images/unove-hero.jpg');
@@ -33,40 +34,63 @@ body {
     -webkit-user-select: none
 }
 
+body:before,
+body:after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: .55;
+    pointer-events: none
+}
+
+body:before {
+    width: 420px;
+    height: 420px;
+    left: -130px;
+    top: -160px;
+    background: #c8bffc
+}
+
+body:after {
+    width: 360px;
+    height: 360px;
+    right: -80px;
+    bottom: -100px;
+    background: #ffd4e1
+}
+
 a,
 button {
     font: inherit;
     cursor: pointer
 }
 
-.track-label,
-.vinyl-badge,
-.section-heading small,
 .swatch,
 .meta {
     cursor: default
 }
 
 .detail-shell {
-    width: min(1480px, calc(100% - 56px));
+    width: min(1440px, calc(100% - 56px));
     margin: 28px auto;
     min-height: calc(100vh - 56px);
-    padding: 28px 32px 36px;
-    background: rgba(247, 249, 255, .94);
+    padding: 30px 34px 38px;
+    background: rgba(246, 248, 255, .93);
     border: 1px solid #fff;
     border-radius: 34px;
-    box-shadow: 0 30px 80px rgba(62, 82, 125, .18)
+    box-shadow: 0 30px 80px rgba(62, 82, 125, .2)
 }
 
 .topbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 24px
+    margin-bottom: 42px
 }
 
-.back-btn,
-.track-label {
+.back-btn {
     display: inline-flex;
     align-items: center;
     gap: 9px;
@@ -78,23 +102,16 @@ button {
 
 .back-btn {
     color: #75809a;
-    padding: 11px 15px;
-    border-radius: 14px;
+    padding: 10px 14px;
     background: #fff;
     border: 1px solid var(--line);
+    border-radius: 14px;
     transition: .2s
 }
 
 .back-btn:hover {
-    color: var(--accent);
+    color: var(--ui-accent);
     transform: translateX(-3px)
-}
-
-.track-label {
-    color: var(--accent);
-    padding: 10px 14px;
-    background: var(--accent-soft);
-    border-radius: 99px
 }
 
 .layout {
@@ -105,25 +122,30 @@ button {
 }
 
 .card {
-    background: rgba(255, 255, 255, .96);
-    border: 1px solid #fff;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow)
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none
 }
 
 .album-panel {
     position: sticky;
     top: 28px;
-    padding: 24px
+    padding: 28px;
+    border: 1px solid #fff;
+    border-radius: var(--radius);
+    background: linear-gradient(145deg, #fff 25%, var(--accent-soft));
+    box-shadow: var(--shadow);
+    overflow: hidden
 }
 
 .cover {
     position: relative;
     aspect-ratio: 1;
-    border-radius: 23px;
+    border-radius: 24px;
     background: var(--cover) center/cover no-repeat;
     overflow: hidden;
-    box-shadow: 0 16px 35px rgba(36, 44, 68, .2)
+    box-shadow: 0 20px 50px rgba(36, 44, 68, .14)
 }
 
 .cover:after {
@@ -133,30 +155,13 @@ button {
     background: linear-gradient(180deg, transparent 55%, rgba(21, 24, 38, .48))
 }
 
-.vinyl-badge {
-    position: absolute;
-    z-index: 2;
-    right: 14px;
-    top: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 10px;
-    border-radius: 99px;
-    background: rgba(24, 28, 44, .72);
-    color: #fff;
-    font-size: 9px;
-    font-weight: 800;
-    backdrop-filter: blur(10px)
-}
-
 .album-copy {
     padding: 23px 5px 4px
 }
 
 .eyebrow {
     margin: 0 0 7px;
-    color: var(--accent);
+    color: #9aa4bb;
     font-size: 10px;
     font-weight: 800;
     letter-spacing: .16em
@@ -178,13 +183,13 @@ button {
 .meta-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 9px
+    gap: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line)
 }
 
 .meta {
-    padding: 12px;
-    border-radius: 15px;
-    background: #f6f7fb
+    padding: 0
 }
 
 .meta strong,
@@ -226,13 +231,15 @@ button {
 }
 
 .content {
-    display: grid;
-    gap: 20px
+    display: block
 }
 
 .hero-note {
-    padding: 32px;
-    background: linear-gradient(145deg, #fff, var(--accent-soft))
+    display: grid;
+    grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr);
+    gap: clamp(40px, 7vw, 100px);
+    padding: 80px 0;
+    border-bottom: 1px solid var(--line)
 }
 
 .section-heading {
@@ -247,22 +254,17 @@ button {
     font-size: 22px
 }
 
-.section-heading small {
-    padding: 7px 10px;
-    border-radius: 99px;
-    background: #f3f5fa;
-    color: #8b95aa;
-    font-size: 9px;
-    font-weight: 700
-}
-
 .hero-note>p,
 .text {
-    margin: 19px 0 0;
+    margin: 0;
     color: #6f7990;
     font-size: 13px;
     line-height: 1.85;
     word-break: keep-all
+}
+
+.hero-note>p {
+    margin-top: 24px
 }
 
 .text a {
@@ -274,11 +276,13 @@ button {
 .dashboard-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px
+    gap: clamp(40px, 7vw, 100px);
+    padding: 72px 0;
+    border-bottom: 1px solid var(--line)
 }
 
 .info-card {
-    padding: 25px
+    padding: 0
 }
 
 .info-card h2 {
@@ -293,16 +297,16 @@ button {
 }
 
 .swatch {
-    height: 76px;
-    padding: 10px;
-    border: 1px solid rgba(36, 42, 61, .08);
-    border-radius: 15px;
+    height: 82px;
+    padding: 10px 0 0;
+    border: 0;
+    border-radius: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     font-size: 8px;
     font-weight: 800;
-    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .35)
+    box-shadow: inset 0 -28px 0 rgba(0, 0, 0, .08)
 }
 
 .swatch.light {
@@ -310,61 +314,61 @@ button {
 }
 
 .features {
-    display: grid;
-    gap: 9px
+    display: grid
 }
 
 .feature {
     display: grid;
-    grid-template-columns: 34px 1fr;
+    grid-template-columns: 40px 1fr;
     align-items: center;
-    gap: 10px;
-    padding: 11px;
-    border-radius: 15px;
-    background: #f6f7fb
+    gap: 13px;
+    padding: 17px 0;
+    border-bottom: 1px solid var(--line)
 }
 
 .feature i {
     display: grid;
     place-items: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 11px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     background: var(--accent-soft);
+    border: 0;
     color: var(--accent)
 }
 
 .feature strong {
     display: block;
-    font-size: 10px
+    font-size: 14px
 }
 
 .feature span {
     display: block;
-    margin-top: 2px;
+    margin-top: 4px;
     color: var(--muted);
-    font-size: 8px
+    font-size: 12px
 }
 
 .preview-card {
-    padding: 25px
+    padding: 80px 0;
+    border-bottom: 1px solid var(--line)
 }
 
 .preview-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 22px;
-    margin-top: 20px
+    margin-top: 32px
 }
 
 .screen-mockup {
     position: relative;
     height: 620px;
     border: 1px solid var(--line);
-    border-radius: 20px;
+    border-radius: 8px;
     overflow: hidden;
     background: #fff;
-    box-shadow: 0 14px 32px rgba(50, 61, 92, .1);
+    box-shadow: 0 18px 48px rgba(50, 61, 92, .08);
     display: flex;
     flex-direction: column
 }
@@ -502,14 +506,14 @@ button {
 }
 
 .track-nav {
-    padding: 25px
+    padding: 72px 0 48px
 }
 
 .track-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 18px
+    gap: 0;
+    margin-top: 26px
 }
 
 .mini-track {
@@ -518,26 +522,27 @@ button {
     align-items: center;
     gap: 11px;
     padding: 13px;
-    border: 1px solid var(--line);
+    border: 1px solid transparent;
     border-radius: 17px;
     text-decoration: none;
     color: var(--ink);
-    background: #fafbfe;
+    background: transparent;
     transition: .2s
 }
 
 .mini-track:hover {
     transform: translateY(-2px);
-    border-color: var(--accent)
+    color: var(--ui-accent);
+    background: #f7f7fc
 }
 
 .mini-track.active {
-    background: var(--accent-soft);
-    border-color: color-mix(in srgb, var(--accent) 35%, white)
+    background: #efedff;
+    border-color: #dfdbff
 }
 
 .mini-track b {
-    color: var(--accent);
+    color: var(--ui-accent);
     font-size: 11px
 }
 
@@ -556,7 +561,7 @@ button {
 .mini-track.active:after {
     content: "NOW";
     margin-left: auto;
-    color: var(--accent);
+    color: var(--ui-accent);
     font-size: 7px;
     font-weight: 800
 }
@@ -576,9 +581,9 @@ button {
 
 @media(max-width:1000px) {
     .detail-shell {
-        width: calc(100% - 28px);
-        margin: 14px auto;
-        padding: 22px
+        width: calc(100% - 48px);
+        margin: 24px auto;
+        padding: 24px
     }
 
     .layout {
@@ -610,10 +615,6 @@ button {
         border-radius: 0
     }
 
-    .track-label {
-        font-size: 9px
-    }
-
     .layout,
     .dashboard-row {
         grid-template-columns: 1fr
@@ -621,7 +622,7 @@ button {
 
     .album-panel {
         display: block;
-        padding: 18px
+        padding: 20px
     }
 
     .cover {
@@ -641,7 +642,7 @@ button {
     .info-card,
     .preview-card,
     .track-nav {
-        padding: 20px
+        padding: 48px 0
     }
 
     .section-heading h2 {
@@ -683,12 +684,10 @@ button {
         font-size: 16px
     }
 
-    .back-btn,
-    .track-label {
+    .back-btn {
         font-size: 13px
     }
 
-    .vinyl-badge,
     .eyebrow {
         font-size: 12px
     }
@@ -710,10 +709,6 @@ button {
         font-size: 24px
     }
 
-    .section-heading small {
-        font-size: 11px
-    }
-
     .hero-note>p,
     .text {
         font-size: 15px;
@@ -729,11 +724,11 @@ button {
     }
 
     .feature strong {
-        font-size: 12px
+        font-size: 15px
     }
 
     .feature span {
-        font-size: 10px
+        font-size: 13px
     }
 
     .mock-caption {
@@ -812,7 +807,7 @@ button {
     grid-template-columns: minmax(210px, 270px) minmax(0, 1fr);
     align-items: center;
     gap: clamp(24px, 4vw, 52px);
-    padding: 22px
+    padding: 28px
 }
 
 .album-panel .cover {
@@ -861,7 +856,7 @@ button {
 
     .album-panel {
         display: block;
-        padding: 18px
+        padding: 20px
     }
 
     .album-copy {
@@ -871,4 +866,23 @@ button {
     .album-copy h1 {
         font-size: clamp(32px, 11vw, 48px)
     }
+}
+
+@media(max-width:760px) {
+    .hero-note {
+        grid-template-columns: 1fr;
+        gap: 24px
+    }
+
+    .hero-note .section-heading {
+        align-items: flex-start
+    }
+
+    .hero-note>p {
+        margin-top: 0
+    }
+}
+
+.album-copy .eyebrow {
+    color: var(--ui-accent)
 }
