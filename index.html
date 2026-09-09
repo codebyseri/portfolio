@@ -1,234 +1,398 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="웹 퍼블리셔 김미진의 플레이리스트 포트폴리오">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="웹 퍼블리셔 김미진의 플레이리스트 포트폴리오"
+    />
     <title>MJ's Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css?v=20260826">
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css?v=20260826" />
     <script src="js/script.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="glow g1"></div>
     <div class="glow g2"></div>
     <main class="shell">
-        <aside class="sidebar"><a class="brand" href="#home">S</a>
-            <nav><a class="nav active" href="#home"><i class="fa-solid fa-house"></i><span>Home</span></a><a class="nav"
-                    href="#projects"><i class="fa-solid fa-compact-disc"></i><span>Works</span></a><a class="nav"
-                    href="#skills"><i class="fa-solid fa-sliders"></i><span>Skills</span></a><a class="nav"
-                    href="#visual"><i class="fa-regular fa-image"></i><span>Visual</span></a></nav><button class="nav"
-                id="open-profile-modal" type="button"><i class="fa-regular fa-user"></i><span>About</span></button>
-        </aside>
-        <div class="main">
-            <header class="topbar">
-                <div>
-                    <p class="eyebrow">WEB PUBLISHER · UI DESIGNER</p>
-                    <h1><span>좋아하는 음악처럼,</span> <span>자꾸 머물고 싶은 웹을 디자인합니다.</span></h1>
-                </div>
-                <div class="top-actions"><span class="available"><i></i> Available for work</span><button class="avatar"
-                        id="avatar-profile"><img src="images/p.webp" alt="김미진 프로필"></button></div>
-            </header>
-            <div class="grid" id="home">
-                <section class="hero card">
-                    <div class="hero-copy"><span class="pill"><i class="fa-solid fa-wave-square"></i> NOW PLAYING</span>
-                        <p class="hello">프로젝트,</p>
-                        <h2 id="current-title">My Design Record</h2>
-                        <p class="desc" id="current-description">브랜드의 세련된 감도를 유지하며, 더 편안하고 직관적인 화면 흐름을 다듬었습니다.<br>UNOVE
-                            웹 리디자인 프로젝트를 감상해보세요.</p>
-                        <div class="controls"><button id="prev-track" aria-label="이전 트랙"><i
-                                    class="fa-solid fa-backward-step"></i></button><button class="play" id="toggle-play"
-                                aria-label="재생 또는 일시정지"><i class="fa-solid fa-pause"></i></button><button
-                                id="next-track" aria-label="다음 트랙"><i class="fa-solid fa-forward-step"></i></button>
-                        </div>
-                    </div>
-                    <div class="turntable">
-                        <div class="vinyl playing" id="main-vinyl">
-                            <div class="album-art" id="current-art"></div>
-                        </div>
-                        <div class="tonearm playing" id="player-tonearm"><span></span></div>
-                    </div>
-                </section>
-                <aside class="queue card" id="projects">
-                    <div class="heading">
-                        <div>
-                            <p class="eyebrow">CURATED WORKS</p>
-                            <h2>Project queue</h2>
-                        </div><small>04 tracks</small>
-                    </div>
-                    <div class="track-list">
-                        <article class="track active" tabindex="0" data-title="UNOVE" data-img="./images/unove-hero.jpg"
-                            data-description="브랜드의 세련된 감도를 유지하며, 더 편안하고 직관적인 화면 흐름을 다듬었습니다. UNOVE 웹 리디자인 프로젝트를 감상해 보세요."
-                            data-url="./html/web_project01.html"><b>01</b><img src="images/unove-hero.jpg" alt="UNOVE">
-                            <div>
-                                <h3>UNOVE</h3>
-                                <p>Brand site · Publishing</p>
-                            </div><em>03:24</em><i class="fa-solid fa-play"></i>
-                        </article>
-                        <article class="track" tabindex="0" data-title="FILA" data-img="./images/FILA Logo.jpeg"
-                            data-description="FILA 웹사이트의 UI와 컴포넌트를 리액트(React)로 재현한 |클론 코딩 프로젝트입니다."
-                            data-url="./html/web_project02.html"><b>02</b><img src="images/FILA Logo.jpeg" alt="FILA">
-                            <div>
-                                <h3>FILA</h3>
-                                <p>Responsive web · Renewal</p>
-                            </div><em>04:10</em><i class="fa-solid fa-play"></i>
-                        </article>
-                        <article class="track" tabindex="0" data-title="LANEIGE" data-img="./images/laneige-hero.jpg"
-                            data-description="맑고 촉촉한 브랜드 무드를 직관적인 커머스 UI로 표현했습니다. 라네즈 리디자인 프로젝트를 만나보세요."
-                            data-url="./html/web_project03.html"><b>03</b><img src="images/laneige-hero.jpg"
-                                alt="LANEIGE">
-                            <div>
-                                <h3>LANEIGE</h3>
-                                <p>Commerce UI · Redesign</p>
-                            </div><em>03:48</em><i class="fa-solid fa-play"></i>
-                        </article>
-                        <article class="track" tabindex="0" data-title="PROJECT 04" data-img="./images/gallery04.png"
-                            data-description="네 번째 프로젝트의 소개 문구를 입력해주세요." data-url="./html/web_project04.html">
-                            <b>04</b><img src="images/gallery04.png" alt="PROJECT 04 임시 이미지">
-                            <div>
-                                <h3>PROJECT 04</h3>
-                                <p>Project type · Placeholder</p>
-                            </div><em>00:00</em><i class="fa-solid fa-play"></i>
-                        </article>
-                    </div>
-                    <p class="hint"><i class="fa-solid fa-arrow-pointer"></i> 한 번 선택하고, 다시 누르면 프로젝트가 열려요.</p>
-                </aside>
-                <section class="skills card" id="skills">
-                    <div class="heading">
-                        <div>
-                            <p class="eyebrow">MY TOOLKIT</p>
-                            <h2>Creative skills</h2>
-                        </div>
-                    </div>
-                    <div class="skill-grid">
-                        <div class="skill">
-                            <div><i class="fa-brands fa-html5"></i><span>HTML / CSS</span><b>100%</b></div><span><i
-                                    style="width:100%"></i></span>
-                        </div>
-                        <div class="skill">
-                            <div><i class="fa-brands fa-js"></i><span>JavaScript</span><b>80%</b></div><span><i
-                                    style="width:80%"></i></span>
-                        </div>
-                        <div class="skill">
-                            <div><i class="fa-brands fa-figma"></i><span>Figma</span><b>90%</b></div><span><i
-                                    style="width:90%"></i></span>
-                        </div>
-                        <div class="skill">
-                            <div><i class="fa-brands fa-react"></i><span>React</span><b>85%</b></div><span><i
-                                    style="width:85%"></i></span>
-                        </div>
-                    </div>
-                    <div class="tags">
-                        <span>Photoshop 95%</span>
-                        <span>Illustrator 85%</span>
-                        <span>Indesign 90%</span>
-                        <span>After Effects 80%</span>
-                    </div>
-                </section>
-                <section class="stats card">
-                    <p class="eyebrow">PROFILE SNAPSHOT</p>
-                    <h2>In numbers</h2>
-                    <div>
-                        <p><strong>04</strong><span>Web projects</span></p>
-                        <p><strong>04</strong><span>Certificates</span></p>
-                        <p><strong>95%</strong><span>Publishing</span></p>
-                    </div><button id="card-profile">More about me <i class="fa-solid fa-arrow-right"></i></button>
-                </section>
-                <section class="visual card" id="visual">
-                    <div class="heading">
-                        <div>
-                            <p class="eyebrow">VISUAL EDIT</p>
-                            <h2>Artwork archive</h2>
-                        </div>
-                        <div class="artwork-heading-actions">
-                            <div class="artwork-nav" aria-label="작품 목록 이동">
-                                <button id="artwork-prev" type="button" aria-label="이전 작품"><i
-                                        class="fa-solid fa-angle-left"></i></button>
-                                <button id="artwork-toggle" type="button" aria-label="자동 슬라이드 일시정지"
-                                    aria-pressed="false"><i class="fa-solid fa-pause"></i></button>
-                                <button id="artwork-next" type="button" aria-label="다음 작품"><i
-                                        class="fa-solid fa-angle-right"></i></button>
-                                <button class="artwork-overview-button" id="open-artwork-overview" type="button"
-                                    aria-label="작품 전체보기"><i class="fa-solid fa-border-all"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="artworks">
-                        <figure class="artwork-soft"><img src="images/gallery01.jpg" alt="비주얼 작업 1">
-                            <figcaption>Award</figcaption>
-                        </figure>
-                        <figure><img src="images/gallery02.png" alt="비주얼 작업 2">
-                            <figcaption>Merchandise</figcaption>
-                        </figure>
-                        <figure><img src="images/gallery03.png" alt="비주얼 작업 3">
-                            <figcaption>Graphic</figcaption>
-                        </figure>
-                        <figure><img src="images/gallery04.png" alt="비주얼 작업 4">
-                            <figcaption>Character</figcaption>
-                        </figure>
-                        <figure><img src="images/gallery05.jpg" alt="비주얼 작업 5">
-                            <figcaption>Editorial</figcaption>
-                        </figure>
-                    </div>
-                </section>
+      <aside class="sidebar">
+        <a class="brand" href="#home">S</a>
+        <nav>
+          <a class="nav active" href="#home"
+            ><i class="fa-solid fa-house"></i><span>Home</span></a
+          ><a class="nav" href="#projects"
+            ><i class="fa-solid fa-compact-disc"></i><span>Works</span></a
+          ><a class="nav" href="#skills"
+            ><i class="fa-solid fa-sliders"></i><span>Skills</span></a
+          ><a class="nav" href="#visual"
+            ><i class="fa-regular fa-image"></i><span>Visual</span></a
+          >
+        </nav>
+        <button class="nav" id="open-profile-modal" type="button">
+          <i class="fa-regular fa-user"></i><span>About</span>
+        </button>
+      </aside>
+      <div class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">WEB PUBLISHER · UI DESIGNER</p>
+            <h1>
+              <span>좋아하는 음악처럼,</span>
+              <span>자꾸 머물고 싶은 웹을 디자인합니다.</span>
+            </h1>
+          </div>
+          <div class="top-actions">
+            <span class="available"><i></i> Available for work</span
+            ><button class="avatar" id="avatar-profile">
+              <img src="images/p.webp" alt="김미진 프로필" />
+            </button>
+          </div>
+        </header>
+        <div class="grid" id="home">
+          <section class="hero card">
+            <div class="hero-copy">
+              <span class="pill"
+                ><i class="fa-solid fa-wave-square"></i> NOW PLAYING</span
+              >
+              <p class="hello">프로젝트,</p>
+              <h2 id="current-title">My Design Record</h2>
+              <p class="desc" id="current-description">
+                브랜드의 세련된 감도를 유지하며, 더 편안하고 직관적인 화면
+                흐름을 다듬었습니다.<br />UNOVE 웹 리디자인 프로젝트를
+                감상해보세요.
+              </p>
+              <div class="controls">
+                <button id="prev-track" aria-label="이전 트랙">
+                  <i class="fa-solid fa-backward-step"></i></button
+                ><button
+                  class="play"
+                  id="toggle-play"
+                  aria-label="재생 또는 일시정지"
+                >
+                  <i class="fa-solid fa-pause"></i></button
+                ><button id="next-track" aria-label="다음 트랙">
+                  <i class="fa-solid fa-forward-step"></i>
+                </button>
+              </div>
             </div>
+            <div class="turntable">
+              <div class="vinyl playing" id="main-vinyl">
+                <div class="album-art" id="current-art"></div>
+              </div>
+              <div class="tonearm playing" id="player-tonearm">
+                <span></span>
+              </div>
+            </div>
+          </section>
+          <aside class="queue card" id="projects">
+            <div class="heading">
+              <div>
+                <p class="eyebrow">CURATED WORKS</p>
+                <h2>Project queue</h2>
+              </div>
+              <small>04 tracks</small>
+            </div>
+            <div class="track-list">
+              <article
+                class="track active"
+                tabindex="0"
+                data-title="UNOVE"
+                data-img="./images/unove-hero.jpg"
+                data-description="브랜드의 세련된 감도를 유지하며, 더 편안하고 직관적인 화면 흐름을 다듬었습니다. UNOVE 웹 리디자인 프로젝트를 감상해 보세요."
+                data-url="./html/web_project01.html"
+              >
+                <b>01</b><img src="images/unove-hero.jpg" alt="UNOVE" />
+                <div>
+                  <h3>UNOVE</h3>
+                  <p>Brand site · Redesign</p>
+                </div>
+                <em>03:24</em><i class="fa-solid fa-play"></i>
+              </article>
+              <article
+                class="track"
+                tabindex="0"
+                data-title="FILA"
+                data-img="./images/FILA Logo.jpeg"
+                data-description="FILA 웹사이트의 UI와 컴포넌트를 리액트(React)로 재현한 |클론 코딩 프로젝트입니다."
+                data-url="./html/web_project02.html"
+              >
+                <b>02</b><img src="images/FILA Logo.jpeg" alt="FILA" />
+                <div>
+                  <h3>FILA</h3>
+                  <p>Responsive web · React</p>
+                </div>
+                <em>04:10</em><i class="fa-solid fa-play"></i>
+              </article>
+              <article
+                class="track"
+                tabindex="0"
+                data-title="LANEIGE"
+                data-img="./images/laneige-hero.jpg"
+                data-description="맑고 촉촉한 브랜드 무드를 직관적인 커머스 UI로 표현했습니다. 라네즈 리디자인 프로젝트를 만나보세요."
+                data-url="./html/web_project03.html"
+              >
+                <b>03</b><img src="images/laneige-hero.jpg" alt="LANEIGE" />
+                <div>
+                  <h3>LANEIGE</h3>
+                  <p>Commerce UI · Redesign</p>
+                </div>
+                <em>03:48</em><i class="fa-solid fa-play"></i>
+              </article>
+              <article
+                class="track"
+                tabindex="0"
+                data-title="Epost"
+                data-img="./images/epostlogo.png"
+                data-description="우체국 특유의 신뢰감 있는 브랜드 가치를 바탕으로, 복잡했던 이용 흐름을 직관적이고 편리하게 다듬었습니다. 새로운 우체국 웹을 만나보세요."
+                data-url="./html/web_project04.html"
+              >
+                <b>04</b><img src="./images/epostlogo.png" alt="Epost" />
+                <div>
+                  <h3>Epost</h3>
+                  <p>Official Platform · Redesign</p>
+                </div>
+                <em>03:20</em><i class="fa-solid fa-play"></i>
+              </article>
+            </div>
+            <p class="hint">
+              <i class="fa-solid fa-arrow-pointer"></i> 한 번 선택하고, 다시
+              누르면 프로젝트가 열려요.
+            </p>
+          </aside>
+          <section class="skills card" id="skills">
+            <div class="heading">
+              <div>
+                <p class="eyebrow">MY TOOLKIT</p>
+                <h2>Creative skills</h2>
+              </div>
+            </div>
+            <div class="skill-grid">
+              <div class="skill">
+                <div>
+                  <i class="fa-brands fa-html5"></i><span>HTML / CSS</span
+                  ><b>100%</b>
+                </div>
+                <span><i style="width: 100%"></i></span>
+              </div>
+              <div class="skill">
+                <div>
+                  <i class="fa-brands fa-js"></i><span>JavaScript</span
+                  ><b>80%</b>
+                </div>
+                <span><i style="width: 80%"></i></span>
+              </div>
+              <div class="skill">
+                <div>
+                  <i class="fa-brands fa-figma"></i><span>Figma</span><b>90%</b>
+                </div>
+                <span><i style="width: 90%"></i></span>
+              </div>
+              <div class="skill">
+                <div>
+                  <i class="fa-brands fa-react"></i><span>React</span><b>85%</b>
+                </div>
+                <span><i style="width: 85%"></i></span>
+              </div>
+            </div>
+            <div class="tags">
+              <span>Photoshop 95%</span>
+              <span>Illustrator 85%</span>
+              <span>Indesign 90%</span>
+              <span>After Effects 80%</span>
+            </div>
+          </section>
+          <section class="stats card">
+            <p class="eyebrow">PROFILE SNAPSHOT</p>
+            <h2>In numbers</h2>
+            <div>
+              <p><strong>04</strong><span>Web projects</span></p>
+              <p><strong>04</strong><span>Certificates</span></p>
+              <p><strong>95%</strong><span>Publishing</span></p>
+            </div>
+            <button id="card-profile">
+              More about me <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </section>
+          <section class="visual card" id="visual">
+            <div class="heading">
+              <div>
+                <p class="eyebrow">VISUAL EDIT</p>
+                <h2>Artwork archive</h2>
+              </div>
+              <div class="artwork-heading-actions">
+                <div class="artwork-nav" aria-label="작품 목록 이동">
+                  <button
+                    id="artwork-prev"
+                    type="button"
+                    aria-label="이전 작품"
+                  >
+                    <i class="fa-solid fa-angle-left"></i>
+                  </button>
+                  <button
+                    id="artwork-toggle"
+                    type="button"
+                    aria-label="자동 슬라이드 일시정지"
+                    aria-pressed="false"
+                  >
+                    <i class="fa-solid fa-pause"></i>
+                  </button>
+                  <button
+                    id="artwork-next"
+                    type="button"
+                    aria-label="다음 작품"
+                  >
+                    <i class="fa-solid fa-angle-right"></i>
+                  </button>
+                  <button
+                    class="artwork-overview-button"
+                    id="open-artwork-overview"
+                    type="button"
+                    aria-label="작품 전체보기"
+                  >
+                    <i class="fa-solid fa-border-all"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="artworks">
+              <figure class="artwork-soft">
+                <img src="images/gallery01.jpg" alt="비주얼 작업 1" />
+                <figcaption>Award</figcaption>
+              </figure>
+              <figure>
+                <img src="images/gallery02.png" alt="비주얼 작업 2" />
+                <figcaption>Merchandise</figcaption>
+              </figure>
+              <figure>
+                <img src="images/gallery03.png" alt="비주얼 작업 3" />
+                <figcaption>Graphic</figcaption>
+              </figure>
+              <figure>
+                <img src="images/gallery04.png" alt="비주얼 작업 4" />
+                <figcaption>Character</figcaption>
+              </figure>
+              <figure>
+                <img src="images/gallery05.jpg" alt="비주얼 작업 5" />
+                <figcaption>Editorial</figcaption>
+              </figure>
+            </div>
+          </section>
         </div>
+      </div>
     </main>
-    <div class="modal" id="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-title" hidden>
-        <div class="profile card"><button class="close" id="close-profile-modal" aria-label="닫기"><i
-                    class="fa-solid fa-xmark"></i></button>
-            <div class="intro"><img src="images/p.webp" alt="김미진 프로필">
-                <div>
-                    <p class="eyebrow">WEB PUBLISHER & UI DESIGNER</p>
-                    <h2 id="profile-title">김미진 <span>/ Seri</span></h2>
-                    <p>감성적인 비주얼과 매끄러운 인터랙션으로 오래 머물고 싶은 웹을 디자인합니다.</p>
-                    <div class="contacts"><a href="mailto:Kkangmelo@gmail.com"><i class="fa-solid fa-envelope"></i>
-                            Email</a><a href="https://github.com/codebyseri" target="_blank" rel="noopener"><i
-                                class="fa-brands fa-github"></i> GitHub</a></div>
-                </div>
+    <div
+      class="modal"
+      id="profile-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="profile-title"
+      hidden
+    >
+      <div class="profile card">
+        <button class="close" id="close-profile-modal" aria-label="닫기">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="intro">
+          <img src="images/p.webp" alt="김미진 프로필" />
+          <div>
+            <p class="eyebrow">WEB PUBLISHER & UI DESIGNER</p>
+            <h2 id="profile-title">김미진 <span>/ Seri</span></h2>
+            <p>
+              감성적인 비주얼과 매끄러운 인터랙션으로 오래 머물고 싶은 웹을
+              디자인합니다.
+            </p>
+            <div class="contacts">
+              <a href="mailto:Kkangmelo@gmail.com"
+                ><i class="fa-solid fa-envelope"></i> Email</a
+              ><a
+                href="https://github.com/codebyseri"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> GitHub</a
+              >
             </div>
-            <div class="details">
-                <section>
-                    <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
-                    <p><time>2022.03 — 2026.02</time><strong>영진전문대학교 콘텐츠디자인학과</strong><span>전문 학사 취득</span></p>
-                    <p><time>2026.02 — 2026.08</time><strong>챗GPT&React를 활용한 스마트 UIUX 반응형<br>
-                            웹디자인(웹퍼블리셔)</strong><span>국가기간 훈련과정 705시간 수료</span>
-                    </p>
-                </section>
-                <section>
-                    <h3><i class="fa-solid fa-certificate"></i> Certificate</h3>
-                    <p><strong>웹디자인개발기능사</strong><span>2025</span></p>
-                    <p><strong>GTQ 그래픽기술자격 1급</strong><span>2021</span></p>
-                    <p><strong>컴퓨터그래픽스운용기능사 · 전자출판기능사</strong><span>2021</span></p>
-                </section>
-            </div>
+          </div>
         </div>
-    </div>
-    <div class="modal artwork-modal" id="artwork-modal" role="dialog" aria-modal="true"
-        aria-labelledby="artwork-modal-title" hidden>
-        <div class="artwork-viewer">
-            <button class="close artwork-close" id="close-artwork-modal" type="button" aria-label="작품 이미지 닫기"><i
-                    class="fa-solid fa-xmark"></i></button>
-            <img id="artwork-modal-image" src="" alt="">
-            <p id="artwork-modal-title"></p>
+        <div class="details">
+          <section>
+            <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+            <p>
+              <time>2022.03 — 2026.02</time
+              ><strong>영진전문대학교 콘텐츠디자인학과</strong
+              ><span>전문 학사 취득</span>
+            </p>
+            <p>
+              <time>2026.02 — 2026.08</time
+              ><strong
+                >챗GPT&React를 활용한 스마트 UIUX 반응형<br />
+                웹디자인(웹퍼블리셔)</strong
+              ><span>국가기간 훈련과정 705시간 수료</span>
+            </p>
+          </section>
+          <section>
+            <h3><i class="fa-solid fa-certificate"></i> Certificate</h3>
+            <p><strong>웹디자인개발기능사</strong><span>2025</span></p>
+            <p><strong>GTQ 그래픽기술자격 1급</strong><span>2021</span></p>
+            <p>
+              <strong>컴퓨터그래픽스운용기능사 · 전자출판기능사</strong
+              ><span>2021</span>
+            </p>
+          </section>
         </div>
+      </div>
     </div>
-    <div class="modal artwork-overview-modal" id="artwork-overview-modal" role="dialog" aria-modal="true"
-        aria-labelledby="artwork-overview-title" hidden>
-        <div class="artwork-overview-viewer">
-            <button class="close" id="close-artwork-overview" type="button" aria-label="작품 전체보기 닫기"><i
-                    class="fa-solid fa-xmark"></i></button>
-            <h2 id="artwork-overview-title">Artwork archive</h2>
-            <div class="artwork-overview-grid" id="artwork-overview-grid"></div>
-        </div>
+    <div
+      class="modal artwork-modal"
+      id="artwork-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="artwork-modal-title"
+      hidden
+    >
+      <div class="artwork-viewer">
+        <button
+          class="close artwork-close"
+          id="close-artwork-modal"
+          type="button"
+          aria-label="작품 이미지 닫기"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="artwork-modal-image" src="" alt="" />
+        <p id="artwork-modal-title"></p>
+      </div>
     </div>
-</body>
-
+    <div
+      class="modal artwork-overview-modal"
+      id="artwork-overview-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="artwork-overview-title"
+      hidden
+    >
+      <div class="artwork-overview-viewer">
+        <button
+          class="close"
+          id="close-artwork-overview"
+          type="button"
+          aria-label="작품 전체보기 닫기"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h2 id="artwork-overview-title">Artwork archive</h2>
+        <div class="artwork-overview-grid" id="artwork-overview-grid"></div>
+      </div>
+    </div>
+  </body>
 </html>
