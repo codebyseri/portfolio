@@ -26,8 +26,10 @@
           <div class="cover"></div>
           <div class="album-copy">
             <p class="eyebrow">FILA · TRACK 02</p>
-            <h1>Sporty motion,<br />modular build.</h1>
-            <p class="project-date">2026. 05 — 2026. 06 · 개인 프로젝트</p>
+            <h1>Real Flow,<br />Modular Build.</h1>
+            <p class="project-date">
+              2026. 05 — 2026. 06 · 클론 코딩 프로젝트(개인)
+            </p>
             <div class="meta-grid">
               <div class="meta">
                 <strong>ROLE</strong><span>React · Publishing</span>
@@ -44,14 +46,14 @@
               <div class="section-heading">
                 <div>
                   <p class="eyebrow">ALBUM LINER NOTES</p>
-                  <h2>실제 쇼핑 흐름을 컴포넌트로 재생</h2>
+                  <h2>실제 쇼핑 흐름을 컴포넌트로 구현</h2>
                 </div>
               </div>
               <p>
-                FILA 공식 브랜드몰의 디자인과 핵심 구매 여정을 분석해 메인부터
-                상품 구매까지 실제 서비스와 유사한 UI/UX를 구현했습니다. 호버
-                효과, 아코디언, 레이어 팝업 등 세밀한 인터랙션을 재사용 가능한
-                React 컴포넌트로 설계했습니다.
+                FILA 공식몰의 UI 구조와 주요 구매 흐름을 분석해, 메인 화면부터
+                상품 탐색과 구매 과정까지 실제 서비스와 유사하게 구현했습니다.
+                React 기반의 재사용 가능한 컴포넌트 구조를 설계하고, 호버
+                효과 · 아코디언 · 레이어 팝업 등 주요 인터랙션을 직접 구현했습니다.
               </p>
             </section>
             <section class="info-card card">
@@ -59,16 +61,16 @@
               <h2>Color track</h2>
               <div class="palette">
                 <div class="swatch light" style="background: #000">
-                  <span>Main color</span><b>#000000</b>
+                  <span>PRIMARY color</span><b>#000000</b>
                 </div>
                 <div class="swatch light" style="background: #e92f74">
-                  <span>Point color</span><b>#E92F74</b>
+                  <span>ACCENT color</span><b>#E92F74</b>
                 </div>
                 <div class="swatch" style="background: #fff">
                   <span>Base color</span><b>#FFFFFF</b>
                 </div>
-                <div class="swatch light" style="background: #4a3b40">
-                  <span>Sub color</span><b>#4A3B40</b>
+                <div class="swatch light" style="background: #000000">
+                  <span>TEXT color</span><b>#000000</b>
                 </div>
               </div>
             </section>
@@ -83,33 +85,27 @@
                 <li>
                   <b>01</b>
                   <div>
-                    <strong>서비스 화면과 동선 분석</strong>
+                    <strong>주요 쇼핑 화면 UI 구현</strong>
                     <p>
-                      FILA 공식몰의 메인, 상품 목록, 상세, 장바구니로 이어지는
-                      구매 흐름을 살펴보고 구현에 필요한 화면과 공통 UI 요소를
-                      정리했습니다.
+                      메인, 상품 목록, 상품 상세, 장바구니까지 실제 쇼핑 과정에 필요한 4개의 주요 화면을 구성하고, 페이지 간 자연스러운 탐색 흐름을 구현했습니다.
                     </p>
                   </div>
                 </li>
                 <li>
                   <b>02</b>
                   <div>
-                    <strong>컴포넌트 구조 설계</strong>
+                    <strong>React 기반 컴포넌트 구조 설계</strong>
                     <p>
-                      반복되는 상품 카드와 인터페이스를 React 컴포넌트로 분리해
-                      화면마다 일관된 표현을 유지하고 이후 수정이 쉬운 구조로
-                      만들었습니다.
+                      상품 카드와 공통 인터페이스 등 반복되는 UI 요소를 React 컴포넌트로 분리해 일관된 화면을 유지하고, 수정과 재사용이 용이한 구조로 설계했습니다.
                     </p>
                   </div>
                 </li>
                 <li>
                   <b>03</b>
                   <div>
-                    <strong>상호작용과 상태 구현</strong>
+                    <strong>인터랙션과 구매 흐름 구현</strong>
                     <p>
-                      호버, 아코디언, 레이어 팝업과 장바구니 흐름을 연결해
-                      단순한 화면 재현을 넘어 실제 쇼핑 과정처럼 사용할 수
-                      있도록 구현했습니다.
+                      호버, 아코디언, 레이어 팝업과 같은 상호작용을 구현하고 상품 탐색부터 상세 확인, 장바구니까지 이어지는 실제 쇼핑 흐름을 연결했습니다.
                     </p>
                   </div>
                 </li>
@@ -130,7 +126,7 @@
                     <i class="dot red"></i><i class="dot yellow"></i
                     ><i class="dot green"></i>
                   </div>
-                  <span class="mock-caption">01. Desktop home</span>
+                  <span class="mock-caption">01. Ui Design - Main</span>
                 </div>
                 <iframe src="https://codebyseri.github.io/Fila_react/"></iframe>
               </div>
@@ -140,7 +136,7 @@
                     <i class="dot red"></i><i class="dot yellow"></i
                     ><i class="dot green"></i>
                   </div>
-                  <span class="mock-caption">02. Product list</span>
+                  <span class="mock-caption">02. Ui Design - Product list</span>
                 </div>
                 <iframe
                   src="https://codebyseri.github.io/Fila_react/#/products"
@@ -152,7 +148,9 @@
                     <i class="dot red"></i><i class="dot yellow"></i
                     ><i class="dot green"></i>
                   </div>
-                  <span class="mock-caption">03. Product detail</span>
+                  <span class="mock-caption"
+                    >03. Ui Design - Product detail</span
+                  >
                 </div>
                 <iframe
                   src="https://codebyseri.github.io/Fila_react/#/product/mighty-shirt"
@@ -164,7 +162,7 @@
                     <i class="dot red"></i><i class="dot yellow"></i
                     ><i class="dot green"></i>
                   </div>
-                  <span class="mock-caption">04. Cart</span>
+                  <span class="mock-caption">04. Ui Design - Cart</span>
                 </div>
                 <iframe
                   src="https://codebyseri.github.io/Fila_react/#/cart"
@@ -188,11 +186,12 @@
                 <div><strong>FILA</strong><span>React clone</span></div> </a
               ><a href="web_project03.html" class="mini-track"
                 ><b>03</b>
-                <div><strong>LANEIGE</strong><span>Web renewal</span></div> </a
-              ><a href="web_project04.html" class="mini-track"
+                <div><strong>LANEIGE</strong><span>Web renewal</span></div>
+              </a>
+              <!-- <a href="web_project04.html" class="mini-track"
                 ><b>04</b>
                 <div><strong>PROJECT 04</strong><span>Coming soon</span></div>
-              </a>
+              </a> -->
             </div>
           </nav>
           <footer class="page-footer">
