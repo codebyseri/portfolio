@@ -1203,6 +1203,20 @@ a {
     flex-wrap: wrap;
   }
 
+  .skill-tags {
+    flex-flow: row wrap;
+  }
+
+  .skill-tag-row {
+    display: contents;
+  }
+
+  #artwork-prev,
+  #artwork-toggle,
+  #artwork-next {
+    display: none;
+  }
+
   .stats .working-style-list p {
     min-height: 120px;
   }
