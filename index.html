@@ -8,12 +8,6 @@
       content="웹 퍼블리셔 김미진의 플레이리스트 포트폴리오"
     />
     <title>MJ's Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -65,8 +59,7 @@
               <span class="pill"
                 ><i class="fa-solid fa-wave-square"></i> NOW PLAYING</span
               >
-              <p class="hello">프로젝트,</p>
-              <h2 id="current-title">My Design Record</h2>
+              <h2 id="current-title">UNOVE</h2>
               <p class="desc" id="current-description">
                 브랜드의 세련된 감도를 유지하며, 더 편안하고 직관적인 화면
                 흐름을 다듬었습니다.<br />UNOVE 웹 리디자인 프로젝트를
@@ -170,60 +163,51 @@
               누르면 프로젝트가 열려요.
             </p>
           </aside>
-          <section class="skills card" id="skills">
-            <div class="heading">
-              <div>
-                <p class="eyebrow">MY TOOLKIT</p>
-                <h2>Creative skills</h2>
-              </div>
-            </div>
-            <div class="skill-grid">
-              <div class="skill">
+          <div class="toolkit-row">
+            <section class="skills card" id="skills">
+              <div class="heading">
                 <div>
-                  <i class="fa-brands fa-html5"></i><span>HTML / CSS</span
-                  ><b>100%</b>
+                  <p class="eyebrow">MY TOOLKIT</p>
+                  <h2>Creative skills</h2>
                 </div>
-                <span><i style="width: 100%"></i></span>
               </div>
-              <div class="skill">
-                <div>
-                  <i class="fa-brands fa-js"></i><span>JavaScript</span
-                  ><b>80%</b>
+              <div class="skill-tags">
+                <div class="skill-tag-row">
+                  <span>HTML / CSS</span>
+                  <span>JavaScript</span>
+                  <span>React</span>
+                  <span>Figma</span>
                 </div>
-                <span><i style="width: 80%"></i></span>
-              </div>
-              <div class="skill">
-                <div>
-                  <i class="fa-brands fa-figma"></i><span>Figma</span><b>90%</b>
+                <div class="skill-tag-row">
+                  <span>Photoshop</span>
+                  <span>Illustrator</span>
+                  <span>InDesign</span>
+                  <span>After Effects</span>
                 </div>
-                <span><i style="width: 90%"></i></span>
               </div>
-              <div class="skill">
-                <div>
-                  <i class="fa-brands fa-react"></i><span>React</span><b>85%</b>
-                </div>
-                <span><i style="width: 85%"></i></span>
+            </section>
+            <section class="stats card">
+              <p class="eyebrow">PLAYLIST DNA</p>
+              <h2>My working style</h2>
+              <div class="working-style-list">
+                <p>
+                  <strong>Clear UI</strong>
+                  <span>정보 구조와 위계를 명확하게</span>
+                </p>
+                <p>
+                  <strong>Brand Mood</strong>
+                  <span>브랜드 무드를 유지한 화면 설계</span>
+                </p>
+                <p>
+                  <strong>Clean Code</strong>
+                  <span>수정과 재사용을 고려한 퍼블리싱</span>
+                </p>
               </div>
-            </div>
-            <div class="tags">
-              <span>Photoshop 95%</span>
-              <span>Illustrator 85%</span>
-              <span>Indesign 90%</span>
-              <span>After Effects 80%</span>
-            </div>
-          </section>
-          <section class="stats card">
-            <p class="eyebrow">PROFILE SNAPSHOT</p>
-            <h2>In numbers</h2>
-            <div>
-              <p><strong>04</strong><span>Web projects</span></p>
-              <p><strong>04</strong><span>Certificates</span></p>
-              <p><strong>95%</strong><span>Publishing</span></p>
-            </div>
-            <button id="card-profile">
-              More about me <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </section>
+              <button id="card-profile">
+                More about me <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </section>
+          </div>
           <section class="visual card" id="visual">
             <div class="heading">
               <div>
